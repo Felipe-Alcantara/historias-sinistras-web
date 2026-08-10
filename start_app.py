@@ -389,11 +389,42 @@ def acao_gerar_historias() -> None:
         console.print("[dim]Revise o JSON antes de commitar.[/dim]")
 
 
+def acao_mesclar_lote() -> None:
+    from mesclar_lote import mesclar
+
+    colecao = questionary.select(
+        "Mesclar em qual coleção?",
+        choices=[questionary.Choice(ROTULO_COLECAO[nome], nome) for nome in COLECOES]
+        + [questionary.Choice("Voltar", "voltar")],
+        style=ESTILO,
+    ).ask()
+
+    if colecao in (None, "voltar"):
+        return
+
+    caminho_texto = questionary.path(
+        "Caminho do arquivo JSON com as histórias novas:", style=ESTILO
+    ).ask()
+    if not caminho_texto:
+        return
+
+    try:
+        resultado = mesclar(colecao, Path(caminho_texto.strip().strip('"')))
+    except Exception as erro:
+        console.print(f"[red]✗ {erro}[/red]")
+        return
+
+    console.print(f"[green]✓ {resultado.resumo()}[/green]")
+    for problema in resultado.invalidas:
+        console.print(f"[yellow]! ignorada — {problema}[/yellow]")
+
+
 def acao_ferramentas() -> None:
     escolha = questionary.select(
         "Ferramentas",
         choices=[
             questionary.Choice("Gerar histórias com IA — amplia uma coleção do baralho", "gerar"),
+            questionary.Choice("Mesclar lote de histórias — importa um JSON para uma coleção", "mesclar"),
             questionary.Choice("Rodar testes — valida as regras críticas", "testes"),
             questionary.Choice("Verificar o código (lint) — padrão e erros comuns", "lint"),
             questionary.Choice("Gerar build de produção — cria a pasta dist/", "build"),
@@ -407,6 +438,8 @@ def acao_ferramentas() -> None:
         return
     if escolha == "gerar":
         acao_gerar_historias()
+    elif escolha == "mesclar":
+        acao_mesclar_lote()
     elif escolha == "testes":
         rodar(["npm", "run", "test"], "Rodando os testes")
     elif escolha == "lint":

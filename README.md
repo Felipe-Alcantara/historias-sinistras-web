@@ -7,7 +7,7 @@ apenas **sim**, **não**, **irrelevante** ou **quase lá**. Os outros reconstroe
 fazendo perguntas fechadas. Quando o grupo descobre tudo, o mestre lê o verso da carta em voz
 alta e o aparelho passa para o próximo mestre.
 
-O baralho vem com **200 histórias** divididas em cinco coleções, e o jogo permite escrever as
+O baralho vem com **350 histórias** divididas em cinco coleções, e o jogo permite escrever as
 suas, importar pacotes de outras pessoas e gerar lotes novos com IA.
 
 ---
@@ -30,13 +30,13 @@ dependências e avisa, em linguagem clara, o que estiver faltando.
 
 ## As cinco coleções
 
-| Coleção | O que tem dentro |
-| --- | --- |
-| **Cômicas** | Mortes bobas, coincidências ridículas e finais que arrancam riso nervoso. |
-| **Pesadas** | Crime, violência e desfechos duros. É o tom clássico do gênero. |
-| **Casos reais** | Inspiradas em acidentes, casos policiais e episódios históricos que aconteceram. |
-| **Da internet** | Enigmas de raciocínio lateral que circulam há décadas em fóruns e listas. |
-| **Creepypasta** | Terror de internet, com explicação concreta o bastante para o grupo chegar lá. |
+| Coleção | Cartas | O que tem dentro |
+| --- | --- | --- |
+| **Cômicas** | 70 | Mortes bobas, coincidências ridículas e finais que arrancam riso nervoso. |
+| **Pesadas** | 70 | Crime, violência e desfechos duros. É o tom clássico do gênero. |
+| **Casos reais** | 70 | Inspiradas em acidentes, casos policiais e episódios históricos que aconteceram. |
+| **Da internet** | 70 | Enigmas de raciocínio lateral que circulam há décadas em fóruns e listas. |
+| **Creepypasta** | 70 | Terror de internet, com explicação concreta o bastante para o grupo chegar lá. |
 
 Por padrão o sorteio **mistura todas**. Marcar uma ou mais coleções na tela inicial restringe o
 baralho àquele clima.

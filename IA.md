@@ -33,7 +33,9 @@ acima de escalabilidade.
 - [2026-08-10] ✅ Biblioteca com criação, edição e import/export.
 - [2026-08-10] ✅ `start_app.py` com menu interativo.
 - [2026-08-10] ✅ Gerador de histórias offline por IA.
-- [2026-08-10] 🔄 Baralho: 200 de 500 histórias escritas (40 por coleção; meta é 100 por coleção).
+- [2026-08-10] 🔄 Baralho: **350 de 500** histórias escritas (70 por coleção; a meta pedida é 100
+  por coleção). Faltam 30 por coleção. O caminho para fechar é `start_app.py` → Ferramentas →
+  Gerar histórias com IA, ou escrever um lote em JSON e usar Mesclar lote.
 - [2026-08-10] ⬜ Publicação no GitHub Pages (`npm run deploy`) — nunca executada ainda.
 
 ---
@@ -171,6 +173,24 @@ não executado.
 
 [2026-08-10] **Google Fonts** — a família Space Grotesk é carregada por `<link>` no `index.html`.
 É a única requisição externa do site.
+
+---
+
+[2026-08-10] CONTEXTO: o `localStorage` do ambiente de teste (Node + jsdom) é um objeto
+incompleto, sem `clear` nem `removeItem`.
+ALTERNATIVAS: forçar um polyfill no setup dos testes; adaptar os testes.
+DECISÃO: não mexer no ambiente. `depositoDoNavegador()` já detecta armazenamento inutilizável e
+cai para um depósito em memória, então cada montagem do app nos testes fica isolada sozinha.
+VALIDAÇÃO: os seis casos do teste de fumaça passam sem nenhuma limpeza entre eles. O episódio
+serve como prova acidental de que o app continua jogável num navegador que bloqueia
+armazenamento — cenário previsto no desenho, agora exercitado de verdade.
+
+[2026-08-10] CONTEXTO: definir o tamanho do bundle aceitável com o baralho embutido.
+ALTERNATIVAS: carregar as coleções por importação dinâmica; manter tudo no bundle inicial.
+DECISÃO: manter tudo no bundle. O modo padrão mistura todas as coleções, então o carregamento
+tardio não evitaria baixar nada — só adicionaria estado de carregamento e complexidade.
+VALIDAÇÃO: com 350 histórias, o build fica em ~600 kB brutos e ~175 kB comprimidos. Se o baralho
+passar de mil cartas, revisitar: aí a importação dinâmica por coleção começa a compensar.
 
 ---
 

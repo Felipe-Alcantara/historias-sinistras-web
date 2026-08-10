@@ -36,7 +36,8 @@ acima de escalabilidade.
 - [2026-08-10] 🔄 Baralho: **350 de 500** histórias escritas (70 por coleção; a meta pedida é 100
   por coleção). Faltam 30 por coleção. O caminho para fechar é `start_app.py` → Ferramentas →
   Gerar histórias com IA, ou escrever um lote em JSON e usar Mesclar lote.
-- [2026-08-10] ⬜ Publicação no GitHub Pages (`npm run deploy`) — nunca executada ainda.
+- [2026-08-10] ✅ Publicado no GitHub Pages: https://felipe-alcantara.github.io/historias-sinistras-web/
+  (branch `gh-pages`, gerada por `npm run deploy`; verificado respondendo 200).
 
 ---
 
@@ -168,8 +169,11 @@ FIX: limite do verso reduzido para 12 e a carta em questão ganhou a explicaçã
 quem desenvolve. Chave em `ANTHROPIC_API_KEY` no `.env` (ignorado pelo git). Modelo configurável
 em `MODELO_GERACAO`. O aplicativo publicado não tem nenhuma integração externa.
 
-[2026-08-10] **GitHub Pages** — deploy previsto por `npm run deploy` (`gh-pages -d dist`). Ainda
-não executado.
+[2026-08-10] **GitHub Pages** — no ar em
+https://felipe-alcantara.github.io/historias-sinistras-web/. O deploy é feito por
+`npm run deploy` (`gh-pages -d dist`), que publica a pasta `dist/` na branch `gh-pages`. Como o
+Vite usa `base: './'`, o mesmo build funciona em subcaminho, em domínio próprio ou aberto
+localmente, sem reconfiguração.
 
 [2026-08-10] **Google Fonts** — a família Space Grotesk é carregada por `<link>` no `index.html`.
 É a única requisição externa do site.

@@ -1,5 +1,7 @@
 # Histórias Sinistras — web
 
+**Jogar agora:** https://felipe-alcantara.github.io/historias-sinistras-web/
+
 Jogo de enigmas investigativos para jogar em grupo, com um aparelho só.
 
 Uma pessoa é o **mestre**: lê a situação em voz alta, guarda a solução em segredo e responde

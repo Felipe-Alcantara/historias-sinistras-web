@@ -87,6 +87,7 @@ def gravar_env(chave_api: str, modelo: str) -> Path:
         f"ANTHROPIC_API_KEY={chave_api}\n"
         f"MODELO_GERACAO={modelo}\n",
         encoding="utf-8",
+        newline="\n",
     )
     return destino
 
@@ -124,7 +125,9 @@ def gravar_colecao(colecao: str, historias: list[dict]) -> Path:
         return caminho
 
     linhas = [json.dumps(historia, ensure_ascii=False) for historia in historias]
-    caminho.write_text("[\n" + ",\n".join(linhas) + "\n]\n", encoding="utf-8")
+    # `newline="\n"` evita que o Windows grave CRLF: o repositório é normalizado
+    # para LF pelo .gitattributes, e escrever diferente sujaria todo diff.
+    caminho.write_text("[\n" + ",\n".join(linhas) + "\n]\n", encoding="utf-8", newline="\n")
     return caminho
 
 

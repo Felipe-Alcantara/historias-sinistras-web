@@ -189,7 +189,7 @@ armazenamento — cenário previsto no desenho, agora exercitado de verdade.
 ALTERNATIVAS: carregar as coleções por importação dinâmica; manter tudo no bundle inicial.
 DECISÃO: manter tudo no bundle. O modo padrão mistura todas as coleções, então o carregamento
 tardio não evitaria baixar nada — só adicionaria estado de carregamento e complexidade.
-VALIDAÇÃO: com 350 histórias, o build fica em ~600 kB brutos e ~175 kB comprimidos. Se o baralho
+VALIDAÇÃO: com 350 histórias, o build fica em 621 kB brutos e 190 kB comprimidos. Se o baralho
 passar de mil cartas, revisitar: aí a importação dinâmica por coleção começa a compensar.
 
 ---

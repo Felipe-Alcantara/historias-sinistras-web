@@ -111,13 +111,20 @@ def ler_colecao(colecao: str) -> list[dict]:
 
 
 def gravar_colecao(colecao: str, historias: list[dict]) -> Path:
-    """Grava a coleção formatada como o restante do repositório (2 espaços, UTF-8)."""
+    """Grava a coleção com uma história por linha.
+
+    O formato é escolhido para o histórico do git: com um objeto por linha, o
+    diff de um lote novo mostra exatamente as histórias que entraram, em vez de
+    uma parede de chaves reindentadas.
+    """
     caminho = caminho_da_colecao(colecao)
     caminho.parent.mkdir(parents=True, exist_ok=True)
-    caminho.write_text(
-        json.dumps(historias, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
+    if not historias:
+        caminho.write_text("[]\n", encoding="utf-8")
+        return caminho
+
+    linhas = [json.dumps(historia, ensure_ascii=False) for historia in historias]
+    caminho.write_text("[\n" + ",\n".join(linhas) + "\n]\n", encoding="utf-8")
     return caminho
 
 

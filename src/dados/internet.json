@@ -1,349 +1,42 @@
 [
-  {
-    "id": "base-albatroz",
-    "titulo": "Sopa de albatroz",
-    "situacao": "Um homem entra num restaurante à beira-mar, pede sopa de albatroz, prova uma colherada e sai correndo. Naquela mesma noite, tira a própria vida.",
-    "solucao": "Anos antes, ele naufragou e ficou à deriva num bote com o filho. O menino morreu de fome. Um dos outros sobreviventes disse que havia caçado um albatroz e serviu carne ao pai, que comeu para se manter vivo. Ao provar sopa de albatroz de verdade no restaurante, ele percebe que o gosto é completamente diferente — e entende o que realmente comeu no bote.",
-    "fatosChave": [
-      {
-        "id": "albatroz-1",
-        "texto": "Ele já esteve num naufrágio e passou fome."
-      },
-      {
-        "id": "albatroz-2",
-        "texto": "Alguém disse que a carne servida no bote era de albatroz."
-      },
-      {
-        "id": "albatroz-3",
-        "texto": "O filho dele morreu durante a deriva."
-      },
-      {
-        "id": "albatroz-4",
-        "texto": "O sabor no restaurante revela que a carne era outra."
-      }
-    ],
-    "dificuldade": "media",
-    "temas": [
-      "misterio",
-      "crime"
-    ],
-    "avisosConteudo": [
-      "morte de criança",
-      "canibalismo",
-      "suicídio"
-    ],
-    "duracaoMin": 20,
-    "origem": {
-      "tipo": "internet",
-      "referencia": "Enigma clássico de domínio público (lateral thinking)"
-    },
-    "colecao": "internet"
-  },
-  {
-    "id": "base-elevador",
-    "titulo": "O andar de baixo",
-    "situacao": "Um homem mora no décimo andar. Todo dia de manhã ele pega o elevador até o térreo. Na volta, sobe até o sétimo andar e faz o resto a pé. Em dias de chuva, ele sobe direto até o décimo.",
-    "solucao": "Ele é uma pessoa de baixa estatura e só alcança o botão do sétimo andar. Em dias de chuva, leva guarda-chuva e usa a ponta dele para apertar o botão do décimo.",
-    "fatosChave": [
-      {
-        "id": "elevador-1",
-        "texto": "Ele não consegue alcançar o botão do décimo andar."
-      },
-      {
-        "id": "elevador-2",
-        "texto": "A chuva muda a situação porque ele carrega um objeto."
-      },
-      {
-        "id": "elevador-3",
-        "texto": "O objeto é um guarda-chuva, usado para alcançar o botão."
-      }
-    ],
-    "dificuldade": "facil",
-    "temas": [
-      "cotidiano",
-      "misterio"
-    ],
-    "avisosConteudo": [],
-    "duracaoMin": 10,
-    "origem": {
-      "tipo": "internet",
-      "referencia": "Enigma clássico de domínio público (lateral thinking)"
-    },
-    "colecao": "internet"
-  },
-  {
-    "id": "base-poca",
-    "titulo": "A poça d'água",
-    "situacao": "Um homem é encontrado enforcado no meio de um galpão vazio, a três metros do chão. Não há móveis, escadas ou qualquer coisa em que ele pudesse subir. Embaixo dele, apenas uma poça d'água.",
-    "solucao": "Ele subiu num grande bloco de gelo, amarrou a corda e esperou o gelo derreter. A poça é o que sobrou dele.",
-    "fatosChave": [
-      {
-        "id": "poca-1",
-        "texto": "Ele subiu em alguma coisa que depois desapareceu."
-      },
-      {
-        "id": "poca-2",
-        "texto": "Essa coisa era feita de gelo."
-      },
-      {
-        "id": "poca-3",
-        "texto": "A morte foi provocada por ele mesmo."
-      }
-    ],
-    "dificuldade": "facil",
-    "temas": [
-      "misterio",
-      "crime"
-    ],
-    "avisosConteudo": [
-      "suicídio"
-    ],
-    "duracaoMin": 10,
-    "origem": {
-      "tipo": "internet",
-      "referencia": "Enigma clássico de domínio público (lateral thinking)"
-    },
-    "colecao": "internet"
-  },
-  {
-    "id": "base-romeu-julieta",
-    "titulo": "Romeu e Julieta",
-    "situacao": "Romeu e Julieta são encontrados mortos no chão de uma sala. Ao redor deles há água e cacos de vidro. A janela está aberta e não há ninguém na casa.",
-    "solucao": "Romeu e Julieta são peixes. O gato do vizinho entrou pela janela aberta e derrubou o aquário.",
-    "fatosChave": [
-      {
-        "id": "romeu-1",
-        "texto": "Romeu e Julieta não são pessoas."
-      },
-      {
-        "id": "romeu-2",
-        "texto": "Eles viviam dentro do vidro que se quebrou."
-      },
-      {
-        "id": "romeu-3",
-        "texto": "Um animal entrou pela janela e derrubou o aquário."
-      }
-    ],
-    "dificuldade": "facil",
-    "temas": [
-      "misterio",
-      "humor-negro"
-    ],
-    "avisosConteudo": [
-      "morte de animal"
-    ],
-    "duracaoMin": 10,
-    "origem": {
-      "tipo": "internet",
-      "referencia": "Enigma clássico de domínio público (lateral thinking)"
-    },
-    "colecao": "internet"
-  },
-  {
-    "id": "base-pacote",
-    "titulo": "O pacote fechado",
-    "situacao": "Um homem é encontrado morto no meio do deserto, sem ferimentos aparentes. Ao lado do corpo há um pacote fechado. Se ele tivesse aberto o pacote, estaria vivo.",
-    "solucao": "Ele saltou de um avião e o paraquedas não abriu. O pacote é o paraquedas reserva, que ele não conseguiu acionar a tempo.",
-    "fatosChave": [
-      {
-        "id": "pacote-1",
-        "texto": "Ele caiu de uma grande altura."
-      },
-      {
-        "id": "pacote-2",
-        "texto": "Ele veio de um avião."
-      },
-      {
-        "id": "pacote-3",
-        "texto": "O pacote é um paraquedas que não foi aberto."
-      }
-    ],
-    "dificuldade": "facil",
-    "temas": [
-      "acidente",
-      "misterio"
-    ],
-    "avisosConteudo": [],
-    "duracaoMin": 10,
-    "origem": {
-      "tipo": "internet",
-      "referencia": "Enigma clássico de domínio público (lateral thinking)"
-    },
-    "colecao": "internet"
-  },
-  {
-    "id": "base-musica-parou",
-    "titulo": "Quando a música parou",
-    "situacao": "A música parou e a mulher morreu.",
-    "solucao": "Ela era equilibrista de circo e caminhava na corda bamba com os olhos vendados. A orquestra tocava enquanto ela atravessava e parava no momento exato em que ela chegava à plataforma — era esse o sinal. Naquela noite, o maestro parou cedo demais e ela deu um passo no vazio.",
-    "fatosChave": [
-      {
-        "id": "musica-1",
-        "texto": "Ela estava se apresentando para um público."
-      },
-      {
-        "id": "musica-2",
-        "texto": "Ela não podia enxergar onde pisava."
-      },
-      {
-        "id": "musica-3",
-        "texto": "A música servia de sinal para saber onde parar."
-      },
-      {
-        "id": "musica-4",
-        "texto": "A música parou antes da hora."
-      }
-    ],
-    "dificuldade": "dificil",
-    "temas": [
-      "acidente",
-      "misterio"
-    ],
-    "avisosConteudo": [],
-    "duracaoMin": 25,
-    "origem": {
-      "tipo": "internet",
-      "referencia": "Enigma clássico de domínio público (lateral thinking)"
-    },
-    "colecao": "internet"
-  },
-  {
-    "id": "base-soluco",
-    "titulo": "Um copo d'água",
-    "situacao": "Um homem entra num bar e pede um copo d'água. O barman puxa uma arma e aponta para o rosto dele. O homem agradece e vai embora sem beber nada.",
-    "solucao": "O homem estava com soluço. O barman percebeu e resolveu curá-lo com um susto. Funcionou.",
-    "fatosChave": [
-      {
-        "id": "soluco-1",
-        "texto": "O homem não queria a água por sede."
-      },
-      {
-        "id": "soluco-2",
-        "texto": "Ele estava com soluço."
-      },
-      {
-        "id": "soluco-3",
-        "texto": "O barman quis provocar um susto, não uma ameaça."
-      }
-    ],
-    "dificuldade": "facil",
-    "temas": [
-      "cotidiano",
-      "humor-negro"
-    ],
-    "avisosConteudo": [
-      "arma de fogo"
-    ],
-    "duracaoMin": 10,
-    "origem": {
-      "tipo": "internet",
-      "referencia": "Enigma clássico de domínio público (lateral thinking)"
-    },
-    "colecao": "internet"
-  },
-  {
-    "id": "base-mascaras",
-    "titulo": "O homem mascarado",
-    "situacao": "Um homem corre para casa. Ao chegar, encontra outro homem mascarado esperando por ele e volta correndo por onde veio.",
-    "solucao": "É um jogo de beisebol. Ele corre para a base final e o homem mascarado é o pegador, que está com a bola. Ele volta para a terceira base.",
-    "fatosChave": [
-      {
-        "id": "mascaras-1",
-        "texto": "A cena acontece dentro de um jogo."
-      },
-      {
-        "id": "mascaras-2",
-        "texto": "\"Casa\" é a base final do beisebol."
-      },
-      {
-        "id": "mascaras-3",
-        "texto": "O mascarado é o pegador com a bola."
-      }
-    ],
-    "dificuldade": "media",
-    "temas": [
-      "cotidiano",
-      "misterio"
-    ],
-    "avisosConteudo": [],
-    "duracaoMin": 15,
-    "origem": {
-      "tipo": "internet",
-      "referencia": "Enigma clássico de domínio público (lateral thinking)"
-    },
-    "colecao": "internet"
-  },
-  {
-    "id": "base-farol",
-    "titulo": "Ela apagou a luz",
-    "situacao": "Ela apagou a luz e foi dormir. Na manhã seguinte, ficou sabendo que dezenas de pessoas tinham morrido por causa disso.",
-    "solucao": "Ela era faroleira. Ao apagar a luz do farol, um navio perdeu a referência da costa e bateu nas rochas.",
-    "fatosChave": [
-      {
-        "id": "farol-1",
-        "texto": "A luz não era de uma casa comum."
-      },
-      {
-        "id": "farol-2",
-        "texto": "A luz servia de orientação para alguém à distância."
-      },
-      {
-        "id": "farol-3",
-        "texto": "Era um farol, e um navio naufragou sem a referência."
-      }
-    ],
-    "dificuldade": "media",
-    "temas": [
-      "acidente",
-      "misterio"
-    ],
-    "avisosConteudo": [
-      "mortes em massa"
-    ],
-    "duracaoMin": 15,
-    "origem": {
-      "tipo": "internet",
-      "referencia": "Enigma clássico de domínio público (lateral thinking)"
-    },
-    "colecao": "internet"
-  },
-  {
-    "id": "base-serragem",
-    "titulo": "Serragem no chão",
-    "situacao": "Dois artistas de circo dividiam o mesmo camarim. Uma manhã, um deles é encontrado morto no chão. Ao lado do corpo há um pouco de serragem.",
-    "solucao": "Os dois eram anões e disputavam o posto de \"o menor homem do mundo\". O rival serrou um pedaço da bengala do outro durante a noite. Ao acordar e se apoiar nela, o morto concluiu que havia crescido, perdeu o único trabalho que tinha e não suportou a ideia.",
-    "fatosChave": [
-      {
-        "id": "serragem-1",
-        "texto": "Os dois competiam pelo mesmo posto."
-      },
-      {
-        "id": "serragem-2",
-        "texto": "A serragem veio de um objeto que foi encurtado."
-      },
-      {
-        "id": "serragem-3",
-        "texto": "O objeto era a medida de referência da própria altura dele."
-      },
-      {
-        "id": "serragem-4",
-        "texto": "Ele acreditou ter crescido e tirou a própria vida."
-      }
-    ],
-    "dificuldade": "dificil",
-    "temas": [
-      "crime",
-      "misterio"
-    ],
-    "avisosConteudo": [
-      "suicídio",
-      "capacitismo"
-    ],
-    "duracaoMin": 25,
-    "origem": {
-      "tipo": "internet",
-      "referencia": "Enigma clássico de domínio público (lateral thinking)"
-    },
-    "colecao": "internet"
-  }
+{"id":"int-001","titulo":"Sopa de albatroz","situacao":"Um homem entra num restaurante à beira-mar, pede sopa de albatroz, prova uma colherada e sai correndo. Naquela mesma noite, tira a própria vida.","solucao":"Anos antes, ele naufragou e ficou à deriva num bote com o filho. O menino morreu de fome. Outro sobrevivente disse ter caçado um albatroz e serviu carne ao pai, que comeu para se manter vivo. Ao provar sopa de albatroz de verdade, ele percebe que o gosto é completamente diferente — e entende o que comeu no bote.","fatosChave":["Ele já esteve num naufrágio e passou fome.","Alguém disse que a carne servida no bote era de albatroz.","O filho dele morreu durante a deriva.","O sabor no restaurante revela que a carne era outra."],"dificuldade":"media","temas":["misterio","crime"],"avisosConteudo":["morte de criança","canibalismo","suicídio"],"duracaoMin":20,"origem":{"tipo":"internet","referencia":"Enigma clássico de domínio público"}},
+{"id":"int-002","titulo":"O andar de baixo","situacao":"Um homem mora no décimo andar. Todo dia de manhã ele desce de elevador até o térreo. Na volta, sobe até o sétimo e faz o resto a pé. Em dias de chuva, sobe direto até o décimo.","solucao":"Ele é uma pessoa de baixa estatura e só alcança o botão do sétimo andar. Em dias de chuva leva guarda-chuva e usa a ponta dele para apertar o botão do décimo.","fatosChave":["Ele não alcança o botão do décimo andar.","A chuva muda a situação porque ele carrega um objeto.","O objeto é um guarda-chuva."],"dificuldade":"facil","temas":["cotidiano","misterio"],"avisosConteudo":[],"duracaoMin":10,"origem":{"tipo":"internet","referencia":"Enigma clássico de domínio público"}},
+{"id":"int-003","titulo":"A poça d'água","situacao":"Um homem é encontrado enforcado no meio de um galpão vazio, a três metros do chão. Não há móveis nem escadas. Embaixo dele, apenas uma poça d'água.","solucao":"Ele subiu num grande bloco de gelo, amarrou a corda e esperou o gelo derreter. A poça é o que sobrou dele.","fatosChave":["Ele subiu em algo que depois desapareceu.","Esse algo era feito de gelo.","A morte foi provocada por ele mesmo."],"dificuldade":"facil","temas":["misterio","crime"],"avisosConteudo":["suicídio"],"duracaoMin":10,"origem":{"tipo":"internet","referencia":"Enigma clássico de domínio público"}},
+{"id":"int-004","titulo":"Romeu e Julieta","situacao":"Romeu e Julieta são encontrados mortos no chão de uma sala. Ao redor deles há água e cacos de vidro. A janela está aberta e não há ninguém na casa.","solucao":"Romeu e Julieta são peixes. O gato do vizinho entrou pela janela aberta e derrubou o aquário.","fatosChave":["Romeu e Julieta não são pessoas.","Eles viviam dentro do vidro que se quebrou.","Um animal entrou pela janela."],"dificuldade":"facil","temas":["misterio","humor-negro"],"avisosConteudo":["morte de animal"],"duracaoMin":10,"origem":{"tipo":"internet","referencia":"Enigma clássico de domínio público"}},
+{"id":"int-005","titulo":"O pacote fechado","situacao":"Um homem é encontrado morto no meio do deserto, sem ferimentos aparentes. Ao lado do corpo há um pacote fechado. Se tivesse aberto o pacote, estaria vivo.","solucao":"Ele saltou de um avião e o paraquedas não abriu. O pacote é o paraquedas reserva, que não foi acionado a tempo.","fatosChave":["Ele caiu de uma grande altura.","Ele veio de um avião.","O pacote é um paraquedas."],"dificuldade":"facil","temas":["acidente","misterio"],"avisosConteudo":[],"duracaoMin":10,"origem":{"tipo":"internet","referencia":"Enigma clássico de domínio público"}},
+{"id":"int-006","titulo":"Quando a música parou","situacao":"A música parou e a mulher morreu.","solucao":"Ela era equilibrista de circo e caminhava na corda bamba vendada. A orquestra tocava enquanto ela atravessava e parava no instante exato em que ela chegava à plataforma — era esse o sinal. Naquela noite, o maestro parou cedo demais e ela deu um passo no vazio.","fatosChave":["Ela estava se apresentando.","Ela não podia enxergar onde pisava.","A música servia de sinal de chegada.","A música parou antes da hora."],"dificuldade":"dificil","temas":["acidente","misterio"],"avisosConteudo":[],"duracaoMin":25,"origem":{"tipo":"internet","referencia":"Enigma clássico de domínio público"}},
+{"id":"int-007","titulo":"Um copo d'água","situacao":"Um homem entra num bar e pede um copo d'água. O barman puxa uma arma e aponta para o rosto dele. O homem agradece e vai embora sem beber nada.","solucao":"O homem estava com soluço. O barman percebeu e resolveu curá-lo com um susto. Funcionou.","fatosChave":["Ele não queria a água por sede.","Ele estava com soluço.","O barman quis provocar um susto."],"dificuldade":"facil","temas":["cotidiano","humor-negro"],"avisosConteudo":["arma de fogo"],"duracaoMin":10,"origem":{"tipo":"internet","referencia":"Enigma clássico de domínio público"}},
+{"id":"int-008","titulo":"O homem mascarado","situacao":"Um homem corre para casa. Ao chegar, encontra outro homem mascarado esperando por ele e volta correndo por onde veio.","solucao":"É um jogo de beisebol. Ele corre para a base final e o mascarado é o pegador, que está com a bola. Ele volta para a terceira base.","fatosChave":["A cena acontece dentro de um jogo.","'Casa' é a base final.","O mascarado é o pegador com a bola."],"dificuldade":"media","temas":["cotidiano","misterio"],"avisosConteudo":[],"duracaoMin":15,"origem":{"tipo":"internet","referencia":"Enigma clássico de domínio público"}},
+{"id":"int-009","titulo":"Ela apagou a luz","situacao":"Ela apagou a luz e foi dormir. Na manhã seguinte, ficou sabendo que dezenas de pessoas tinham morrido por causa disso.","solucao":"Ela era faroleira. Sem a luz do farol, um navio perdeu a referência da costa e bateu nas rochas.","fatosChave":["A luz não era de uma casa comum.","Ela servia de orientação a distância.","Um navio naufragou sem essa referência."],"dificuldade":"media","temas":["acidente","misterio"],"avisosConteudo":["mortes em massa"],"duracaoMin":15,"origem":{"tipo":"internet","referencia":"Enigma clássico de domínio público"}},
+{"id":"int-010","titulo":"Serragem no chão","situacao":"Dois artistas de circo dividiam o mesmo camarim. Uma manhã, um deles é encontrado morto no chão. Ao lado do corpo há um pouco de serragem.","solucao":"Os dois eram anões e disputavam o posto de menor homem do mundo. O rival serrou um pedaço da bengala do outro durante a noite. Ao se apoiar nela, o morto concluiu que havia crescido, perdeu o único trabalho que tinha e não suportou a ideia.","fatosChave":["Os dois competiam pelo mesmo posto.","A serragem veio de um objeto encurtado.","O objeto era a medida de referência da altura dele.","Ele acreditou ter crescido."],"dificuldade":"dificil","temas":["crime","misterio"],"avisosConteudo":["suicídio","capacitismo"],"duracaoMin":25,"origem":{"tipo":"internet","referencia":"Enigma clássico de domínio público"}},
+{"id":"int-011","titulo":"O homem que temia o telefone","situacao":"Um homem atende o telefone, ouve alguém dizer apenas 'alô', desliga e vai embora da cidade naquela noite.","solucao":"Ele havia assumido a identidade de um homem que sabia estar morto. A voz do outro lado era a do próprio morto — ou seja, a farsa tinha desmoronado e alguém sabia exatamente o que ele havia feito.","fatosChave":["Ele usava uma identidade que não era a dele.","Ele acreditava que o verdadeiro dono estava morto.","A voz provou que ele estava errado."],"dificuldade":"dificil","temas":["crime","misterio"],"avisosConteudo":[],"duracaoMin":25,"origem":{"tipo":"internet","referencia":"Variação de enigma clássico"}},
+{"id":"int-012","titulo":"O homem que não abriu a porta","situacao":"Um homem ouve baterem na porta no meio da noite. Uma voz pede socorro. Ele não abre e, por isso, sobrevive.","solucao":"Ele mora sozinho numa casa isolada e não conhecia ninguém por perto. Quem batia sabia o nome dele — informação que só apareceria em um cadastro que ele havia denunciado por vazamento naquela semana. A voz não pedia socorro: pedia que ele saísse.","fatosChave":["Não havia razão para alguém conhecê-lo ali.","Quem batia sabia o nome dele.","A informação veio de um vazamento.","O objetivo era fazê-lo sair de casa."],"dificuldade":"dificil","temas":["crime","misterio"],"avisosConteudo":[],"duracaoMin":25,"origem":{"tipo":"internet","referencia":"Variação de enigma clássico"}},
+{"id":"int-013","titulo":"Dois copos de vinho","situacao":"Duas pessoas bebem do mesmo vinho, servido da mesma garrafa. Uma morre, a outra não. O vinho estava envenenado.","solucao":"O veneno estava no gelo. Quem bebeu rápido, com o gelo ainda inteiro, não recebeu dose suficiente. Quem bebeu devagar, deixando derreter, recebeu tudo.","fatosChave":["A garrafa estava limpa.","O veneno estava no gelo.","O tempo até terminar a bebida fez a diferença."],"dificuldade":"media","temas":["crime","misterio"],"avisosConteudo":["envenenamento"],"duracaoMin":15,"origem":{"tipo":"internet","referencia":"Enigma clássico de domínio público"}},
+{"id":"int-014","titulo":"O homem no campo","situacao":"Um homem está deitado num campo, morto, ao lado de um palito de fósforo. Não há mais nada por perto.","solucao":"Ele estava num balão de ar quente com outros dois passageiros, perdendo altitude sobre o mar. Jogaram tudo fora e ainda faltava peso. Tiraram a sorte com palitos de fósforo, e quem tirou o menor saltou.","fatosChave":["Ele estava num balão em queda.","Havia outras pessoas a bordo.","O palito foi usado para sortear.","Ele perdeu o sorteio e saltou."],"dificuldade":"dificil","temas":["misterio","acidente"],"avisosConteudo":["morte"],"duracaoMin":25,"origem":{"tipo":"internet","referencia":"Enigma clássico de domínio público"}},
+{"id":"int-015","titulo":"Não conseguiu voltar","situacao":"Um homem sai de casa correndo, dá três curvas à esquerda e volta para casa. Ao chegar, encontra um homem mascarado esperando por ele — e desta vez ele é considerado o vencedor.","solucao":"É beisebol de novo, mas agora ele completou o circuito. O mascarado é o pegador sem a bola: ele marcou ponto.","fatosChave":["As três curvas são as três bases.","O mascarado é o pegador.","Desta vez a bola não chegou a tempo."],"dificuldade":"facil","temas":["cotidiano"],"avisosConteudo":[],"duracaoMin":10,"origem":{"tipo":"internet","referencia":"Variação de enigma clássico"}},
+{"id":"int-016","titulo":"O elevador cheio","situacao":"Uma mulher entra num elevador, olha para as pessoas lá dentro e desce imediatamente no andar seguinte. Ela salvou a própria vida.","solucao":"Ela reparou que ninguém apertou botão nenhum e que todos estavam com o mesmo tipo de calçado e postura — uma equipe. Estava sendo seguida havia dias e o elevador era a armadilha.","fatosChave":["Ninguém no elevador tinha destino.","As pessoas ali estavam juntas.","Ela já vinha sendo seguida."],"dificuldade":"media","temas":["crime","misterio"],"avisosConteudo":[],"duracaoMin":15,"origem":{"tipo":"internet","referencia":"Variação de enigma clássico"}},
+{"id":"int-017","titulo":"O carteiro sabia","situacao":"Um carteiro salva a vida de uma idosa sem nunca ter entrado na casa dela e sem falar com ninguém.","solucao":"Ele percebeu que a correspondência estava acumulada na caixa havia quatro dias, o que nunca acontecia. Avisou os bombeiros, que arrombaram a porta e a encontraram caída no banheiro.","fatosChave":["A rotina dela era rigorosa.","A correspondência acumulou fora do padrão.","O carteiro reconheceu a anomalia."],"dificuldade":"facil","temas":["cotidiano"],"avisosConteudo":[],"duracaoMin":10,"origem":{"tipo":"internet","referencia":"Variação de enigma clássico"}},
+{"id":"int-018","titulo":"Quarenta e sete degraus","situacao":"Um homem cego conta os degraus da escada do prédio todos os dias há vinte anos. Numa manhã, ele conta quarenta e oito e chama a polícia. Ele estava certo.","solucao":"Havia um corpo caído no último lance, e o pé dele criou um obstáculo que a bengala interpretou como degrau extra.","fatosChave":["Ele conhece a escada com precisão absoluta.","Algo novo estava no caminho.","O obstáculo era um corpo."],"dificuldade":"media","temas":["misterio","crime"],"avisosConteudo":["corpo"],"duracaoMin":15,"origem":{"tipo":"internet","referencia":"Variação de enigma clássico"}},
+{"id":"int-019","titulo":"O barco e a escada","situacao":"Um barco ancorado tem uma escada com dez degraus visíveis acima da linha d'água, espaçados trinta centímetros. A maré sobe quinze centímetros por hora. Depois de quatro horas, quantos degraus estão submersos?","solucao":"Nenhum. O barco flutua e sobe junto com a maré.","fatosChave":["O barco não está preso ao fundo.","Ele acompanha o nível da água.","A relação entre escada e água não muda."],"dificuldade":"facil","temas":["cotidiano"],"avisosConteudo":[],"duracaoMin":10,"origem":{"tipo":"internet","referencia":"Enigma clássico de domínio público"}},
+{"id":"int-020","titulo":"Ele pagou para não entrar","situacao":"Um homem paga a entrada de um cinema, recebe o ingresso e vai embora sem assistir a nada. Ele repete isso toda semana.","solucao":"Ele coleciona a numeração dos ingressos. A sala tem uma poltrona específica cujo número corresponde ao dia em que a esposa morreu, e ele compra sempre aquele lugar para que ninguém se sente ali.","fatosChave":["O objetivo é o lugar, não o filme.","Aquela poltrona tem significado pessoal.","Comprar impede que outra pessoa a ocupe."],"dificuldade":"media","temas":["cotidiano","misterio"],"avisosConteudo":["luto"],"duracaoMin":15,"origem":{"tipo":"internet","referencia":"Variação de enigma clássico"}},
+{"id":"int-021","titulo":"O quarto sem janela","situacao":"Um homem acorda trancado num quarto sem janelas. Há apenas uma mesa e um espelho na parede. Uma hora depois, ele sai andando pela porta.","solucao":"O espelho cobria uma passagem de manutenção. Ao afastá-lo com a mesa, ele encontrou o vão de acesso — o quarto era um depósito adaptado e a porta trancada nunca foi a única saída.","fatosChave":["O espelho não estava ali por decoração.","Havia um vão atrás dele.","A mesa serviu para alcançar e deslocar o espelho.","O cômodo tinha uma segunda abertura."],"dificuldade":"facil","temas":["cotidiano","misterio"],"avisosConteudo":[],"duracaoMin":10,"origem":{"tipo":"internet","referencia":"Variação de enigma clássico"}},
+{"id":"int-022","titulo":"Duzentos convidados","situacao":"Numa festa, duzentas pessoas bebem do mesmo ponche. Metade passa mal. A outra metade não. O ponche estava contaminado por igual.","solucao":"Quem passou mal tinha bebido nas primeiras horas, quando o gelo ainda não havia derretido — e o veneno estava no gelo, concentrado no fundo da tigela. Quem chegou depois pegou a mistura já diluída.","fatosChave":["O veneno estava no gelo.","A concentração mudou ao longo da festa.","O horário em que a pessoa bebeu determinou o efeito."],"dificuldade":"media","temas":["crime"],"avisosConteudo":["envenenamento"],"duracaoMin":15,"origem":{"tipo":"internet","referencia":"Enigma clássico de domínio público"}},
+{"id":"int-023","titulo":"O açougueiro","situacao":"Um açougueiro tem um metro e oitenta, calça quarenta e três e usa camisa tamanho grande. O que ele pesa?","solucao":"Carne. É a profissão dele: ele pesa carne.","fatosChave":["A pergunta é sobre o verbo, não sobre o peso dele.","A resposta está na profissão.","É um jogo de linguagem."],"dificuldade":"facil","temas":["cotidiano","humor-negro"],"avisosConteudo":[],"duracaoMin":10,"origem":{"tipo":"internet","referencia":"Enigma clássico de domínio público"}},
+{"id":"int-024","titulo":"Cinco minutos de atraso","situacao":"Uma mulher chega cinco minutos atrasada ao trabalho e é a única sobrevivente do escritório.","solucao":"O prédio desabou às nove em ponto. Ela deveria estar lá dentro; o atraso a manteve na calçada.","fatosChave":["Houve um colapso no horário exato de entrada.","Ela ainda não tinha entrado.","O atraso foi acidental."],"dificuldade":"facil","temas":["acidente"],"avisosConteudo":["mortes em massa"],"duracaoMin":10,"origem":{"tipo":"internet","referencia":"Variação de enigma clássico"}},
+{"id":"int-025","titulo":"Ele bebeu e morreu","situacao":"Dois homens sentam no bar e pedem a mesma bebida. Um bebe devagar e morre. O outro bebe rápido e sobrevive. Não há gelo envolvido.","solucao":"O copo estava contaminado por uma substância na borda, que se dissolvia com o contato prolongado. Beber rápido significou menos tempo de lábio no copo.","fatosChave":["O veneno estava no copo, não na bebida.","A absorção depende do tempo de contato.","Beber rápido reduziu a exposição."],"dificuldade":"media","temas":["crime"],"avisosConteudo":["envenenamento"],"duracaoMin":15,"origem":{"tipo":"internet","referencia":"Variação de enigma clássico"}},
+{"id":"int-026","titulo":"O deserto e o espelho","situacao":"Um homem atravessa o deserto e é salvo por um espelho quebrado que ele encontra no caminho. Não havia ninguém por perto para ver o reflexo.","solucao":"Ele usou o caco para focar a luz do sol e acender uma fogueira à noite, o que o manteve aquecido e visível para a aeronave de busca.","fatosChave":["O espelho serviu para concentrar luz.","O objetivo foi fazer fogo.","O fogo o tornou visível de longe."],"dificuldade":"facil","temas":["cotidiano","acidente"],"avisosConteudo":[],"duracaoMin":10,"origem":{"tipo":"internet","referencia":"Variação de enigma clássico"}},
+{"id":"int-027","titulo":"O homem que não se molhou","situacao":"Um homem sai no meio de um temporal sem guarda-chuva, sem chapéu e sem capa. Nenhum fio do cabelo dele fica molhado.","solucao":"Ele é careca.","fatosChave":["Ele realmente ficou molhado.","A afirmação é sobre os fios de cabelo.","Ele não tem cabelo."],"dificuldade":"facil","temas":["cotidiano","humor-negro"],"avisosConteudo":[],"duracaoMin":10,"origem":{"tipo":"internet","referencia":"Enigma clássico de domínio público"}},
+{"id":"int-028","titulo":"O aviso na estrada","situacao":"Um motorista vê uma placa, dá meia-volta e salva a própria vida. A placa dizia apenas o nome de uma cidade.","solucao":"Era o nome da cidade de onde ele acabara de sair. A estrada fazia uma curva fechada em zona de neblina e ele estava dirigindo na contramão havia quilômetros, sem perceber.","fatosChave":["A placa indicava o sentido oposto ao esperado.","Ele estava indo na direção errada.","A visibilidade estava ruim."],"dificuldade":"media","temas":["acidente","cotidiano"],"avisosConteudo":[],"duracaoMin":15,"origem":{"tipo":"internet","referencia":"Variação de enigma clássico"}},
+{"id":"int-029","titulo":"Ninguém entrou, ninguém saiu","situacao":"Um homem está sozinho numa cabana isolada, cercada por neve intocada. Ele é encontrado morto por envenenamento. Não há pegadas em volta.","solucao":"O veneno já estava dentro da cabana havia semanas: uma lata de conserva estufada, que ele comeu por falta de opção quando ficou preso pela nevasca.","fatosChave":["O veneno não foi trazido por ninguém.","A fonte estava dentro da cabana.","Foi intoxicação alimentar, não crime."],"dificuldade":"media","temas":["misterio","acidente"],"avisosConteudo":["envenenamento"],"duracaoMin":15,"origem":{"tipo":"internet","referencia":"Variação de enigma clássico"}},
+{"id":"int-030","titulo":"O trem que não passou","situacao":"Todos os dias, uma mulher pega o trem das sete. Certa manhã ela chega no horário, o trem não vem, e por causa disso ela descobre que o marido a traía.","solucao":"Sem trem, ela pegou um táxi por uma rota diferente e passou em frente ao restaurante onde ele almoçava com outra pessoa — em pleno horário em que dizia estar viajando a trabalho.","fatosChave":["A mudança de rota foi acidental.","Ela passou por um lugar fora do trajeto habitual.","O marido estava onde não deveria."],"dificuldade":"facil","temas":["cotidiano"],"avisosConteudo":[],"duracaoMin":10,"origem":{"tipo":"internet","referencia":"Variação de enigma clássico"}},
+{"id":"int-031","titulo":"Ele sorriu para a câmera","situacao":"Um homem posa sorrindo para uma foto e, três horas depois, está preso. A foto não mostra nenhum crime.","solucao":"O relógio de parede ao fundo marcava o horário em que ele jurava estar em outra cidade. A foto era o álibi que ele mesmo forneceu — e foi ela que o desmentiu.","fatosChave":["A foto contém um marcador de horário.","O horário contradiz a versão dele.","Ele mesmo apresentou a foto."],"dificuldade":"facil","temas":["crime","tecnologia"],"avisosConteudo":[],"duracaoMin":10,"origem":{"tipo":"internet","referencia":"Variação de enigma clássico"}},
+{"id":"int-032","titulo":"Quatro paredes ao sul","situacao":"Um explorador constrói uma cabana em que todas as quatro paredes estão voltadas para o sul. Um urso passa em frente. De que cor é o urso?","solucao":"Branco. A única posição em que todas as direções apontam para o sul é o Polo Norte, então é um urso-polar.","fatosChave":["A geometria só funciona num ponto do planeta.","Esse ponto é o Polo Norte.","O urso que vive lá é o polar."],"dificuldade":"media","temas":["misterio"],"avisosConteudo":[],"duracaoMin":15,"origem":{"tipo":"internet","referencia":"Enigma clássico de domínio público"}},
+{"id":"int-033","titulo":"O barbeiro da vila","situacao":"Um viajante chega a uma vila com dois barbeiros. Um tem o cabelo impecável; o outro, um corte horrível. Ele escolhe o do corte horrível e acerta.","solucao":"Numa vila com só dois barbeiros, cada um corta o cabelo do outro. O que está impecável foi cortado pelo outro — que, portanto, é o bom profissional.","fatosChave":["Eles cortam o cabelo um do outro.","O corte de cada um é obra do concorrente.","O corte bom indica quem o fez."],"dificuldade":"media","temas":["cotidiano"],"avisosConteudo":[],"duracaoMin":15,"origem":{"tipo":"internet","referencia":"Enigma clássico de domínio público"}},
+{"id":"int-034","titulo":"Ele apagou o próprio nome","situacao":"Um homem risca o próprio nome de uma lista e, com isso, condena outra pessoa à morte.","solucao":"A lista era a escala de plantão de um posto isolado. Ao se retirar, quem assumiu foi um colega inexperiente — que não soube reagir quando a emergência aconteceu.","fatosChave":["A lista definia quem estaria de serviço.","Outra pessoa ocupou o lugar dele.","Houve uma emergência naquele turno.","A substituta não tinha preparo."],"dificuldade":"media","temas":["misterio","acidente"],"avisosConteudo":["morte"],"duracaoMin":15,"origem":{"tipo":"internet","referencia":"Variação de enigma clássico"}},
+{"id":"int-035","titulo":"Duas irmãs, um sobrenome","situacao":"Duas meninas nascem no mesmo dia, do mesmo pai e da mesma mãe, no mesmo hospital. Elas não são gêmeas.","solucao":"São duas de um trio de trigêmeas.","fatosChave":["Elas nasceram no mesmo parto.","O parto teve mais de dois bebês.","Duas de três não formam um par de gêmeas."],"dificuldade":"facil","temas":["cotidiano"],"avisosConteudo":[],"duracaoMin":10,"origem":{"tipo":"internet","referencia":"Enigma clássico de domínio público"}},
+{"id":"int-036","titulo":"O homem que voltou para morrer","situacao":"Um homem escapa ileso de um prédio em chamas, respira aliviado na calçada e depois volta correndo para dentro. Ele morre lá.","solucao":"Ele lembrou que o irmão mais novo dormia no quarto dos fundos e que o alarme não tocava naquela ala.","fatosChave":["Havia outra pessoa lá dentro.","Ele foi o único a saber disso.","O sistema de alarme não cobria aquela ala."],"dificuldade":"facil","temas":["acidente"],"avisosConteudo":["morte","fogo"],"duracaoMin":10,"origem":{"tipo":"internet","referencia":"Variação de enigma clássico"}},
+{"id":"int-037","titulo":"O relógio parado","situacao":"Um relógio de pulso parado às três e vinte é a prova de que o suspeito é inocente.","solucao":"O relógio é a prova de que a vítima morreu às três e vinte, e não à noite como se supunha — horário em que o suspeito estava em juízo, com registro oficial de presença. O relógio parou no impacto.","fatosChave":["O relógio parou no momento do impacto.","O horário contraria a hipótese inicial.","O suspeito tem álibi documentado para esse horário."],"dificuldade":"media","temas":["crime"],"avisosConteudo":["homicídio"],"duracaoMin":15,"origem":{"tipo":"internet","referencia":"Variação de enigma clássico"}},
+{"id":"int-038","titulo":"Só um sobreviveu","situacao":"Um avião cai exatamente na fronteira entre dois países. Onde são enterrados os sobreviventes?","solucao":"Em lugar nenhum: sobreviventes não são enterrados.","fatosChave":["A pergunta contém a própria armadilha.","Sobreviventes estão vivos.","Não há o que enterrar."],"dificuldade":"facil","temas":["humor-negro","cotidiano"],"avisosConteudo":[],"duracaoMin":10,"origem":{"tipo":"internet","referencia":"Enigma clássico de domínio público"}},
+{"id":"int-039","titulo":"A luz da geladeira","situacao":"Um homem descobre que a esposa quer matá-lo por causa da luz da geladeira.","solucao":"A luz não acendia mais. Ele trocou a lâmpada e viu que o soquete estava adulterado, com um fio ligado à estrutura metálica: qualquer pessoa descalça no piso molhado da cozinha levaria uma descarga fatal. Só ele andava descalço em casa.","fatosChave":["A lâmpada queimada era sintoma de outra coisa.","O soquete tinha sido adulterado.","A estrutura da geladeira ficaria energizada.","O hábito dele de andar descalço era o alvo."],"dificuldade":"dificil","temas":["crime","tecnologia"],"avisosConteudo":["tentativa de homicídio"],"duracaoMin":25,"origem":{"tipo":"internet","referencia":"Variação de enigma clássico"}},
+{"id":"int-040","titulo":"O último a apagar a luz","situacao":"Num prédio comercial, o funcionário que apaga as luzes ao sair é o mesmo há doze anos. Numa sexta-feira ele apaga tudo, vai embora, e no sábado o prédio é assaltado. Ele é inocente, e é a rotina dele que prova isso.","solucao":"O padrão de apagamento sempre seguia a mesma ordem de andares, registrada no medidor inteligente. Na sexta, a ordem estava correta até o quarto andar e depois se inverteu — porque outra pessoa continuou apagando as luzes depois que ele saiu. O registro provou que havia mais alguém no prédio.","fatosChave":["O medidor registra a sequência de desligamentos.","A rotina dele é rigorosamente igual.","A sequência mudou no meio.","Alguém continuou o trabalho depois que ele saiu."],"dificuldade":"dificil","temas":["crime","tecnologia"],"avisosConteudo":[],"duracaoMin":25,"origem":{"tipo":"internet","referencia":"Variação de enigma clássico"}}
 ]

@@ -33,9 +33,9 @@ acima de escalabilidade.
 - [2026-08-10] ✅ Biblioteca com criação, edição e import/export.
 - [2026-08-10] ✅ `start_app.py` com menu interativo.
 - [2026-08-10] ✅ Gerador de histórias offline por IA.
-- [2026-08-10] 🔄 Baralho: **350 de 500** histórias escritas (70 por coleção; a meta pedida é 100
-  por coleção). Faltam 30 por coleção. O caminho para fechar é `start_app.py` → Ferramentas →
-  Gerar histórias com IA, ou escrever um lote em JSON e usar Mesclar lote.
+- [2026-08-10] ✅ Baralho completo: **500 histórias, 100 por coleção**, escritas em lotes e
+  integradas pelo `scripts/mesclar_lote.py`. Para crescer daqui em diante: `start_app.py` →
+  Ferramentas → Gerar histórias com IA, ou escrever um lote em JSON e usar Mesclar lote.
 - [2026-08-10] ✅ Publicado no GitHub Pages: https://felipe-alcantara.github.io/historias-sinistras-web/
   (branch `gh-pages`, gerada por `npm run deploy`; verificado respondendo 200).
 
@@ -193,8 +193,8 @@ armazenamento — cenário previsto no desenho, agora exercitado de verdade.
 ALTERNATIVAS: carregar as coleções por importação dinâmica; manter tudo no bundle inicial.
 DECISÃO: manter tudo no bundle. O modo padrão mistura todas as coleções, então o carregamento
 tardio não evitaria baixar nada — só adicionaria estado de carregamento e complexidade.
-VALIDAÇÃO: com 350 histórias, o build fica em 621 kB brutos e 190 kB comprimidos. Se o baralho
-passar de mil cartas, revisitar: aí a importação dinâmica por coleção começa a compensar.
+VALIDAÇÃO: com 500 histórias, o build fica em 734 kB brutos e 220 kB comprimidos. Se o
+baralho passar de mil cartas, revisitar: aí a importação dinâmica por coleção começa a compensar.
 
 ---
 

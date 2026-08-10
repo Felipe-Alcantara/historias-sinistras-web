@@ -50,60 +50,62 @@ export function CartaDeHistoria({
 
   return (
     <div className="relative">
-      <motion.article
-        layout
+    <motion.article
+      layout
+      className={[
+        'superficie relative overflow-hidden rounded-3xl border p-5 sm:p-6',
+        noVerso ? 'border-sangue-600/40' : 'border-brasa-500/30',
+      ].join(' ')}
+    >
+      <div
+        aria-hidden
         className={[
-          'superficie relative overflow-hidden rounded-3xl border p-5 sm:p-6',
-          noVerso ? 'border-sangue-600/40' : 'border-brasa-500/30',
+          'pointer-events-none absolute inset-x-0 top-0 h-24 opacity-60 blur-2xl',
+          noVerso ? 'bg-sangue-700/30' : 'bg-brasa-500/20',
         ].join(' ')}
+      />
+
+      {/*
+        A troca de lado é instantânea e só o lado que entra é animado. Uma
+        animação de saída deixaria os dois textos no ar ao mesmo tempo — e um
+        deles é a solução.
+      */}
+      <motion.div
+        key={lado}
+        initial={{ opacity: 0, rotateY: noVerso ? -12 : 12, y: 8 }}
+        animate={{ opacity: 1, rotateY: 0, y: 0 }}
+        transition={{ duration: 0.22, ease: 'easeOut' }}
+          className="relative"
       >
-        <div
-          aria-hidden
-          className={[
-            'pointer-events-none absolute inset-x-0 top-0 h-24 opacity-60 blur-2xl',
-            noVerso ? 'bg-sangue-700/30' : 'bg-brasa-500/20',
-          ].join(' ')}
-        />
+          <div className="mb-3 flex flex-wrap items-center gap-2">
+            <Selo tom={noVerso ? 'sangue' : 'brasa'}>
+              {noVerso ? <ShieldAlert size={12} /> : <Eye size={12} />}
+              {noVerso ? (revelada ? 'Solução revelada' : 'Só o mestre') : 'Para todos'}
+            </Selo>
+            <Selo>{historia.dificuldade}</Selo>
+            {historia.temas.map((tema) => (
+              <Selo key={tema}>{tema}</Selo>
+            ))}
+          </div>
 
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={lado}
-            initial={{ opacity: 0, rotateY: noVerso ? -12 : 12, y: 8 }}
-            animate={{ opacity: 1, rotateY: 0, y: 0 }}
-            exit={{ opacity: 0, rotateY: noVerso ? 12 : -12, y: -8 }}
-            transition={{ duration: 0.22, ease: 'easeOut' }}
-            className="relative"
-          >
-            <div className="mb-3 flex flex-wrap items-center gap-2">
-              <Selo tom={noVerso ? 'sangue' : 'brasa'}>
-                {noVerso ? <ShieldAlert size={12} /> : <Eye size={12} />}
-                {noVerso ? (revelada ? 'Solução revelada' : 'Só o mestre') : 'Para todos'}
-              </Selo>
-              <Selo>{historia.dificuldade}</Selo>
-              {historia.temas.map((tema) => (
-                <Selo key={tema}>{tema}</Selo>
-              ))}
-            </div>
+          <h1 className="text-xl leading-tight font-bold sm:text-2xl">{historia.titulo}</h1>
 
-            <h1 className="text-xl leading-tight font-bold sm:text-2xl">{historia.titulo}</h1>
-
-            {!noVerso && mostrarAvisos && historia.avisosConteudo.length > 0 ? (
-              <p className="mt-3 text-xs text-zinc-400">
-                <span className="font-medium text-zinc-300">Conteúdo: </span>
-                {historia.avisosConteudo.join(' · ')}
-              </p>
-            ) : null}
-
-            <p
-              className={[
-                'preserva-quebras mt-4 leading-relaxed',
-                noVerso ? 'text-sangue-300' : 'text-zinc-200',
-              ].join(' ')}
-            >
-              {noVerso ? historia.solucao : historia.situacao}
+          {!noVerso && mostrarAvisos && historia.avisosConteudo.length > 0 ? (
+            <p className="mt-3 text-xs text-zinc-400">
+              <span className="font-medium text-zinc-300">Conteúdo: </span>
+              {historia.avisosConteudo.join(' · ')}
             </p>
-          </motion.div>
-        </AnimatePresence>
+          ) : null}
+
+          <p
+            className={[
+              'preserva-quebras mt-4 leading-relaxed',
+              noVerso ? 'text-sangue-300' : 'text-zinc-200',
+            ].join(' ')}
+          >
+            {noVerso ? historia.solucao : historia.situacao}
+          </p>
+        </motion.div>
       </motion.article>
 
       <div className="mt-3">

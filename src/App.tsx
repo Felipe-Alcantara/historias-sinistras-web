@@ -7,7 +7,7 @@
  */
 
 import { useMemo, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { BARALHO_BASE } from './dados/baralhoBase'
 import { filtrarBaralho, calcularProgresso, sortearProxima } from './dominio/baralho'
 import { iniciarRodada, reduzirRodada, type AcaoRodada, type EstadoRodada } from './dominio/partida'
@@ -83,59 +83,61 @@ export default function App() {
         </div>
       ) : null}
 
-      <AnimatePresence mode="wait">
-        <motion.main
-          key={tela}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.18 }}
-        >
-          {tela === 'inicio' ? (
-            <TelaInicio
-              progresso={progresso}
-              preferencias={preferencias}
-              totalPersonalizadas={personalizadas.length}
-              aoJogar={sortear}
-              aoAbrirBiblioteca={() => setTela('biblioteca')}
-              aoAlternarColecao={(colecao: Colecao) =>
-                salvo.atualizarPreferencias({ colecoes: alternar(preferencias.colecoes, colecao) })
-              }
-              aoAlternarDificuldade={(dificuldade: Dificuldade) =>
-                salvo.atualizarPreferencias({ dificuldades: alternar(preferencias.dificuldades, dificuldade) })
-              }
-              aoAlternarTema={(tema: Tema) =>
-                salvo.atualizarPreferencias({ temas: alternar(preferencias.temas, tema) })
-              }
-              aoMudarPreferencia={salvo.atualizarPreferencias}
-              aoLimparHistorico={salvo.limparHistorico}
-            />
-          ) : null}
+      {/*
+        Só a tela que entra é animada. Com animação de saída, cada navegação
+        esperaria o fade da tela anterior terminar — e neste jogo se troca de
+        tela a cada carta.
+      */}
+      <motion.main
+        key={tela}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.18 }}
+    >
+        {tela === 'inicio' ? (
+          <TelaInicio
+            progresso={progresso}
+            preferencias={preferencias}
+            totalPersonalizadas={personalizadas.length}
+            aoJogar={sortear}
+            aoAbrirBiblioteca={() => setTela('biblioteca')}
+            aoAlternarColecao={(colecao: Colecao) =>
+              salvo.atualizarPreferencias({ colecoes: alternar(preferencias.colecoes, colecao) })
+            }
+            aoAlternarDificuldade={(dificuldade: Dificuldade) =>
+              salvo.atualizarPreferencias({ dificuldades: alternar(preferencias.dificuldades, dificuldade) })
+            }
+            aoAlternarTema={(tema: Tema) =>
+              salvo.atualizarPreferencias({ temas: alternar(preferencias.temas, tema) })
+            }
+            aoMudarPreferencia={salvo.atualizarPreferencias}
+            aoLimparHistorico={salvo.limparHistorico}
+          />
+        ) : null}
 
-          {tela === 'rodada' && rodada ? (
-            <TelaRodada
-              rodada={rodada}
-              preferencias={preferencias}
-              cicloReiniciado={cicloReiniciado}
-              aoAgir={agir}
-              aoProxima={sortear}
-              aoSair={() => setTela('inicio')}
-            />
-          ) : null}
+        {tela === 'rodada' && rodada ? (
+          <TelaRodada
+            rodada={rodada}
+            preferencias={preferencias}
+            cicloReiniciado={cicloReiniciado}
+            aoAgir={agir}
+            aoProxima={sortear}
+            aoSair={() => setTela('inicio')}
+          />
+        ) : null}
 
-          {tela === 'biblioteca' ? (
-            <TelaBiblioteca
-              baralhoBase={BARALHO_BASE}
-              estado={salvo.estado}
-              aoVoltar={() => setTela('inicio')}
-              aoGuardar={salvo.guardarHistoria}
-              aoApagar={salvo.apagarHistoria}
-              aoAlternarOculta={salvo.alternarOculta}
-              aoSubstituirEstado={salvo.substituirEstado}
-            />
-          ) : null}
-        </motion.main>
-      </AnimatePresence>
+        {tela === 'biblioteca' ? (
+          <TelaBiblioteca
+            baralhoBase={BARALHO_BASE}
+            estado={salvo.estado}
+            aoVoltar={() => setTela('inicio')}
+            aoGuardar={salvo.guardarHistoria}
+            aoApagar={salvo.apagarHistoria}
+            aoAlternarOculta={salvo.alternarOculta}
+            aoSubstituirEstado={salvo.substituirEstado}
+          />
+        ) : null}
+      </motion.main>
     </div>
   )
 }

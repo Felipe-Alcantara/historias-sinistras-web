@@ -9,11 +9,13 @@
 
 import { gerarId } from './identificadores'
 import {
+  COLECOES,
   DIFICULDADES,
   TEMAS,
   TIPOS_ORIGEM,
   falha,
   sucesso,
+  type Colecao,
   type Dificuldade,
   type FatoChave,
   type Historia,
@@ -116,6 +118,11 @@ export function validarHistoria(valor: unknown, onde = 'historia'): Resultado<Hi
   const dificuldadeBruta = textoLimpo(valor.dificuldade)
   const dificuldade: Dificuldade = dentroDe(dificuldadeBruta, DIFICULDADES) ? dificuldadeBruta : 'media'
 
+  // Sem colecao declarada, a carta cai em "internet": e o balde mais neutro e
+  // evita que um pacote de terceiro entre marcado como caso real sem ser.
+  const colecaoBruta = textoLimpo(valor.colecao).toLowerCase()
+  const colecao: Colecao = dentroDe(colecaoBruta, COLECOES) ? colecaoBruta : 'internet'
+
   const temas = listaDeTextos(valor.temas)
     .map((tema) => tema.toLowerCase())
     .filter((tema): tema is Tema => dentroDe(tema, TEMAS))
@@ -127,6 +134,7 @@ export function validarHistoria(valor: unknown, onde = 'historia'): Resultado<Hi
     situacao: situacao.slice(0, LIMITES.situacao),
     solucao: solucao.slice(0, LIMITES.solucao),
     fatosChave: normalizarFatosChave(valor.fatosChave, erros, onde),
+    colecao,
     dificuldade,
     temas: temas.length > 0 ? temas : ['misterio'],
     avisosConteudo: listaDeTextos(valor.avisosConteudo)

@@ -1,0 +1,349 @@
+[
+  {
+    "id": "base-albatroz",
+    "titulo": "Sopa de albatroz",
+    "situacao": "Um homem entra num restaurante à beira-mar, pede sopa de albatroz, prova uma colherada e sai correndo. Naquela mesma noite, tira a própria vida.",
+    "solucao": "Anos antes, ele naufragou e ficou à deriva num bote com o filho. O menino morreu de fome. Um dos outros sobreviventes disse que havia caçado um albatroz e serviu carne ao pai, que comeu para se manter vivo. Ao provar sopa de albatroz de verdade no restaurante, ele percebe que o gosto é completamente diferente — e entende o que realmente comeu no bote.",
+    "fatosChave": [
+      {
+        "id": "albatroz-1",
+        "texto": "Ele já esteve num naufrágio e passou fome."
+      },
+      {
+        "id": "albatroz-2",
+        "texto": "Alguém disse que a carne servida no bote era de albatroz."
+      },
+      {
+        "id": "albatroz-3",
+        "texto": "O filho dele morreu durante a deriva."
+      },
+      {
+        "id": "albatroz-4",
+        "texto": "O sabor no restaurante revela que a carne era outra."
+      }
+    ],
+    "dificuldade": "media",
+    "temas": [
+      "misterio",
+      "crime"
+    ],
+    "avisosConteudo": [
+      "morte de criança",
+      "canibalismo",
+      "suicídio"
+    ],
+    "duracaoMin": 20,
+    "origem": {
+      "tipo": "internet",
+      "referencia": "Enigma clássico de domínio público (lateral thinking)"
+    },
+    "colecao": "internet"
+  },
+  {
+    "id": "base-elevador",
+    "titulo": "O andar de baixo",
+    "situacao": "Um homem mora no décimo andar. Todo dia de manhã ele pega o elevador até o térreo. Na volta, sobe até o sétimo andar e faz o resto a pé. Em dias de chuva, ele sobe direto até o décimo.",
+    "solucao": "Ele é uma pessoa de baixa estatura e só alcança o botão do sétimo andar. Em dias de chuva, leva guarda-chuva e usa a ponta dele para apertar o botão do décimo.",
+    "fatosChave": [
+      {
+        "id": "elevador-1",
+        "texto": "Ele não consegue alcançar o botão do décimo andar."
+      },
+      {
+        "id": "elevador-2",
+        "texto": "A chuva muda a situação porque ele carrega um objeto."
+      },
+      {
+        "id": "elevador-3",
+        "texto": "O objeto é um guarda-chuva, usado para alcançar o botão."
+      }
+    ],
+    "dificuldade": "facil",
+    "temas": [
+      "cotidiano",
+      "misterio"
+    ],
+    "avisosConteudo": [],
+    "duracaoMin": 10,
+    "origem": {
+      "tipo": "internet",
+      "referencia": "Enigma clássico de domínio público (lateral thinking)"
+    },
+    "colecao": "internet"
+  },
+  {
+    "id": "base-poca",
+    "titulo": "A poça d'água",
+    "situacao": "Um homem é encontrado enforcado no meio de um galpão vazio, a três metros do chão. Não há móveis, escadas ou qualquer coisa em que ele pudesse subir. Embaixo dele, apenas uma poça d'água.",
+    "solucao": "Ele subiu num grande bloco de gelo, amarrou a corda e esperou o gelo derreter. A poça é o que sobrou dele.",
+    "fatosChave": [
+      {
+        "id": "poca-1",
+        "texto": "Ele subiu em alguma coisa que depois desapareceu."
+      },
+      {
+        "id": "poca-2",
+        "texto": "Essa coisa era feita de gelo."
+      },
+      {
+        "id": "poca-3",
+        "texto": "A morte foi provocada por ele mesmo."
+      }
+    ],
+    "dificuldade": "facil",
+    "temas": [
+      "misterio",
+      "crime"
+    ],
+    "avisosConteudo": [
+      "suicídio"
+    ],
+    "duracaoMin": 10,
+    "origem": {
+      "tipo": "internet",
+      "referencia": "Enigma clássico de domínio público (lateral thinking)"
+    },
+    "colecao": "internet"
+  },
+  {
+    "id": "base-romeu-julieta",
+    "titulo": "Romeu e Julieta",
+    "situacao": "Romeu e Julieta são encontrados mortos no chão de uma sala. Ao redor deles há água e cacos de vidro. A janela está aberta e não há ninguém na casa.",
+    "solucao": "Romeu e Julieta são peixes. O gato do vizinho entrou pela janela aberta e derrubou o aquário.",
+    "fatosChave": [
+      {
+        "id": "romeu-1",
+        "texto": "Romeu e Julieta não são pessoas."
+      },
+      {
+        "id": "romeu-2",
+        "texto": "Eles viviam dentro do vidro que se quebrou."
+      },
+      {
+        "id": "romeu-3",
+        "texto": "Um animal entrou pela janela e derrubou o aquário."
+      }
+    ],
+    "dificuldade": "facil",
+    "temas": [
+      "misterio",
+      "humor-negro"
+    ],
+    "avisosConteudo": [
+      "morte de animal"
+    ],
+    "duracaoMin": 10,
+    "origem": {
+      "tipo": "internet",
+      "referencia": "Enigma clássico de domínio público (lateral thinking)"
+    },
+    "colecao": "internet"
+  },
+  {
+    "id": "base-pacote",
+    "titulo": "O pacote fechado",
+    "situacao": "Um homem é encontrado morto no meio do deserto, sem ferimentos aparentes. Ao lado do corpo há um pacote fechado. Se ele tivesse aberto o pacote, estaria vivo.",
+    "solucao": "Ele saltou de um avião e o paraquedas não abriu. O pacote é o paraquedas reserva, que ele não conseguiu acionar a tempo.",
+    "fatosChave": [
+      {
+        "id": "pacote-1",
+        "texto": "Ele caiu de uma grande altura."
+      },
+      {
+        "id": "pacote-2",
+        "texto": "Ele veio de um avião."
+      },
+      {
+        "id": "pacote-3",
+        "texto": "O pacote é um paraquedas que não foi aberto."
+      }
+    ],
+    "dificuldade": "facil",
+    "temas": [
+      "acidente",
+      "misterio"
+    ],
+    "avisosConteudo": [],
+    "duracaoMin": 10,
+    "origem": {
+      "tipo": "internet",
+      "referencia": "Enigma clássico de domínio público (lateral thinking)"
+    },
+    "colecao": "internet"
+  },
+  {
+    "id": "base-musica-parou",
+    "titulo": "Quando a música parou",
+    "situacao": "A música parou e a mulher morreu.",
+    "solucao": "Ela era equilibrista de circo e caminhava na corda bamba com os olhos vendados. A orquestra tocava enquanto ela atravessava e parava no momento exato em que ela chegava à plataforma — era esse o sinal. Naquela noite, o maestro parou cedo demais e ela deu um passo no vazio.",
+    "fatosChave": [
+      {
+        "id": "musica-1",
+        "texto": "Ela estava se apresentando para um público."
+      },
+      {
+        "id": "musica-2",
+        "texto": "Ela não podia enxergar onde pisava."
+      },
+      {
+        "id": "musica-3",
+        "texto": "A música servia de sinal para saber onde parar."
+      },
+      {
+        "id": "musica-4",
+        "texto": "A música parou antes da hora."
+      }
+    ],
+    "dificuldade": "dificil",
+    "temas": [
+      "acidente",
+      "misterio"
+    ],
+    "avisosConteudo": [],
+    "duracaoMin": 25,
+    "origem": {
+      "tipo": "internet",
+      "referencia": "Enigma clássico de domínio público (lateral thinking)"
+    },
+    "colecao": "internet"
+  },
+  {
+    "id": "base-soluco",
+    "titulo": "Um copo d'água",
+    "situacao": "Um homem entra num bar e pede um copo d'água. O barman puxa uma arma e aponta para o rosto dele. O homem agradece e vai embora sem beber nada.",
+    "solucao": "O homem estava com soluço. O barman percebeu e resolveu curá-lo com um susto. Funcionou.",
+    "fatosChave": [
+      {
+        "id": "soluco-1",
+        "texto": "O homem não queria a água por sede."
+      },
+      {
+        "id": "soluco-2",
+        "texto": "Ele estava com soluço."
+      },
+      {
+        "id": "soluco-3",
+        "texto": "O barman quis provocar um susto, não uma ameaça."
+      }
+    ],
+    "dificuldade": "facil",
+    "temas": [
+      "cotidiano",
+      "humor-negro"
+    ],
+    "avisosConteudo": [
+      "arma de fogo"
+    ],
+    "duracaoMin": 10,
+    "origem": {
+      "tipo": "internet",
+      "referencia": "Enigma clássico de domínio público (lateral thinking)"
+    },
+    "colecao": "internet"
+  },
+  {
+    "id": "base-mascaras",
+    "titulo": "O homem mascarado",
+    "situacao": "Um homem corre para casa. Ao chegar, encontra outro homem mascarado esperando por ele e volta correndo por onde veio.",
+    "solucao": "É um jogo de beisebol. Ele corre para a base final e o homem mascarado é o pegador, que está com a bola. Ele volta para a terceira base.",
+    "fatosChave": [
+      {
+        "id": "mascaras-1",
+        "texto": "A cena acontece dentro de um jogo."
+      },
+      {
+        "id": "mascaras-2",
+        "texto": "\"Casa\" é a base final do beisebol."
+      },
+      {
+        "id": "mascaras-3",
+        "texto": "O mascarado é o pegador com a bola."
+      }
+    ],
+    "dificuldade": "media",
+    "temas": [
+      "cotidiano",
+      "misterio"
+    ],
+    "avisosConteudo": [],
+    "duracaoMin": 15,
+    "origem": {
+      "tipo": "internet",
+      "referencia": "Enigma clássico de domínio público (lateral thinking)"
+    },
+    "colecao": "internet"
+  },
+  {
+    "id": "base-farol",
+    "titulo": "Ela apagou a luz",
+    "situacao": "Ela apagou a luz e foi dormir. Na manhã seguinte, ficou sabendo que dezenas de pessoas tinham morrido por causa disso.",
+    "solucao": "Ela era faroleira. Ao apagar a luz do farol, um navio perdeu a referência da costa e bateu nas rochas.",
+    "fatosChave": [
+      {
+        "id": "farol-1",
+        "texto": "A luz não era de uma casa comum."
+      },
+      {
+        "id": "farol-2",
+        "texto": "A luz servia de orientação para alguém à distância."
+      },
+      {
+        "id": "farol-3",
+        "texto": "Era um farol, e um navio naufragou sem a referência."
+      }
+    ],
+    "dificuldade": "media",
+    "temas": [
+      "acidente",
+      "misterio"
+    ],
+    "avisosConteudo": [
+      "mortes em massa"
+    ],
+    "duracaoMin": 15,
+    "origem": {
+      "tipo": "internet",
+      "referencia": "Enigma clássico de domínio público (lateral thinking)"
+    },
+    "colecao": "internet"
+  },
+  {
+    "id": "base-serragem",
+    "titulo": "Serragem no chão",
+    "situacao": "Dois artistas de circo dividiam o mesmo camarim. Uma manhã, um deles é encontrado morto no chão. Ao lado do corpo há um pouco de serragem.",
+    "solucao": "Os dois eram anões e disputavam o posto de \"o menor homem do mundo\". O rival serrou um pedaço da bengala do outro durante a noite. Ao acordar e se apoiar nela, o morto concluiu que havia crescido, perdeu o único trabalho que tinha e não suportou a ideia.",
+    "fatosChave": [
+      {
+        "id": "serragem-1",
+        "texto": "Os dois competiam pelo mesmo posto."
+      },
+      {
+        "id": "serragem-2",
+        "texto": "A serragem veio de um objeto que foi encurtado."
+      },
+      {
+        "id": "serragem-3",
+        "texto": "O objeto era a medida de referência da própria altura dele."
+      },
+      {
+        "id": "serragem-4",
+        "texto": "Ele acreditou ter crescido e tirou a própria vida."
+      }
+    ],
+    "dificuldade": "dificil",
+    "temas": [
+      "crime",
+      "misterio"
+    ],
+    "avisosConteudo": [
+      "suicídio",
+      "capacitismo"
+    ],
+    "duracaoMin": 25,
+    "origem": {
+      "tipo": "internet",
+      "referencia": "Enigma clássico de domínio público (lateral thinking)"
+    },
+    "colecao": "internet"
+  }
+]

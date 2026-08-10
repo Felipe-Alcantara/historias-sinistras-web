@@ -12,6 +12,7 @@ export function criarHistoria(parcial: Partial<Historia> = {}): Historia {
       { id: 'f1', texto: 'O homem e cego.' },
       { id: 'f2', texto: 'Ele contava as paradas anunciadas.' },
     ],
+    colecao: 'internet',
     dificuldade: 'media',
     temas: ['misterio'],
     avisosConteudo: [],

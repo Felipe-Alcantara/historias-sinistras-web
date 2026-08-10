@@ -69,12 +69,25 @@ describe('filtro do baralho', () => {
 
   it('filtra por dificuldade e por tema em conjunto', () => {
     const resultado = filtrarBaralho(baralho, {
+      colecoes: [],
       dificuldades: ['facil'],
       temas: ['humor-negro'],
       ocultas: [],
     })
 
     expect(resultado.map((h) => h.id)).toEqual(['c'])
+  })
+
+  it('filtra por colecao, que e o recorte de clima da carta', () => {
+    const misto = [
+      criarHistoria({ id: 'x', colecao: 'comica' }),
+      criarHistoria({ id: 'y', colecao: 'creepypasta' }),
+      criarHistoria({ id: 'z', colecao: 'comica' }),
+    ]
+
+    const resultado = filtrarBaralho(misto, { ...FILTRO_VAZIO, colecoes: ['comica'] })
+
+    expect(resultado.map((h) => h.id)).toEqual(['x', 'z'])
   })
 
   it('remove as historias ocultas', () => {

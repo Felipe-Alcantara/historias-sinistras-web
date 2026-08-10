@@ -1,0 +1,109 @@
+[
+  {
+    "id": "base-retrato",
+    "titulo": "O retrato da sala",
+    "situacao": "Uma mulher volta de viagem, olha o retrato pendurado na sala e liga imediatamente para a polícia dizendo que a irmã foi assassinada. Ela estava certa.",
+    "solucao": "O retrato é de família e estava tremendamente torto, com o vidro rachado — mas alguém o havia recolocado na parede. A irmã, que morava lá, tinha transtorno obsessivo e jamais deixaria o quadro daquele jeito. Quem pendurou de volta foi o assassino, tentando disfarçar a luta que houve na sala.",
+    "fatosChave": [
+      {
+        "id": "retrato-1",
+        "texto": "O estado do quadro é incompatível com quem morava na casa."
+      },
+      {
+        "id": "retrato-2",
+        "texto": "Houve luta na sala e o quadro se danificou."
+      },
+      {
+        "id": "retrato-3",
+        "texto": "Alguém recolocou o quadro para encobrir a cena."
+      }
+    ],
+    "dificuldade": "media",
+    "temas": [
+      "crime",
+      "misterio"
+    ],
+    "avisosConteudo": [
+      "homicídio"
+    ],
+    "duracaoMin": 20,
+    "origem": {
+      "tipo": "autoral",
+      "referencia": "Escrita para este projeto"
+    },
+    "colecao": "pesada"
+  },
+  {
+    "id": "base-cafe-frio",
+    "titulo": "Café frio",
+    "situacao": "Um homem toma um gole de café numa lanchonete, devolve a xícara e denuncia a garçonete por tentativa de homicídio. O café não estava envenenado.",
+    "solucao": "Ele havia pedido café quente e a xícara veio fria por fora, mas o líquido estava fervendo. Não é esse o ponto: ele reconheceu o sabor de um remédio ao qual é gravemente alérgico, o mesmo que a garçonete — sua ex-esposa e beneficiária do seguro de vida dele — mantinha em casa.",
+    "fatosChave": [
+      {
+        "id": "cafe-1",
+        "texto": "O sabor do café denunciou a presença de outra substância."
+      },
+      {
+        "id": "cafe-2",
+        "texto": "A substância é inofensiva para quase todo mundo, menos para ele."
+      },
+      {
+        "id": "cafe-3",
+        "texto": "A garçonete o conhecia e sabia da alergia."
+      },
+      {
+        "id": "cafe-4",
+        "texto": "Ela tinha ganho financeiro com a morte dele."
+      }
+    ],
+    "dificuldade": "dificil",
+    "temas": [
+      "crime",
+      "misterio"
+    ],
+    "avisosConteudo": [
+      "tentativa de homicídio"
+    ],
+    "duracaoMin": 25,
+    "origem": {
+      "tipo": "autoral",
+      "referencia": "Escrita para este projeto"
+    },
+    "colecao": "pesada"
+  },
+  {
+    "id": "base-marca-na-neve",
+    "titulo": "Marcas na neve",
+    "situacao": "Um corpo é encontrado no meio de um campo coberto de neve fresca. Há uma única linha de pegadas, que vai do corpo até a estrada — e nenhuma que chegue até ele.",
+    "solucao": "As pegadas são do próprio morto, caminhando de costas. Ele saiu da estrada andando para trás, deitou-se no campo e esperou o frio fazer o resto, para que a cena parecesse crime e a família recebesse o seguro.",
+    "fatosChave": [
+      {
+        "id": "neve-1",
+        "texto": "As pegadas são da própria vítima."
+      },
+      {
+        "id": "neve-2",
+        "texto": "Ele andou de costas para inverter a direção aparente."
+      },
+      {
+        "id": "neve-3",
+        "texto": "A intenção era simular um homicídio."
+      }
+    ],
+    "dificuldade": "dificil",
+    "temas": [
+      "crime",
+      "misterio"
+    ],
+    "avisosConteudo": [
+      "suicídio",
+      "hipotermia"
+    ],
+    "duracaoMin": 25,
+    "origem": {
+      "tipo": "autoral",
+      "referencia": "Escrita para este projeto"
+    },
+    "colecao": "pesada"
+  }
+]

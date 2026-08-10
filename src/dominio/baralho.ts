@@ -6,12 +6,14 @@
  * atual ja sairam.
  */
 
-import type { Dificuldade, Historia, Tema } from './tipos'
+import type { Colecao, Dificuldade, Historia, Tema } from './tipos'
 
 /** Funcao de aleatoriedade injetavel: os testes passam uma sequencia previsivel. */
 export type Aleatorio = () => number
 
 export interface FiltroBaralho {
+  /** Lista vazia significa "todas as colecoes" — o padrao mistura tudo. */
+  colecoes: readonly Colecao[]
   /** Lista vazia significa "todas as dificuldades". */
   dificuldades: readonly Dificuldade[]
   /** Lista vazia significa "todos os temas". */
@@ -20,12 +22,13 @@ export interface FiltroBaralho {
   ocultas: readonly string[]
 }
 
-export const FILTRO_VAZIO: FiltroBaralho = { dificuldades: [], temas: [], ocultas: [] }
+export const FILTRO_VAZIO: FiltroBaralho = { colecoes: [], dificuldades: [], temas: [], ocultas: [] }
 
 export function filtrarBaralho(historias: readonly Historia[], filtro: FiltroBaralho): Historia[] {
   const ocultas = new Set(filtro.ocultas)
   return historias.filter((historia) => {
     if (ocultas.has(historia.id)) return false
+    if (filtro.colecoes.length > 0 && !filtro.colecoes.includes(historia.colecao)) return false
     if (filtro.dificuldades.length > 0 && !filtro.dificuldades.includes(historia.dificuldade)) return false
     if (filtro.temas.length > 0 && !historia.temas.some((tema) => filtro.temas.includes(tema))) return false
     return true

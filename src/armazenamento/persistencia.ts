@@ -15,10 +15,12 @@
 
 import { semDuplicatas, validarLote } from '../dominio/validacao'
 import {
+  COLECOES,
   DIFICULDADES,
   TEMAS,
   falha,
   sucesso,
+  type Colecao,
   type Dificuldade,
   type Historia,
   type Resultado,
@@ -41,6 +43,7 @@ export interface Deposito {
 }
 
 export interface Preferencias {
+  colecoes: Colecao[]
   dificuldades: Dificuldade[]
   temas: Tema[]
   /** Mostrar as etiquetas de conteudo antes de comecar a carta. */
@@ -61,6 +64,7 @@ export interface EstadoSalvo {
 }
 
 export const PREFERENCIAS_PADRAO: Preferencias = {
+  colecoes: [],
   dificuldades: [],
   temas: [],
   mostrarAvisos: true,
@@ -96,6 +100,9 @@ function normalizarPreferencias(valor: unknown): Preferencias {
   if (typeof valor !== 'object' || valor === null) return { ...PREFERENCIAS_PADRAO }
   const bruto = valor as Record<string, unknown>
   return {
+    colecoes: listaDeTextos(bruto.colecoes).filter((item): item is Colecao =>
+      (COLECOES as readonly string[]).includes(item),
+    ),
     dificuldades: listaDeTextos(bruto.dificuldades).filter((item): item is Dificuldade =>
       (DIFICULDADES as readonly string[]).includes(item),
     ),
@@ -150,7 +157,7 @@ function migrar(bruto: Record<string, unknown>): Record<string, unknown> {
 }
 
 export function carregar(deposito: Deposito): LeituraDoEstado {
-  let cru: string | null = null
+  let cru: string | null
   try {
     cru = deposito.getItem(CHAVE_ESTADO)
   } catch {

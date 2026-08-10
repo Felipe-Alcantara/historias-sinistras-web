@@ -1,0 +1,36 @@
+[
+  {
+    "id": "base-ultimo-passageiro",
+    "titulo": "O último passageiro",
+    "situacao": "O motorista do ônibus para no ponto final e percebe que ainda há um passageiro sentado no fundo. Ele chama a emergência sem nem se aproximar.",
+    "solucao": "O ônibus é o mesmo que ele dirige há doze anos, e aquele passageiro é o pai dele, morto havia três meses. Não é fantasma: o irmão do motorista, que é idêntico ao pai, sentou-se ali de propósito para forçar uma conversa. O motorista, que reconheceu o rosto no espelho retrovisor e sabia que era impossível, entrou em pânico.",
+    "fatosChave": [
+      {
+        "id": "passageiro-1",
+        "texto": "O motorista reconheceu o rosto do passageiro."
+      },
+      {
+        "id": "passageiro-2",
+        "texto": "Aquela pessoa não poderia estar ali."
+      },
+      {
+        "id": "passageiro-3",
+        "texto": "É um parente vivo, muito parecido com o falecido."
+      }
+    ],
+    "dificuldade": "media",
+    "temas": [
+      "sobrenatural",
+      "misterio"
+    ],
+    "avisosConteudo": [
+      "luto"
+    ],
+    "duracaoMin": 20,
+    "origem": {
+      "tipo": "autoral",
+      "referencia": "Escrita para este projeto"
+    },
+    "colecao": "creepypasta"
+  }
+]

@@ -37,6 +37,32 @@ export const ROTULO_RESPOSTA: Record<Resposta, string> = {
   'quase-la': 'Quase la',
 }
 
+/**
+ * Colecao a que a carta pertence. E o equivalente as "edicoes" do jogo de caixa:
+ * define o clima da historia, nao o assunto (isso e `Tema`).
+ *
+ * Por padrao o sorteio mistura todas, como no jogo de referencia deste projeto;
+ * quem quiser uma noite so de um clima marca a colecao na tela inicial.
+ */
+export const COLECOES = ['comica', 'pesada', 'real', 'internet', 'creepypasta'] as const
+export type Colecao = (typeof COLECOES)[number]
+
+export const ROTULO_COLECAO: Record<Colecao, string> = {
+  comica: 'Cômicas',
+  pesada: 'Pesadas',
+  real: 'Casos reais',
+  internet: 'Da internet',
+  creepypasta: 'Creepypasta',
+}
+
+export const DESCRICAO_COLECAO: Record<Colecao, string> = {
+  comica: 'Mortes bobas, coincidências ridículas e finais que arrancam riso nervoso.',
+  pesada: 'Crime, violência e desfechos duros. É o tom do jogo original.',
+  real: 'Inspiradas em casos que aconteceram de verdade.',
+  internet: 'Enigmas clássicos que circulam há décadas em fóruns e listas.',
+  creepypasta: 'Terror de internet: o inexplicável fica inexplicável.',
+}
+
 /** De onde a historia veio. Fica gravado em cada carta para dar rastreabilidade. */
 export const TIPOS_ORIGEM = ['autoral', 'ia', 'internet', 'edicao-oficial'] as const
 export type TipoOrigem = (typeof TIPOS_ORIGEM)[number]
@@ -66,6 +92,7 @@ export interface Historia {
   situacao: string
   solucao: string
   fatosChave: FatoChave[]
+  colecao: Colecao
   dificuldade: Dificuldade
   temas: Tema[]
   /**

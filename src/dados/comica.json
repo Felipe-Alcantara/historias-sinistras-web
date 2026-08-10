@@ -1,0 +1,66 @@
+[
+  {
+    "id": "base-plantao-noturno",
+    "titulo": "Plantão noturno",
+    "situacao": "Um segurança de museu liga para a diretora às três da manhã e avisa que sonhou com um assalto à galeria principal. Ela agradece pelo aviso e, no dia seguinte, o demite. Nenhum assalto aconteceu.",
+    "solucao": "Ele estava dormindo no plantão. Para sonhar, precisava estar dormindo — e o turno dele era justamente aquele.",
+    "fatosChave": [
+      {
+        "id": "plantao-1",
+        "texto": "O conteúdo do sonho não importa."
+      },
+      {
+        "id": "plantao-2",
+        "texto": "Ele estava trabalhando naquele horário."
+      },
+      {
+        "id": "plantao-3",
+        "texto": "Sonhar prova que ele dormiu em serviço."
+      }
+    ],
+    "dificuldade": "facil",
+    "temas": [
+      "cotidiano",
+      "humor-negro"
+    ],
+    "avisosConteudo": [],
+    "duracaoMin": 10,
+    "origem": {
+      "tipo": "autoral",
+      "referencia": "Escrita para este projeto"
+    },
+    "colecao": "comica"
+  },
+  {
+    "id": "base-senha-errada",
+    "titulo": "A senha errada",
+    "situacao": "Um analista digita a senha errada de propósito, três vezes seguidas, e com isso salva a empresa de um prejuízo milionário.",
+    "solucao": "Ele percebeu que estava sendo observado por alguém atrás dele. Errar três vezes bloqueia a conta por vinte e quatro horas — tempo suficiente para avisar a segurança sem que o observador conseguisse usar a senha correta que teria acabado de ver.",
+    "fatosChave": [
+      {
+        "id": "senha-1",
+        "texto": "Alguém estava vendo o teclado."
+      },
+      {
+        "id": "senha-2",
+        "texto": "Errar de propósito impede que a senha certa seja vista."
+      },
+      {
+        "id": "senha-3",
+        "texto": "O bloqueio automático deu tempo de acionar a segurança."
+      }
+    ],
+    "dificuldade": "media",
+    "temas": [
+      "tecnologia",
+      "crime"
+    ],
+    "avisosConteudo": [],
+    "duracaoMin": 15,
+    "origem": {
+      "tipo": "autoral",
+      "referencia": "Escrita para este projeto"
+    },
+    "colecao": "comica"
+  }
+]

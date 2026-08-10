@@ -1,0 +1,73 @@
+@import 'tailwindcss';
+
+/*
+ * Identidade visual: "sala de interrogatorio".
+ * Base quase preta e fria; brasa (ambar) e a cor do enigma, o lado que todos veem;
+ * sangue (vermelho) e a cor do segredo, reservada ao que so o mestre pode ler.
+ * A separacao das duas cores e semantica, nao decorativa: se algo esta em sangue,
+ * e spoiler.
+ */
+@theme {
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+
+  --color-cena-950: #08080a;
+  --color-cena-900: #101014;
+  --color-cena-800: #18181d;
+  --color-cena-700: #26262e;
+
+  --color-brasa-300: #fcd34d;
+  --color-brasa-400: #fbbf24;
+  --color-brasa-500: #f59e0b;
+  --color-brasa-600: #d97706;
+
+  --color-sangue-300: #fca5a5;
+  --color-sangue-500: #ef4444;
+  --color-sangue-600: #dc2626;
+  --color-sangue-700: #b91c1c;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background:
+      radial-gradient(120% 80% at 50% -10%, rgba(245, 158, 11, 0.08), transparent 60%),
+      radial-gradient(90% 60% at 50% 110%, rgba(185, 28, 28, 0.07), transparent 60%),
+      var(--color-cena-950);
+    color: var(--color-zinc-100);
+    font-family: var(--font-display);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* O jogo circula de mao em mao: seleção acidental de texto atrapalha mais do que ajuda. */
+  button {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  ::selection {
+    background: var(--color-brasa-500);
+    color: #000;
+  }
+}
+
+@layer utilities {
+  /* Superficie padrao de carta e paineis. */
+  .superficie {
+    background: color-mix(in oklab, var(--color-cena-900) 82%, transparent);
+    backdrop-filter: blur(8px);
+  }
+
+  /* Respiro para o notch e a barra de gestos no celular. */
+  .area-segura {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .preserva-quebras {
+    white-space: pre-wrap;
+  }
+}

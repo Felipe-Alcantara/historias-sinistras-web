@@ -135,7 +135,10 @@ a única cópia das histórias escritas, os testes cobrem as formas reais de per
 [2026-08-10] ✅ `baralhoBase` — nenhuma carta descartada, sem id repetido, sem solução vazada na
 frente, mínimo de três fatos-chave por carta.
 
-Total em 2026-08-10: **38 testes, todos passando**. Lint limpo, build de produção em ~1s.
+[2026-08-10] ✅ `App` (fumaça) — o app monta, sorteia, mostra a frente da carta, exige
+confirmação antes do verso, conta perguntas e abre a biblioteca com o baralho inteiro.
+
+Total em 2026-08-10: **44 testes, todos passando**. Lint limpo, build de produção em ~1s.
 
 ---
 

@@ -29,7 +29,9 @@ describe('baralho base', () => {
   it('toda carta tem os dois lados preenchidos', () => {
     for (const historia of BARALHO_BASE) {
       expect(historia.situacao.length, `${historia.id} sem situação`).toBeGreaterThan(20)
-      expect(historia.solucao.length, `${historia.id} sem solução`).toBeGreaterThan(20)
+      // O limite do verso é menor de propósito: existem cartas cuja graça está
+      // numa revelação de uma frase só. O teste pega esboço vazio, não concisão.
+      expect(historia.solucao.length, `${historia.id} sem solução`).toBeGreaterThan(12)
     }
   })
 

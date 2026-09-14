@@ -133,7 +133,13 @@ export function TelaInicio({
           {DIFICULDADES.map((dificuldade) => {
             const ativa = preferencias.dificuldades.includes(dificuldade)
             return (
-              <button key={dificuldade} type="button" onClick={() => aoAlternarDificuldade(dificuldade)}>
+              <button
+                key={dificuldade}
+                type="button"
+                aria-pressed={ativa}
+                onClick={() => aoAlternarDificuldade(dificuldade)}
+                className="min-h-11 touch-manipulation rounded-xl px-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brasa-400"
+              >
                 <Selo tom={ativa ? 'brasa' : 'neutro'}>{dificuldade}</Selo>
               </button>
             )
@@ -147,7 +153,13 @@ export function TelaInicio({
           {TEMAS.map((tema) => {
             const ativo = preferencias.temas.includes(tema)
             return (
-              <button key={tema} type="button" onClick={() => aoAlternarTema(tema)}>
+              <button
+                key={tema}
+                type="button"
+                aria-pressed={ativo}
+                onClick={() => aoAlternarTema(tema)}
+                className="min-h-11 touch-manipulation rounded-xl px-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brasa-400"
+              >
                 <Selo tom={ativo ? 'brasa' : 'neutro'}>{tema}</Selo>
               </button>
             )

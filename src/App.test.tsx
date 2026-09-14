@@ -54,6 +54,19 @@ describe('fluxo principal', () => {
     expect(screen.getByText(/O que o grupo já descobriu/i)).toBeInTheDocument()
   })
 
+  it('mostra quando o checklist inteiro foi descoberto', () => {
+    comecarPartida()
+
+    fireEvent.click(screen.getByRole('button', { name: /Ver a solução/i }))
+    fireEvent.click(screen.getByRole('button', { name: /Sou o mestre/i }))
+
+    const fatos = screen.getAllByRole('button', { pressed: false })
+    expect(fatos.length).toBeGreaterThanOrEqual(3)
+    for (const fato of fatos) fireEvent.click(fato)
+
+    expect(screen.getByRole('status')).toHaveTextContent(/História resolvida/i)
+  })
+
   it('conta as respostas dadas pelo mestre', () => {
     comecarPartida()
 

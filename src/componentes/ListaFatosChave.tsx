@@ -37,7 +37,8 @@ export function ListaFatosChave({
               onClick={() => aoAlternar(fato.id)}
               aria-pressed={marcado}
               className={[
-                'flex w-full items-start gap-3 rounded-2xl border px-3 py-2.5 text-left transition-colors',
+                'flex min-h-11 w-full items-start gap-3 rounded-2xl border px-3 py-2.5 text-left transition-colors',
+                'touch-manipulation focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brasa-400',
                 marcado
                   ? 'border-emerald-500/30 bg-emerald-500/10'
                   : 'border-white/10 bg-white/[0.02] hover:bg-white/5',

@@ -80,6 +80,14 @@ export function TelaRodada({
               {rodada.fatosMarcados.length}/{rodada.historia.fatosChave.length}
             </span>
           </div>
+          {resolvida ? (
+            <p
+              role="status"
+              className="mb-3 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-200"
+            >
+              História resolvida. O mestre já pode ler a solução em voz alta.
+            </p>
+          ) : null}
           <ListaFatosChave
             fatos={rodada.historia.fatosChave}
             marcados={rodada.fatosMarcados}

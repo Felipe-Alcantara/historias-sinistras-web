@@ -26,8 +26,14 @@ NOTA SOBRE O CONTEUDO DAS HISTORIAS
 
 A licenca MIT acima cobre o CODIGO deste repositorio.
 
-O baralho pode conter enigmas transcritos de obras de terceiros, cujos direitos
-pertencem aos respectivos autores e editoras. Cada historia carrega um campo
-`origem` indicando sua procedencia. Historias de terceiros nao sao licenciadas
-por este projeto: se voce e detentor de direitos e quer que uma historia saia
-do baralho, abra uma issue e ela sera removida.
+O baralho pode conter enigmas associados a obras ou fontes de terceiros, cujos
+direitos pertencem aos respectivos autores e editoras. Cada historia carrega
+um campo `origem`, mas a referencia pode estar vazia e esse campo nao prova
+dominio publico, licenca ou verificacao factual. Historias de terceiros nao
+sao licenciadas por este projeto: se voce e detentor de direitos e quer que
+uma historia saia do baralho, abra uma issue e ela sera removida.
+
+O formato se inspira em Black Stories, criado por Holger Bosch e localizado no
+Brasil como Historias Sinistras pela Galapagos Jogos. A documentacao de regras
+da moses identifica a obra original e reserva seus direitos:
+https://www.moses-verlag.de/media/48/68/02/1599659367/212-0_black_stories_Anleitung_web.pdf

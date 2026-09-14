@@ -36,8 +36,8 @@ dependências e avisa, em linguagem clara, o que estiver faltando.
 | --- | --- | --- |
 | **Cômicas** | 100 | Mortes bobas, coincidências ridículas e finais que arrancam riso nervoso. |
 | **Pesadas** | 100 | Crime, violência e desfechos duros. É o tom clássico do gênero. |
-| **Casos reais** | 100 | Inspiradas em acidentes, casos policiais e episódios históricos que aconteceram. |
-| **Da internet** | 100 | Enigmas de raciocínio lateral que circulam há décadas em fóruns e listas. |
+| **Casos reais** | 100 | Cartas editoriais inspiradas em acidentes, casos policiais e episódios históricos; as referências precisam ser conferidas antes de uso como fonte factual. |
+| **Da internet** | 100 | Enigmas de raciocínio lateral associados a versões que circulam em fóruns e listas. |
 | **Creepypasta** | 100 | Terror de internet, com explicação concreta o bastante para o grupo chegar lá. |
 
 Por padrão o sorteio **mistura todas**. Marcar uma ou mais coleções na tela inicial restringe o
@@ -154,16 +154,22 @@ carta malformada de entrar no baralho.
 
 O **código** deste repositório está sob licença MIT.
 
-As **histórias** têm procedências diferentes, registradas no campo `origem` de cada carta:
-enigmas clássicos de domínio público, casos reais com a referência que os inspirou (sem nomear
-vítimas), e textos originais escritos para o projeto ou gerados por IA e revisados.
+As **histórias** têm rótulos editoriais de procedência no campo `origem` de cada carta: textos
+autorais, geração por IA, referências de internet ou casos reais. Esse campo é transparência
+editorial; não é, por si só, prova de domínio público, licença de uso ou verificação factual. A
+auditoria de 14/09/2026 encontrou 289 cartas com `origem.referencia` vazia. Os detalhes e as
+pendências estão em [AUDITORIA.md](AUDITORIA.md).
 
 Se você é detentor de direitos sobre algum conteúdo do baralho e quer que ele saia, abra uma
 issue e a carta será removida.
 
-O jogo se inspira no formato de *black stories*, criado por Holger Bösch e publicado no Brasil
-como *Histórias Sinistras* pela Galápagos Jogos. Este projeto não tem qualquer vínculo com os
-autores ou editoras originais.
+O jogo se inspira no formato de *Black Stories*, criado por Holger Bösch e localizado no Brasil
+como *Histórias Sinistras* pela Galápagos Jogos — veja a [descrição editorial da série pela
+Galápagos](https://lojistagalapagosjogos.wordpress.com/2021/07/02/historias-sinistras-black-stories/).
+Este projeto não tem qualquer vínculo com autores, editoras ou detentores de direitos das obras
+originais, nem afirma que suas cartas estejam licenciadas ou em domínio público. A mecânica de
+perguntas é uma inspiração de formato; o texto de cada carta precisa ter procedência e revisão
+próprias.
 
 ---
 

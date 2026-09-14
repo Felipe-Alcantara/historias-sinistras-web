@@ -251,3 +251,38 @@ e histórias continuam persistidos.
 
 > Projeto iniciado em 2026-08-10, seguindo o padrão de qualidade **Felixo System Design**.
 > Origem do padrão: https://github.com/Felipe-Alcantara/Felixo-System-Design
+
+---
+
+## [2026-09-14] Auditoria editorial e continuidade
+
+Foi executada uma auditoria somente leitura do baralho publicado em `src/dados/`, com o script
+`python scripts/auditar_baralho.py` e amostra determinística das posições 1, 20, 40, 60, 80 e
+100 de cada coleção. O resultado atual é 500 cartas, 100 por coleção, sem ids, títulos,
+situações ou soluções repetidos após normalização local, sem solução completa vazada na frente e
+com 3–4 fatos-chave por carta.
+
+O principal achado editorial foi a existência de **289 cartas com `origem.referencia` vazia**:
+98 em Cômicas, 97 em Pesadas e 94 em Creepypasta. A coleção Casos reais tem 100 referências
+preenchidas, mas a amostra não constitui checagem factual carta a carta. A coleção Da internet
+usa 38 rótulos de “enigma clássico de domínio público” e 62 de “variação de enigma clássico”;
+essa etiqueta não é prova de domínio público ou licença e a decisão de direitos ficou registrada
+como pendência.
+
+Para dar continuidade ao uso no celular, os filtros de dificuldade/tema e o checklist receberam
+alvos de toque maiores, foco visível e estado acessível; a rodada agora anuncia quando todos os
+fatos foram descobertos. `src/dados/baralhoBase.test.ts` passou a exigir exatamente 500 cartas,
+100 por coleção e unicidade textual normalizada. O relatório completo e os limites da revisão
+estão em `AUDITORIA.md`.
+
+**Correção de contexto:** a nota histórica acima que descreve “as 200 atuais” como clássicos de
+domínio público não deve ser usada como conclusão sobre o baralho atual. Ela foi preservada por
+regra de memória do projeto; README e LICENSE agora qualificam a procedência, a inspiração em
+*Black Stories* e a ausência de licença presumida. Referências consultadas: descrição editorial
+da Galápagos (https://lojistagalapagosjogos.wordpress.com/2021/07/02/historias-sinistras-black-stories/)
+e regras da moses
+(https://www.moses-verlag.de/media/48/68/02/1599659367/212-0_black_stories_Anleitung_web.pdf).
+
+Ainda falta uma partida presencial com grupo. Foram abertas tarefas para essa validação, para a
+origem das 289 cartas sem referência, para a revisão factual dos casos reais, para a decisão de
+direitos da coleção Da internet e para a validação em aparelho físico.

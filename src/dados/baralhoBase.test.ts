@@ -17,8 +17,9 @@ describe('baralho base', () => {
   it('tem histórias em todas as cinco coleções', () => {
     const contagem = contarPorColecao()
     for (const colecao of COLECOES) {
-      expect(contagem[colecao], `coleção ${colecao} está vazia`).toBeGreaterThan(0)
+      expect(contagem[colecao], `coleção ${colecao} deve ter 100 histórias`).toBe(100)
     }
+    expect(BARALHO_BASE).toHaveLength(500)
   })
 
   it('não repete identificador entre coleções', () => {
@@ -42,10 +43,34 @@ describe('baralho base', () => {
   })
 
   it('a solução nunca aparece dentro da situação', () => {
+    const normalizar = (texto: string) =>
+      texto
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLocaleLowerCase('pt-BR')
+        .replace(/\s+/g, ' ')
+        .trim()
+
     for (const historia of BARALHO_BASE) {
-      expect(historia.situacao.includes(historia.solucao), `${historia.id} entrega a solução na frente`).toBe(
-        false,
-      )
+      expect(
+        normalizar(historia.situacao).includes(normalizar(historia.solucao)),
+        `${historia.id} entrega a solução na frente`,
+      ).toBe(false)
+    }
+  })
+
+  it('não repete título, situação ou solução após normalizar texto', () => {
+    const normalizar = (texto: string) =>
+      texto
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLocaleLowerCase('pt-BR')
+        .replace(/\s+/g, ' ')
+        .trim()
+
+    for (const campo of ['titulo', 'situacao', 'solucao'] as const) {
+      const valores = BARALHO_BASE.map((historia) => normalizar(historia[campo]))
+      expect(new Set(valores).size, `${campo} repetido`).toBe(valores.length)
     }
   })
 })

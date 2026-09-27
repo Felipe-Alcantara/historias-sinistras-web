@@ -108,7 +108,12 @@ export function TelaRodada({
       )}
 
       <div className="area-segura space-y-2">
-        {!rodada.revelada ? (
+        {/*
+          Revelar leva ao verso. Na frente, seria um atalho de um toque que
+          pula a confirmação de "Ver a solução" — justamente o toque sem
+          querer que a confirmação existe para evitar.
+        */}
+        {noVerso && !rodada.revelada ? (
           <Botao
             variante={resolvida ? 'primario' : 'contorno'}
             tamanho="bloco"

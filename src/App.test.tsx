@@ -79,6 +79,23 @@ describe('fluxo principal', () => {
     expect(screen.queryByText(historia.situacao)).not.toBeInTheDocument()
   })
 
+  it('na frente não existe atalho para o verso que pule a confirmação', () => {
+    comecarPartida()
+    const historia = historiaNaTela()
+
+    // "Ler a solução em voz alta" também leva ao verso: na frente, um toque
+    // sem querer ao passar o aparelho entregaria o segredo.
+    expect(screen.queryByRole('button', { name: /Ler a solução em voz alta/i })).not.toBeInTheDocument()
+    expect(screen.queryByText(historia.solucao)).not.toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: /Ver a solução/i }))
+    fireEvent.click(screen.getByRole('button', { name: /Sou o mestre/i }))
+    fireEvent.click(screen.getByRole('button', { name: /Ler a solução em voz alta/i }))
+
+    expect(screen.getByText('Solução revelada')).toBeInTheDocument()
+    expect(screen.getByText(historia.solucao)).toBeInTheDocument()
+  })
+
   it('mostra quando o checklist inteiro foi descoberto', () => {
     comecarPartida()
 

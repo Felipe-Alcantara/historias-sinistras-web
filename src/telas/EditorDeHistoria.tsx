@@ -204,7 +204,13 @@ export function EditorDeHistoria({
           <Rotulo>Dificuldade</Rotulo>
           <div className="flex flex-wrap gap-2">
             {DIFICULDADES.map((dificuldade) => (
-              <button key={dificuldade} type="button" onClick={() => alterar('dificuldade', dificuldade)}>
+              <button
+                key={dificuldade}
+                type="button"
+                aria-pressed={rascunho.dificuldade === dificuldade}
+                onClick={() => alterar('dificuldade', dificuldade)}
+                className="min-h-11 touch-manipulation rounded-xl px-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brasa-400"
+              >
                 <Selo tom={rascunho.dificuldade === dificuldade ? 'brasa' : 'neutro'}>{ROTULO_DIFICULDADE[dificuldade]}</Selo>
               </button>
             ))}
@@ -220,6 +226,8 @@ export function EditorDeHistoria({
                 <button
                   key={tema}
                   type="button"
+                  aria-pressed={ativo}
+                  className="min-h-11 touch-manipulation rounded-xl px-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brasa-400"
                   onClick={() =>
                     alterar('temas', ativo ? rascunho.temas.filter((t) => t !== tema) : [...rascunho.temas, tema])
                   }

@@ -35,7 +35,7 @@ export function Botao({ variante = 'contorno', tamanho = 'md', className = '', .
     <button
       {...props}
       className={[
-        'inline-flex items-center justify-center gap-2 rounded-2xl border font-medium',
+        'inline-flex items-center justify-center gap-2 rounded-2xl border font-medium [&>svg]:shrink-0',
         'transition-colors disabled:cursor-not-allowed disabled:opacity-40',
         'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brasa-400',
         VARIANTES[variante],

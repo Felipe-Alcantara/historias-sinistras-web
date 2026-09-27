@@ -92,9 +92,11 @@ export function TelaBiblioteca({
 
       <h1 className="text-2xl font-bold">Biblioteca</h1>
 
-      <div className="grid grid-cols-3 gap-2">
+      {/* Tres botoes numa linha de 360 px espremiam os icones ate sumirem. */}
+      <div className="grid grid-cols-2 gap-2">
         <Botao
           variante="primario"
+          className="col-span-2"
           onClick={() => {
             setEmEdicao(null)
             setEditorAberto(true)

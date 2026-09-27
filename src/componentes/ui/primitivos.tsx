@@ -78,7 +78,7 @@ export function Selo({
 
 const CAMPO_BASE =
   'w-full rounded-xl border border-white/10 bg-cena-800/70 px-3 py-2.5 text-sm text-zinc-100 ' +
-  'placeholder:text-zinc-500 outline-none focus:border-brasa-500/60 focus:ring-2 focus:ring-brasa-500/20'
+  'placeholder:text-zinc-400 outline-none focus:border-brasa-500/60 focus:ring-2 focus:ring-brasa-500/20'
 
 export function Campo({ className = '', ...props }: InputHTMLAttributes<HTMLInputElement>) {
   return <input {...props} className={`${CAMPO_BASE} ${className}`} />
@@ -92,7 +92,7 @@ export function Rotulo({ children, dica }: { children: ReactNode; dica?: string 
   return (
     <label className="mb-1.5 block">
       <span className="text-xs font-medium tracking-wide text-zinc-300 uppercase">{children}</span>
-      {dica ? <span className="mt-0.5 block text-xs text-zinc-500 normal-case">{dica}</span> : null}
+      {dica ? <span className="mt-0.5 block text-xs text-zinc-400 normal-case">{dica}</span> : null}
     </label>
   )
 }
@@ -119,7 +119,7 @@ export function Alternador({
     >
       <span>
         <span className="block text-sm text-zinc-100">{rotulo}</span>
-        {descricao ? <span className="mt-0.5 block text-xs text-zinc-500">{descricao}</span> : null}
+        {descricao ? <span className="mt-0.5 block text-xs text-zinc-400">{descricao}</span> : null}
       </span>
       <span
         className={`relative h-6 w-11 shrink-0 rounded-full transition-colors ${ativo ? 'bg-brasa-500' : 'bg-zinc-700'}`}
@@ -144,7 +144,7 @@ export function Vazio({ titulo, children }: { titulo: string; children?: ReactNo
   return (
     <div className="rounded-3xl border border-dashed border-white/10 px-6 py-10 text-center">
       <p className="text-sm font-medium text-zinc-300">{titulo}</p>
-      {children ? <div className="mt-2 text-xs text-zinc-500">{children}</div> : null}
+      {children ? <div className="mt-2 text-xs text-zinc-400">{children}</div> : null}
     </div>
   )
 }

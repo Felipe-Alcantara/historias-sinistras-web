@@ -64,7 +64,7 @@ export function TelaInicio({
             <p className="text-xs tracking-wide text-zinc-400 uppercase">Neste recorte</p>
             <p className="mt-1 text-2xl font-bold tabular-nums">
               {progresso.restantes}
-              <span className="ml-1.5 text-sm font-normal text-zinc-500">
+              <span className="ml-1.5 text-sm font-normal text-zinc-400">
                 de {progresso.total} inéditas
               </span>
             </p>
@@ -117,12 +117,12 @@ export function TelaInicio({
                 <span className={`block text-sm font-medium ${ativa ? 'text-brasa-300' : 'text-zinc-100'}`}>
                   {ROTULO_COLECAO[colecao]}
                 </span>
-                <span className="mt-0.5 block text-xs text-zinc-500">{DESCRICAO_COLECAO[colecao]}</span>
+                <span className="mt-0.5 block text-xs text-zinc-400">{DESCRICAO_COLECAO[colecao]}</span>
               </button>
             )
           })}
         </div>
-        <p className="mt-2 text-xs text-zinc-500">
+        <p className="mt-2 text-xs text-zinc-400">
           Sem nada marcado, o sorteio mistura todas as coleções.
         </p>
       </section>
@@ -165,7 +165,7 @@ export function TelaInicio({
             )
           })}
         </div>
-        <p className="mt-2 text-xs text-zinc-500">Sem nada marcado, o baralho inteiro entra no sorteio.</p>
+        <p className="mt-2 text-xs text-zinc-400">Sem nada marcado, o baralho inteiro entra no sorteio.</p>
       </section>
 
       <section className="space-y-2">
@@ -185,7 +185,7 @@ export function TelaInicio({
 
       <Botao tamanho="bloco" onClick={aoAbrirBiblioteca}>
         <Library size={18} /> Biblioteca
-        <span className="text-xs text-zinc-500">
+        <span className="text-xs text-zinc-400">
           {totalPersonalizadas > 0 ? `${totalPersonalizadas} suas` : 'criar e importar'}
         </span>
       </Botao>

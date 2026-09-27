@@ -85,7 +85,7 @@ export function TelaBiblioteca({
         <Botao tamanho="sm" variante="fantasma" onClick={aoVoltar}>
           <ArrowLeft size={16} /> Início
         </Botao>
-        <span className="text-xs text-zinc-500">
+        <span className="text-xs text-zinc-400">
           {baralhoBase.length + estado.personalizadas.length} histórias
         </span>
       </header>

@@ -76,7 +76,7 @@ export function TelaRodada({
         <Cartao className="p-5">
           <div className="mb-3 flex items-center justify-between gap-3">
             <h2 className="text-sm font-bold">O que o grupo já descobriu</h2>
-            <span className="text-xs tabular-nums text-zinc-500">
+            <span className="text-xs tabular-nums text-zinc-400">
               {rodada.fatosMarcados.length}/{rodada.historia.fatosChave.length}
             </span>
           </div>
@@ -101,7 +101,7 @@ export function TelaRodada({
             contagem={rodada.contagem}
             aoResponder={(resposta) => aoAgir({ tipo: 'registrarResposta', resposta })}
           />
-          <p className="mt-3 text-xs text-zinc-500">
+          <p className="mt-3 text-xs text-zinc-400">
             O contador é só um registro da partida — quem responde em voz alta é o mestre.
           </p>
         </Cartao>

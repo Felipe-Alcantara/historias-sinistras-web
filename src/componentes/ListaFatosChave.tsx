@@ -20,7 +20,7 @@ export function ListaFatosChave({
 }) {
   if (fatos.length === 0) {
     return (
-      <p className="text-xs text-zinc-500">
+      <p className="text-xs text-zinc-400">
         Esta história não tem fatos-chave cadastrados. O mestre decide quando o grupo chegou lá.
       </p>
     )

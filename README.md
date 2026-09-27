@@ -103,7 +103,43 @@ No menu: **Ferramentas → Gerar histórias com IA**. Antes disso, em **Configur
 chave da API — ela fica só no `.env` local, que está no `.gitignore` e nunca vai para o build.
 
 O script escreve direto no arquivo da coleção escolhida, evita repetir enredos já existentes e
-grava uma história por linha, para o diff mostrar exatamente o que entrou.
+grava uma história por linha, para o diff mostrar exatamente o que entrou. Ao mesclar um lote, o
+menu também avisa quando uma carta nova tem premissa parecida com outra do baralho — quem já
+resolveu uma resolveria a outra na primeira pergunta.
+
+---
+
+## Corrigir cartas do baralho
+
+Carta que já existe se corrige por revisão, não editando o JSON à mão. Escreva um arquivo com a
+lista do que muda, carta por carta, sempre com o motivo:
+
+```json
+[
+  {
+    "id": "com-014",
+    "motivo": "a situação dizia 'rua' e a solução, 'rodovia'",
+    "campos": { "situacao": "...", "solucao": "...", "fatosChave": ["...", "...", "..."] }
+  }
+]
+```
+
+No menu: **Ferramentas → Aplicar revisão editorial**. A ferramenta mostra o que mudaria, confere
+vocabulário e limites do app, recusa título repetido e solução que aparece inteira na frente, e só
+grava depois da confirmação — tudo ou nada. Rodar a mesma revisão duas vezes não muda nada na
+segunda. Uso direto: `python scripts/aplicar_revisao.py revisao.json --aplicar`.
+
+**Ferramentas → Auditar o baralho** confere a estrutura, conta as procedências vazias e lista os
+pares de cartas com premissa parecida para alguém ler.
+
+Na hora de escrever ou corrigir uma carta, o que costuma quebrar o enigma:
+
+- a frente afirmar algo que o verso desmente (a frente pode enganar pela omissão, nunca pela
+  mentira);
+- a solução depender de um detalhe que nenhuma pergunta de sim ou não alcança;
+- o título ou o aviso de conteúdo entregarem a resposta — aviso existe para conteúdo sensível
+  (morte, violência, suicídio, luto...), não para nomear o mecanismo do enigma;
+- a mesma premissa já existir em outra carta.
 
 ---
 
@@ -123,7 +159,7 @@ src/
 ├── componentes/     peças visuais reutilizáveis
 ├── telas/           início, rodada e biblioteca
 └── ganchos/         ponte entre React e as camadas acima
-scripts/             ferramentas de linha de comando (gerador, utilidades)
+scripts/             linha de comando: gerador, mesclador, revisão por id, auditoria
 start_app.py         menu de entrada do projeto
 ```
 
@@ -142,11 +178,18 @@ npm run test     # Vitest
 npm run build    # TypeScript estrito + build de produção
 ```
 
+Para o conteúdo, `python scripts/auditar_baralho.py` (também em **Ferramentas**) confere a
+estrutura do baralho e falha se duas cartas contarem praticamente a mesma história.
+
 Os testes cobrem a regra que este projeto trata como crítica: **dado salvo não se perde**.
 Conteúdo ilegível é preservado numa chave de resgate antes de qualquer sobrescrita, gravação que
 falha devolve erro visível em vez de fingir sucesso, e importar nunca substitui o que já existe.
-Há também testes de sorteio sem repetição, de validação de pacote e um guarda-corpo que impede
-carta malformada de entrar no baralho.
+
+Também cobrem as regras da partida: o sorteio não repete carta enquanto houver inédita — nem ao
+trocar de filtro —, o texto da solução nunca aparece na frente e não existe caminho até o verso
+que pule a confirmação do mestre, e a história só conta como resolvida com todos os fatos-chave.
+Há ainda testes de validação de pacote e um guarda-corpo que impede carta malformada, repetida ou
+com a solução vazada de entrar no baralho.
 
 ---
 
@@ -156,9 +199,13 @@ O **código** deste repositório está sob licença MIT.
 
 As **histórias** têm rótulos editoriais de procedência no campo `origem` de cada carta: textos
 autorais, geração por IA, referências de internet ou casos reais. Esse campo é transparência
-editorial; não é, por si só, prova de domínio público, licença de uso ou verificação factual. A
-auditoria de 14/09/2026 encontrou 289 cartas com `origem.referencia` vazia. Os detalhes e as
-pendências estão em [AUDITORIA.md](AUDITORIA.md).
+editorial; não é, por si só, prova de domínio público, licença de uso ou verificação factual.
+
+Em 27/09/2026 as 500 cartas foram lidas uma a uma e 179 foram corrigidas: frente que contradizia
+o verso, solução que não fechava, erro factual, título ou aviso que entregava a resposta e
+premissas repetidas. Ainda há 281 cartas com `origem.referencia` vazia, e as referências de Casos
+reais não substituem uma checagem factual carta a carta. Os detalhes e as pendências estão em
+[AUDITORIA.md](AUDITORIA.md).
 
 Se você é detentor de direitos sobre algum conteúdo do baralho e quer que ele saia, abra uma
 issue e a carta será removida.

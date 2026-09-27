@@ -25,3 +25,6 @@ Thumbs.db
 coverage/
 *.log
 npm-debug.log*
+
+# cache incremental do TypeScript (tsc -b): muda a cada build
+*.tsbuildinfo

@@ -53,8 +53,9 @@ export interface Sorteio {
   /** Historico atualizado, ja incluindo a carta sorteada. */
   idsJogados: string[]
   /**
-   * Verdadeiro quando o baralho acabou e o historico foi zerado para recomecar.
-   * A interface usa isso para avisar que a partir daqui as historias repetem.
+   * Verdadeiro quando o recorte acabou e o historico dele foi zerado para
+   * recomecar. A interface usa isso para avisar que a partir daqui as
+   * historias repetem.
    */
   cicloReiniciado: boolean
 }
@@ -62,8 +63,9 @@ export interface Sorteio {
 /**
  * Sorteia a proxima carta sem repetir enquanto houver carta inedita.
  *
- * Quando todas ja sairam, o historico e reiniciado e o ciclo recomeca — mas a
- * carta recem-jogada e evitada, para nunca cair a mesma duas vezes seguidas.
+ * Quando todas ja sairam, o historico do recorte e reiniciado e o ciclo
+ * recomeca — mas a carta recem-jogada e evitada, para nunca cair a mesma duas
+ * vezes seguidas. Cartas jogadas com outro filtro continuam no historico.
  */
 export function sortearProxima(
   disponiveis: readonly Historia[],
@@ -90,7 +92,11 @@ export function sortearProxima(
   const ultima = idsJogados[idsJogados.length - 1]
   const candidatas = disponiveis.length > 1 ? disponiveis.filter((h) => h.id !== ultima) : disponiveis
   const escolhida = sortearUma(candidatas, aleatorio)
-  return { historia: escolhida, idsJogados: [escolhida.id], cicloReiniciado: true }
+  // So o historico deste recorte e zerado. Apagar tudo faria as cartas jogadas
+  // com outro filtro voltarem como ineditas quando o filtro mudasse.
+  const idsDoRecorte = new Set(disponiveis.map((historia) => historia.id))
+  const deOutrosRecortes = idsJogados.filter((id) => !idsDoRecorte.has(id))
+  return { historia: escolhida, idsJogados: [...deOutrosRecortes, escolhida.id], cicloReiniciado: true }
 }
 
 function sortearUma(historias: readonly Historia[], aleatorio: Aleatorio): Historia {

@@ -37,6 +37,21 @@ describe('sorteio sem repeticao', () => {
     expect(sorteio.historia?.id).not.toBe('h3')
   })
 
+  it('ao reiniciar um recorte, preserva o historico das cartas jogadas com outro filtro', () => {
+    const baralho = criarBaralho(4)
+    const recorte = baralho.slice(0, 2)
+    // h3 e h4 sairam com o baralho completo; depois o recorte h1/h2 se esgotou.
+    const reinicio = sortearProxima(recorte, ['h3', 'h4', 'h1', 'h2'], aleatorioFixo(0.5))
+
+    expect(reinicio.cicloReiniciado).toBe(true)
+    expect(reinicio.idsJogados).toEqual(expect.arrayContaining(['h3', 'h4']))
+
+    // De volta ao baralho completo, h3 e h4 nao podem voltar antes da inedita h2.
+    const seguinte = sortearProxima(baralho, reinicio.idsJogados, aleatorioFixo(0.5))
+    expect(seguinte.historia?.id).toBe('h2')
+    expect(seguinte.cicloReiniciado).toBe(false)
+  })
+
   it('devolve null quando o filtro nao deixou nenhuma historia', () => {
     const sorteio = sortearProxima([], [])
 

@@ -11,7 +11,7 @@ import { useMemo, useState } from 'react'
 import { AreaTexto, Aviso, Botao, Cartao, Campo, Selo, Vazio } from '../componentes/ui/primitivos'
 import { Modal } from '../componentes/ui/Modal'
 import { EditorDeHistoria } from './EditorDeHistoria'
-import { ROTULO_COLECAO, type Historia } from '../dominio/tipos'
+import { ROTULO_COLECAO, ROTULO_DIFICULDADE, type Historia } from '../dominio/tipos'
 import { exportarPacote, importarPacote, nomeDoArquivo } from '../armazenamento/portabilidade'
 import type { EstadoSalvo } from '../armazenamento/persistencia'
 
@@ -134,7 +134,7 @@ export function TelaBiblioteca({
                       <p className="mt-1 line-clamp-2 text-xs text-zinc-400">{historia.situacao}</p>
                       <div className="mt-2 flex flex-wrap gap-1.5">
                         <Selo tom="brasa">{ROTULO_COLECAO[historia.colecao]}</Selo>
-                        <Selo>{historia.dificuldade}</Selo>
+                        <Selo>{ROTULO_DIFICULDADE[historia.dificuldade]}</Selo>
                         {minha ? <Selo tom="sangue">minha</Selo> : null}
                       </div>
                     </div>

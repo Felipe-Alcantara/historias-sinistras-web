@@ -11,7 +11,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { Eye, EyeOff, RotateCcw, ShieldAlert } from 'lucide-react'
 import { useState } from 'react'
-import type { Historia } from '../dominio/tipos'
+import { ROTULO_DIFICULDADE, ROTULO_TEMA, type Historia } from '../dominio/tipos'
 import type { LadoCarta } from '../dominio/partida'
 import { Botao, Selo } from './ui/primitivos'
 
@@ -82,9 +82,9 @@ export function CartaDeHistoria({
               {noVerso ? <ShieldAlert size={12} /> : <Eye size={12} />}
               {noVerso ? (revelada ? 'Solução revelada' : 'Só o mestre') : 'Para todos'}
             </Selo>
-            <Selo>{historia.dificuldade}</Selo>
+            <Selo>{ROTULO_DIFICULDADE[historia.dificuldade]}</Selo>
             {historia.temas.map((tema) => (
-              <Selo key={tema}>{tema}</Selo>
+              <Selo key={tema}>{ROTULO_TEMA[tema]}</Selo>
             ))}
           </div>
 

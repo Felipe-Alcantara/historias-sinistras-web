@@ -7,6 +7,13 @@
 export const DIFICULDADES = ['facil', 'media', 'dificil'] as const
 export type Dificuldade = (typeof DIFICULDADES)[number]
 
+/** Como a dificuldade aparece na tela: o id fica sem acento, o rotulo nao. */
+export const ROTULO_DIFICULDADE: Record<Dificuldade, string> = {
+  facil: 'fácil',
+  media: 'média',
+  dificil: 'difícil',
+}
+
 /** Assunto predominante da historia. Serve para filtrar o baralho. */
 export const TEMAS = [
   'crime',
@@ -20,6 +27,17 @@ export const TEMAS = [
 ] as const
 export type Tema = (typeof TEMAS)[number]
 
+export const ROTULO_TEMA: Record<Tema, string> = {
+  crime: 'crime',
+  acidente: 'acidente',
+  sobrenatural: 'sobrenatural',
+  misterio: 'mistério',
+  'humor-negro': 'humor negro',
+  historico: 'histórico',
+  tecnologia: 'tecnologia',
+  cotidiano: 'cotidiano',
+}
+
 /**
  * As quatro respostas que o mestre pode dar.
  *
@@ -32,9 +50,9 @@ export type Resposta = (typeof RESPOSTAS)[number]
 
 export const ROTULO_RESPOSTA: Record<Resposta, string> = {
   sim: 'Sim',
-  nao: 'Nao',
+  nao: 'Não',
   irrelevante: 'Irrelevante',
-  'quase-la': 'Quase la',
+  'quase-la': 'Quase lá',
 }
 
 /**

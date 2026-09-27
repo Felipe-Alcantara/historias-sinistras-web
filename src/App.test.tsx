@@ -10,6 +10,7 @@ import { describe, expect, it } from 'vitest'
 import { fireEvent, render, screen, within } from '@testing-library/react'
 import App from './App'
 import { BARALHO_BASE } from './dados/baralhoBase'
+import { ROTULO_DIFICULDADE } from './dominio/tipos'
 
 function comecarPartida() {
   render(<App />)
@@ -89,6 +90,15 @@ describe('fluxo principal', () => {
     for (const fato of fatos) fireEvent.click(fato)
 
     expect(screen.getByRole('status')).toHaveTextContent(/História resolvida/i)
+  })
+
+  it('mostra respostas e selos da carta com acentuação correta', () => {
+    comecarPartida()
+    const historia = historiaNaTela()
+
+    expect(screen.getByRole('button', { name: /^Não/ })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /^Quase lá/ })).toBeInTheDocument()
+    expect(screen.getByText(ROTULO_DIFICULDADE[historia.dificuldade])).toBeInTheDocument()
   })
 
   it('conta as respostas dadas pelo mestre', () => {

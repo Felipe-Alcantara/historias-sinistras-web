@@ -16,6 +16,8 @@ import {
   COLECOES,
   DIFICULDADES,
   ROTULO_COLECAO,
+  ROTULO_DIFICULDADE,
+  ROTULO_TEMA,
   TEMAS,
   type Colecao,
   type Dificuldade,
@@ -203,7 +205,7 @@ export function EditorDeHistoria({
           <div className="flex flex-wrap gap-2">
             {DIFICULDADES.map((dificuldade) => (
               <button key={dificuldade} type="button" onClick={() => alterar('dificuldade', dificuldade)}>
-                <Selo tom={rascunho.dificuldade === dificuldade ? 'brasa' : 'neutro'}>{dificuldade}</Selo>
+                <Selo tom={rascunho.dificuldade === dificuldade ? 'brasa' : 'neutro'}>{ROTULO_DIFICULDADE[dificuldade]}</Selo>
               </button>
             ))}
           </div>
@@ -222,7 +224,7 @@ export function EditorDeHistoria({
                     alterar('temas', ativo ? rascunho.temas.filter((t) => t !== tema) : [...rascunho.temas, tema])
                   }
                 >
-                  <Selo tom={ativo ? 'brasa' : 'neutro'}>{tema}</Selo>
+                  <Selo tom={ativo ? 'brasa' : 'neutro'}>{ROTULO_TEMA[tema]}</Selo>
                 </button>
               )
             })}

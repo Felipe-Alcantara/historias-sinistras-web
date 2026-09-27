@@ -11,6 +11,8 @@ import {
   DESCRICAO_COLECAO,
   DIFICULDADES,
   ROTULO_COLECAO,
+  ROTULO_DIFICULDADE,
+  ROTULO_TEMA,
   TEMAS,
   type Colecao,
   type Dificuldade,
@@ -140,7 +142,7 @@ export function TelaInicio({
                 onClick={() => aoAlternarDificuldade(dificuldade)}
                 className="min-h-11 touch-manipulation rounded-xl px-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brasa-400"
               >
-                <Selo tom={ativa ? 'brasa' : 'neutro'}>{dificuldade}</Selo>
+                <Selo tom={ativa ? 'brasa' : 'neutro'}>{ROTULO_DIFICULDADE[dificuldade]}</Selo>
               </button>
             )
           })}
@@ -160,7 +162,7 @@ export function TelaInicio({
                 onClick={() => aoAlternarTema(tema)}
                 className="min-h-11 touch-manipulation rounded-xl px-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brasa-400"
               >
-                <Selo tom={ativo ? 'brasa' : 'neutro'}>{tema}</Selo>
+                <Selo tom={ativo ? 'brasa' : 'neutro'}>{ROTULO_TEMA[tema]}</Selo>
               </button>
             )
           })}

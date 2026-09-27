@@ -24,6 +24,7 @@ from comum import (
     ids_existentes,
     ler_colecao,
 )
+from premissas import LIMIAR_REVISAO, pares_parecidos
 
 CAMPOS_OBRIGATORIOS = ("titulo", "situacao", "solucao")
 
@@ -35,6 +36,8 @@ class ResultadoMesclagem:
     id_repetido: int = 0
     enredo_repetido: int = 0
     invalidas: list[str] = field(default_factory=list)
+    # Avisos, não recusas: premissa parecida é sinal para leitura humana.
+    premissas_parecidas: list[str] = field(default_factory=list)
 
     def resumo(self) -> str:
         partes = [f"{self.adicionadas} adicionada(s)"]
@@ -44,6 +47,8 @@ class ResultadoMesclagem:
             partes.append(f"{self.enredo_repetido} com título repetido")
         if self.invalidas:
             partes.append(f"{len(self.invalidas)} inválida(s)")
+        if self.premissas_parecidas:
+            partes.append(f"{len(self.premissas_parecidas)} par(es) com premissa parecida para revisar")
         return ", ".join(partes)
 
 
@@ -100,6 +105,11 @@ def mesclar(colecao: str, caminho_lote: Path) -> ResultadoMesclagem:
 
     if novas:
         gravar_colecao(colecao, atuais + novas)
+        baralho = [historia for nome in COLECOES for historia in ler_colecao(nome)]
+        ids_novos = {str(historia["id"]) for historia in novas}
+        resultado.premissas_parecidas = [
+            par.descricao() for par in pares_parecidos(baralho, LIMIAR_REVISAO, so_com_ids=ids_novos)
+        ]
     resultado.adicionadas = len(novas)
     return resultado
 
@@ -118,6 +128,8 @@ def _principal() -> int:
     print(resultado.resumo())
     for problema in resultado.invalidas:
         print(f"  ignorada — {problema}")
+    for par in resultado.premissas_parecidas:
+        print(f"  revisar premissa — {par}")
     return 0
 
 

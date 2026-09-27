@@ -9,19 +9,11 @@ Uso direto: ``python scripts/auditar_baralho.py``.
 
 from __future__ import annotations
 
-import re
 import sys
-import unicodedata
 from collections import Counter
 
-from comum import COLECOES, ROTULO_COLECAO, ler_colecao
-
-
-def normalizar(texto: object) -> str:
-    """Normaliza acentos, pontuação e espaços para comparar conteúdo."""
-    sem_acentos = unicodedata.normalize("NFKD", str(texto))
-    sem_acentos = "".join(caractere for caractere in sem_acentos if not unicodedata.combining(caractere))
-    return " ".join(re.findall(r"\w+", sem_acentos.casefold()))
+from comum import COLECOES, ROTULO_COLECAO, ler_colecao, normalizar
+from premissas import LIMIAR_DUPLICATA, LIMIAR_REVISAO, pares_parecidos
 
 
 def repetidos(valores: list[str]) -> list[str]:
@@ -81,6 +73,13 @@ def auditar() -> int:
     if vazamentos:
         problemas.append(f"solução aparece na situação: {', '.join(vazamentos)}")
 
+    parecidas = pares_parecidos(todas, LIMIAR_REVISAO)
+    duplicatas = [par for par in parecidas if par.similaridade >= LIMIAR_DUPLICATA]
+    if duplicatas:
+        problemas.append(
+            "premissas quase idênticas: " + "; ".join(f"{par.id_a} × {par.id_b}" for par in duplicatas)
+        )
+
     print("Auditoria do baralho")
     print(f"Total: {len(todas)} cartas")
     for colecao, historias in por_colecao.items():
@@ -102,6 +101,9 @@ def auditar() -> int:
     print(f"- títulos/situações/soluções únicos: {'sim' if not problemas or not any('repetidos' in problema for problema in problemas) else 'não'}")
     print(f"- solução vazada na situação: {'não' if not vazamentos else 'sim'}")
     print(f"- referências de origem vazias: {sum(origem_da(historia)[1] for historia in todas)}")
+    print(f"- premissas parecidas para leitura humana (similaridade ≥ {LIMIAR_REVISAO:.2f}): {len(parecidas)}")
+    for par in parecidas:
+        print(f"  {par.descricao()}")
 
     if problemas:
         print("Falhas:")

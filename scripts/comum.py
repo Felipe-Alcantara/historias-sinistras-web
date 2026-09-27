@@ -30,6 +30,35 @@ ROTULO_COLECAO = {
     "creepypasta": "Creepypasta",
 }
 
+# Vocabulário e limites espelhados de src/dominio/tipos.ts e validacao.ts, que
+# são a fonte da verdade. O teste src/dados/vocabularioPython.test.ts falha se
+# os dois lados divergirem — um script que aceitasse um tema que o app descarta
+# gravaria carta com etiqueta perdida em silêncio.
+DIFICULDADES = ("facil", "media", "dificil")
+TEMAS = (
+    "crime",
+    "acidente",
+    "sobrenatural",
+    "misterio",
+    "humor-negro",
+    "historico",
+    "tecnologia",
+    "cotidiano",
+)
+TIPOS_ORIGEM = ("autoral", "ia", "internet", "edicao-oficial")
+LIMITES = {
+    "titulo": 120,
+    "situacao": 1200,
+    "solucao": 4000,
+    "fatoChave": 300,
+    "fatosChavePorHistoria": 12,
+    "avisoConteudo": 60,
+    "avisosPorHistoria": 8,
+    "temasPorHistoria": 4,
+    "duracaoMinima": 1,
+    "duracaoMaxima": 180,
+}
+
 
 class ErroDeDados(RuntimeError):
     """Falha ao ler ou gravar um arquivo de baralho."""
@@ -134,6 +163,13 @@ def gravar_colecao(colecao: str, historias: list[dict]) -> Path:
 def contar_todas() -> dict[str, int]:
     """Quantas histórias existem hoje em cada coleção."""
     return {colecao: len(ler_colecao(colecao)) for colecao in COLECOES}
+
+
+def normalizar(texto: object) -> str:
+    """Normaliza acentos, pontuação e espaços para comparar conteúdo."""
+    sem_acentos = unicodedata.normalize("NFKD", str(texto))
+    sem_acentos = "".join(caractere for caractere in sem_acentos if not unicodedata.combining(caractere))
+    return " ".join(re.findall(r"\w+", sem_acentos.casefold()))
 
 
 def apelido(texto: str) -> str:

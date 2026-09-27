@@ -417,6 +417,42 @@ def acao_mesclar_lote() -> None:
     console.print(f"[green]✓ {resultado.resumo()}[/green]")
     for problema in resultado.invalidas:
         console.print(f"[yellow]! ignorada — {problema}[/yellow]")
+    for par in resultado.premissas_parecidas:
+        console.print(f"[yellow]! revisar premissa — {par}[/yellow]")
+
+
+def acao_aplicar_revisao() -> None:
+    from aplicar_revisao import aplicar_revisao, ler_revisao
+
+    caminho_texto = questionary.path(
+        "Caminho do JSON de revisão (lista de {id, motivo, campos}):", style=ESTILO
+    ).ask()
+    if not caminho_texto:
+        return
+
+    try:
+        itens = ler_revisao(Path(caminho_texto.strip().strip('"')))
+        simulacao = aplicar_revisao(itens, gravar=False)
+    except Exception as erro:
+        console.print(f"[red]✗ {erro}[/red]")
+        return
+
+    motivos = {item.id: item.motivo for item in itens}
+    for identificador in simulacao.alteradas:
+        campos = ", ".join(simulacao.campos_por_carta[identificador])
+        console.print(f"  • {identificador} [dim]({campos})[/dim] — {motivos[identificador]}")
+    for problema in simulacao.erros:
+        console.print(f"[red]✗ {problema}[/red]")
+    console.print(simulacao.resumo())
+    if simulacao.erros or not simulacao.alteradas:
+        return
+
+    if questionary.confirm(
+        f"Gravar as mudanças em {len(simulacao.alteradas)} carta(s)?", default=False, style=ESTILO
+    ).ask():
+        gravado = aplicar_revisao(itens, gravar=True)
+        console.print(f"[green]✓ {gravado.resumo()}[/green]")
+        console.print("Rode os testes em seguida: o gate confere o baralho inteiro de novo.")
 
 
 def acao_ferramentas() -> None:
@@ -425,6 +461,8 @@ def acao_ferramentas() -> None:
         choices=[
             questionary.Choice("Gerar histórias com IA — amplia uma coleção do baralho", "gerar"),
             questionary.Choice("Mesclar lote de histórias — importa um JSON para uma coleção", "mesclar"),
+            questionary.Choice("Auditar o baralho — estrutura, procedência e premissas parecidas", "auditar"),
+            questionary.Choice("Aplicar revisão editorial — corrige cartas pelo id a partir de um JSON", "revisar"),
             questionary.Choice("Rodar testes — valida as regras críticas", "testes"),
             questionary.Choice("Verificar o código (lint) — padrão e erros comuns", "lint"),
             questionary.Choice("Gerar build de produção — cria a pasta dist/", "build"),
@@ -440,6 +478,10 @@ def acao_ferramentas() -> None:
         acao_gerar_historias()
     elif escolha == "mesclar":
         acao_mesclar_lote()
+    elif escolha == "auditar":
+        rodar([sys.executable, str(PASTA_SCRIPTS / "auditar_baralho.py")], "Auditando o baralho")
+    elif escolha == "revisar":
+        acao_aplicar_revisao()
     elif escolha == "testes":
         rodar(["npm", "run", "test"], "Rodando os testes")
     elif escolha == "lint":

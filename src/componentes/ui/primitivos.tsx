@@ -17,9 +17,11 @@ const VARIANTES: Record<VarianteBotao, string> = {
   fantasma: 'bg-transparent text-zinc-300 border-transparent hover:bg-white/5 active:bg-white/10',
 }
 
+// Nenhum tamanho fica abaixo de 44 px de altura: o aparelho passa de mao em
+// mao durante a partida, e botao pequeno vira toque errado.
 const TAMANHOS: Record<TamanhoBotao, string> = {
   md: 'h-12 px-5 text-sm',
-  sm: 'h-9 px-3 text-xs',
+  sm: 'h-11 min-w-11 px-3 text-xs',
   bloco: 'h-14 w-full px-5 text-base',
 }
 
@@ -77,7 +79,7 @@ export function Selo({
 }
 
 const CAMPO_BASE =
-  'w-full rounded-xl border border-white/10 bg-cena-800/70 px-3 py-2.5 text-sm text-zinc-100 ' +
+  'min-h-11 w-full rounded-xl border border-white/10 bg-cena-800/70 px-3 py-2.5 text-sm text-zinc-100 ' +
   'placeholder:text-zinc-400 outline-none focus:border-brasa-500/60 focus:ring-2 focus:ring-brasa-500/20'
 
 export function Campo({ className = '', ...props }: InputHTMLAttributes<HTMLInputElement>) {

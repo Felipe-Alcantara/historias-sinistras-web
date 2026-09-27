@@ -16,6 +16,14 @@ function comecarPartida() {
   fireEvent.click(screen.getByRole('button', { name: /Começar/i }))
 }
 
+/** A carta sorteada, achada pelo título — que o gate do baralho garante único. */
+function historiaNaTela() {
+  const titulo = screen.getByRole('heading', { level: 1 }).textContent
+  const historia = BARALHO_BASE.find((candidata) => candidata.titulo === titulo)
+  if (!historia) throw new Error(`carta sorteada não encontrada no baralho: ${titulo}`)
+  return historia
+}
+
 /*
  * Nada é limpo entre os casos de propósito. Neste ambiente de teste o
  * `localStorage` global é um objeto incompleto, sem `removeItem` nem `clear` —
@@ -52,6 +60,22 @@ describe('fluxo principal', () => {
     fireEvent.click(screen.getByRole('button', { name: /Sou o mestre/i }))
     expect(screen.getByText('Só o mestre')).toBeInTheDocument()
     expect(screen.getByText(/O que o grupo já descobriu/i)).toBeInTheDocument()
+  })
+
+  it('o texto da solução só aparece depois da confirmação do mestre', () => {
+    comecarPartida()
+    const historia = historiaNaTela()
+
+    // Os selos podem estar certos e o texto errado: é o texto que vaza o segredo.
+    expect(screen.getByText(historia.situacao)).toBeInTheDocument()
+    expect(screen.queryByText(historia.solucao)).not.toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: /Ver a solução/i }))
+    expect(screen.queryByText(historia.solucao)).not.toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: /Sou o mestre/i }))
+    expect(screen.getByText(historia.solucao)).toBeInTheDocument()
+    expect(screen.queryByText(historia.situacao)).not.toBeInTheDocument()
   })
 
   it('mostra quando o checklist inteiro foi descoberto', () => {

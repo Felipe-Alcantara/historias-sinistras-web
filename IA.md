@@ -9,6 +9,25 @@
 
 ---
 
+## 📊 ESTADO ATUAL (RESUMO VIVO)
+
+<!-- Exceção à regra append-only: esta seção é reescrita a cada mudança de estado. -->
+
+Última atualização: [2026-09-27]
+
+- Fase: jogo publicado e jogável; baralho de 500 cartas revisado carta a carta (179 corrigidas
+  em 27/09/2026, detalhes em `AUDITORIA.md`).
+- Em andamento: nada neste repositório. As pendências vivem como tarefas próprias: partida
+  presencial, validação em aparelho físico, procedência das 281 cartas sem referência, checagem
+  factual de Casos reais, curadoria e direitos de Da internet (incluindo trocar aos poucos as
+  charadas de lógica) e vocabulário controlado dos avisos.
+- Próximo passo sugerido: jogar uma partida presencial com a versão publicada e anotar ritmo,
+  dificuldade e cartas que travaram.
+- Risco aberto: procedência e direitos de parte do baralho continuam sem comprovação; uma
+  referência preenchida não é checagem factual.
+
+---
+
 ## 🎯 OBJETIVO DO PROJETO
 
 [2026-08-10] Recriar em web o formato de cardgame investigativo em que um mestre conhece a
@@ -286,3 +305,71 @@ e regras da moses
 Ainda falta uma partida presencial com grupo. Foram abertas tarefas para essa validação, para a
 origem das 289 cartas sem referência, para a revisão factual dos casos reais, para a decisão de
 direitos da coleção Da internet e para a validação em aparelho físico.
+
+---
+
+## [2026-09-27] Revisão integral do baralho, da regra crítica e do fluxo mobile
+
+**Contexto.** A auditoria de 14/09 leu 6 cartas por coleção e não achou enigmas quebrados. A
+tarefa de continuidade pedia justamente conferir se "a solução realmente fecha com a situação" —
+e amostra de 6% não responde isso.
+
+**O que foi feito.**
+
+- Leitura integral das 500 cartas. 148 tiveram o conteúdo corrigido e 31 só o aviso (179 no
+  total), sempre com os ids preservados e um motivo por carta, via `scripts/aplicar_revisao.py`.
+  Tipos de defeito, pela menção no motivo: erro factual 50, aviso que entregava a resposta 43,
+  contradição entre frente e verso 40, furo lógico ou solução inalcançável 35, título 16,
+  premissa repetida 13. A lista carta a carta está no apêndice da `AUDITORIA.md`.
+- Ferramentas novas: `scripts/aplicar_revisao.py` (revisão por id, simulação por padrão, tudo ou
+  nada, idempotente) e `scripts/premissas.py` (pares com premissa parecida por TF-IDF; a
+  auditoria falha a partir de 0,40 e o mesclador avisa). O menu ganhou "Auditar o baralho" e
+  "Aplicar revisão editorial". `comum.py` passou a guardar `normalizar()` e o vocabulário do
+  domínio.
+- Avisos de conteúdo: rótulo sensível fica sempre; rótulo de mecanismo ou de categoria de crime
+  sai quando entrega o enigma. Vocabulário caiu de 75 para 57 rótulos, ainda sem controle.
+- Interface: contraste AA no texto secundário, alvos de 44 px, rótulos com acento
+  (`ROTULO_DIFICULDADE`, `ROTULO_TEMA`), ícones da biblioteca em telas estreitas, chips do editor
+  com `aria-pressed` e a descrição da coleção Creepypasta, que prometia o contrário do conteúdo.
+- Manutenção: `vitest` 4.1.11 (fecha GHSA-82fw-gwwq-j7x9) e `*.tsbuildinfo` fora do git.
+
+**Decisões do dono do projeto (perguntadas nesta sessão).**
+
+- Casos reais: as quatro tragédias recentes (`rea-001`, `rea-043`, `rea-044`, `rea-048`) ficam,
+  com cuidado — fatos corrigidos e nada sensacionalista. Alternativas oferecidas: trocar por casos
+  antigos (recomendação do agente) ou trocar só Brumadinho.
+- Da internet: as charadas de lógica e matemática serão trocadas aos poucos por enigmas de
+  história, na tarefa de curadoria da coleção.
+
+**Bugs com causa não óbvia.**
+
+- BUG: com filtro de coleção, o sorteio "sem reposição" repetia cartas ao voltar para o baralho
+  completo. CAUSA: ao esgotar um recorte, `sortearProxima` devolvia `idsJogados: [escolhida.id]`,
+  apagando o histórico dos outros filtros. FIX: só os ids do recorte esgotado saem do histórico
+  (`src/dominio/baralho.ts`). Teste novo falha na versão anterior.
+- BUG: na frente da carta, "Ler a solução em voz alta" levava ao verso com um toque, pulando a
+  confirmação "Sou o mestre" que existe para o aparelho passar de mão em mão. CAUSA: o botão era
+  renderizado nos dois lados. FIX: só no verso (`src/telas/TelaRodada.tsx`). Teste novo.
+- LACUNA: um teste de mutação mostrou que a frente podia exibir a solução sem nenhum teste
+  falhar — o teste de fumaça só olhava os selos. Teste novo confere o texto da carta sorteada.
+- MEDIÇÃO ENGANOSA (registrada para não repetir): o Tailwind 4 devolve cores em `oklch(...)` no
+  `getComputedStyle`; um cálculo de contraste que só lê `rgb(...)` pula esses textos e relata
+  "nenhum problema". A medição correta pinta a cor num canvas e lê o pixel em sRGB.
+
+**Evidência.** Mutações: revelar sem forçar o verso, resolver com um fato a menos, aceitar fato
+de outra carta, sortear ignorando o histórico e virar sem confirmação foram pegos pelos testes;
+"frente com a solução" sobreviveu até o teste novo. Mobile (Playwright no build, 360×740 e
+390×844): contraste mínimo foi de 3,98:1 para 6,47:1; alvos abaixo de 44 px foram de 502 na
+biblioteca e 1 na rodada para 0 entre 1.102 medidos; sem rolagem horizontal nem erro no console.
+Auditoria: nenhum par de premissas acima de 0,40; um par de 0,26 intencional (`int-013` ×
+`int-025`); 281 referências de origem vazias (eram 289; 8 cartas reescritas ganharam a sua).
+
+**Validação.** `npm run test`: 7 arquivos, 52 testes passando (eram 46). `npm run lint`: limpo.
+`npm run build`: aprovado (≈739 kB JS, 222 kB gzip; aviso de chunk grande já conhecido).
+`python scripts/auditar_baralho.py`: aprovado. `npm audit`: 0 vulnerabilidades. As duas opções
+novas do menu foram exercitadas com as perguntas do `questionary` simuladas: a auditoria roda até
+o fim e a revisão já aplicada responde "0 alteradas, 33 sem mudança" sem gravar nada.
+
+**Não validado.** Nenhuma partida real com grupo e nenhum aparelho físico: o fluxo foi medido em
+navegador headless. A checagem factual completa de Casos reais e a procedência das cartas sem
+referência continuam por fazer.

@@ -60,7 +60,7 @@ export const DESCRICAO_COLECAO: Record<Colecao, string> = {
   pesada: 'Crime, violência e desfechos duros. É o tom do jogo original.',
   real: 'Inspiradas em casos que aconteceram de verdade.',
   internet: 'Enigmas clássicos que circulam há décadas em fóruns e listas.',
-  creepypasta: 'Terror de internet: o inexplicável fica inexplicável.',
+  creepypasta: 'Terror de internet, com uma explicação concreta no verso da carta.',
 }
 
 /** De onde a historia veio. Fica gravado em cada carta para dar rastreabilidade. */

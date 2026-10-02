@@ -9,6 +9,9 @@ Escopo: baralho versionado em `src/dados/`, fluxo de partida e documentação p�
 
 > **Procedência em 02/10/2026:** nenhuma carta tem mais `origem.referencia` vazia (eram 281).
 > Veja a seção "Procedência — 02/10/2026", antes do apêndice.
+>
+> **Direitos de Da internet em 02/10/2026:** nenhuma carta se declara mais em domínio público;
+> 42 clássicos têm link de onde circulam e 58 são da IA. Seção própria, antes do apêndice.
 
 ## Resultado executivo
 
@@ -311,6 +314,100 @@ Os dois foram rodados antes da correção e reprovaram, listando as 281 cartas.
   origem identificável.
 - As fontes citadas na tabela foram reconhecidas pelo revisor, não reconferidas na web nesta
   sessão.
+
+## Direitos da coleção Da internet — 02/10/2026
+
+Escopo: as 100 cartas da coleção, que diziam "Enigma clássico de domínio público" (36) ou
+"Variação de enigma clássico" (64). Só o campo `origem` mudou; textos e ids ficaram como estavam.
+
+### Decisões do dono do projeto (perguntadas nesta sessão)
+
+1. **Clássicos ficam, com rótulo honesto.** A premissa de um enigma não é protegida; o que tem
+   direito autoral é o texto (Lei 9.610/98, art. 8º, I: ideias não são objeto de proteção). O texto
+   de todas as cartas foi escrito pela IA neste repositório. Sai "domínio público", que nenhuma
+   carta prova; entra "premissa de circulação popular; texto por IA, commit X".
+2. **Falsas variações viram `ia` e ficam na coleção**, que passa a ser "enigmas clássicos de
+   raciocínio lateral e outros criados no mesmo estilo".
+3. **Evidência: um link público por clássico** — prova de que a premissa circula, não de licença.
+4. **Escopo só de rótulos.** A troca das charadas de lógica (decidida em 27/09) e a `int-010`
+   seguem como tarefa própria.
+
+### Resultado
+
+- **42 premissas com circulação pública comprovada** → `tipo: internet`, referência
+  `<premissa>; texto por IA, commit <sha>`. O commit é o de criação (`2c42c32`, `218318a`,
+  `c606212`) ou `275eb29` para as quatro cartas cuja premissa foi trocada em 27/09.
+- **58 premissas não encontradas como enigma publicado** → `tipo: ia`, referência
+  `Escrita por IA (Claude Opus 5) para este projeto; commit <sha> de 10/08/2026`. Três delas
+  estavam como "domínio público": `int-047`, `int-055`, `int-097`.
+- Auditoria: Da internet `ia=58, internet=42`; nenhuma referência vazia nem afirmação de
+  domínio público no baralho.
+
+| Carta | Premissa | Onde circula | Rótulo anterior |
+| --- | --- | --- | --- |
+| `int-001` | Enigma de circulação popular (sopa de albatroz) | [www.kith.org](https://www.kith.org/jed/situation-puzzles/answers-to-jeds-list-of-situation-puzzles/) item 1.1a | domínio público |
+| `int-002` | Enigma de circulação popular (o homem do elevador) | [www.kith.org](https://www.kith.org/jed/situation-puzzles/answers-to-jeds-list-of-situation-puzzles/) item 1.2 | domínio público |
+| `int-003` | Enigma de circulação popular (enforcado e a poça d'água) | [www.kith.org](https://www.kith.org/jed/situation-puzzles/answers-to-jeds-list-of-situation-puzzles/) item 1.68 | domínio público |
+| `int-004` | Enigma de circulação popular (Romeu e Julieta, os peixes) | [www.kith.org](https://www.kith.org/jed/situation-puzzles/answers-to-jeds-list-of-situation-puzzles/) item 2.6a | domínio público |
+| `int-005` | Enigma de circulação popular (o pacote fechado no deserto) | [www.kith.org](https://www.kith.org/jed/situation-puzzles/answers-to-jeds-list-of-situation-puzzles/) item 1.25 | domínio público |
+| `int-006` | Enigma de circulação popular (a música parou) | [www.kith.org](https://www.kith.org/jed/situation-puzzles/answers-to-jeds-list-of-situation-puzzles/) item 1.59 | domínio público |
+| `int-007` | Enigma de circulação popular (o copo d'água e a arma) | [www.kith.org](https://www.kith.org/jed/situation-puzzles/answers-to-jeds-list-of-situation-puzzles/) item 1.6 | domínio público |
+| `int-008` | Enigma de circulação popular (os mascarados do beisebol) | [www.kith.org](https://www.kith.org/jed/situation-puzzles/answers-to-jeds-list-of-situation-puzzles/) item 2.20 | domínio público |
+| `int-009` | Enigma de circulação popular (a luz apagada do farol) | [www.kith.org](https://www.kith.org/jed/situation-puzzles/answers-to-jeds-list-of-situation-puzzles/) item 1.91 | domínio público |
+| `int-010` | Enigma de circulação popular (serragem no camarim do circo) | [www.kith.org](https://www.kith.org/jed/situation-puzzles/answers-to-jeds-list-of-situation-puzzles/) item 1.92 | domínio público |
+| `int-012` | Variação da lenda urbana do choro de bebê usado como isca | [www.snopes.com](https://www.snopes.com/fact-check/cry-baby/) | variação |
+| `int-013` | Enigma de circulação popular (veneno no gelo do ponche) | [www.kith.org](https://www.kith.org/jed/situation-puzzles/answers-to-jeds-list-of-situation-puzzles/) item 1.5 | domínio público |
+| `int-014` | Enigma de circulação popular (o fósforo e o balão) | [www.kith.org](https://www.kith.org/jed/situation-puzzles/answers-to-jeds-list-of-situation-puzzles/) item 1.24 | domínio público |
+| `int-015` | Enigma de circulação popular (o carro e o hotel do Monopoly) | [www.kith.org](https://www.kith.org/jed/situation-puzzles/answers-to-jeds-list-of-situation-puzzles/) item 2.3 | variação |
+| `int-019` | Enigma de circulação popular (a escada do barco e a maré) | [www.riddles.com](https://www.riddles.com/index.php/2256) | domínio público |
+| `int-022` | Enigma de circulação popular (carvão, cenoura e cachecol) | [www.kith.org](https://www.kith.org/jed/situation-puzzles/answers-to-jeds-list-of-situation-puzzles/) item 1.15 | variação |
+| `int-023` | Charada popular desde 1902 (o açougueiro pesa carne) | [barrypopik.com](https://barrypopik.com/blog/a_butcher_stands_six_feet_tall) | domínio público |
+| `int-025` | Variação invertida do enigma do veneno no gelo | [www.kith.org](https://www.kith.org/jed/situation-puzzles/answers-to-jeds-list-of-situation-puzzles/) item 1.5 | variação |
+| `int-027` | Charada popular (o careca na chuva) | [www.riddles.com](https://www.riddles.com/35) | domínio público |
+| `int-032` | Charada popular (as quatro paredes para o sul) | [www.riddles.com](https://www.riddles.com/2576) | domínio público |
+| `int-033` | Enigma de lógica popular (os dois barbeiros) | [www.mathsisfun.com](https://www.mathsisfun.com/puzzles/two-barbers-solution.html) | domínio público |
+| `int-035` | Charada popular (irmãs que não são gêmeas) | [www.riddles.com](https://www.riddles.com/4134) | domínio público |
+| `int-038` | Charada popular (sobreviventes na fronteira) | [www.riddles.com](https://www.riddles.com/2658) | domínio público |
+| `int-043` | Enigma de lógica popular (os dois guardas) | [en.wikipedia.org](https://en.wikipedia.org/wiki/Knights_and_Knaves) | domínio público |
+| `int-048` | Enigma de lógica popular (os três interruptores) | [puzzles.nigelcoldwell.co.uk](https://puzzles.nigelcoldwell.co.uk/seven.htm) | domínio público |
+| `int-050` | Enigma de lógica popular (moeda falsa na balança) | [en.wikipedia.org](https://en.wikipedia.org/wiki/Balance_puzzle) | domínio público |
+| `int-053` | Charada popular (chegar antes de sair pelo fuso) | [www.riddles.com](https://www.riddles.com/6752) | domínio público |
+| `int-054` | Enigma de circulação popular (a cirurgiã) | [bu.edu](https://bu.edu/bostonia/2014/bu-research-a-riddle-reveals-depth-of-gender-bias) | variação |
+| `int-058` | Problema clássico de Tales (altura pela sombra) | [en.wikipedia.org](https://en.wikipedia.org/wiki/Thales_of_Miletus) | domínio público |
+| `int-059` | Enigma de lógica popular (bolo em oito com três cortes) | [www.geeksforgeeks.org](https://www.geeksforgeeks.org/aptitude/puzzle-3-cuts-cut-round-cake-8-equal-pieces/) | domínio público |
+| `int-061` | Enigma de circulação popular (a assistente do atirador de facas) | [www.kith.org](https://www.kith.org/jed/situation-puzzles/answers-to-jeds-list-of-situation-puzzles/) item 1.77 | variação |
+| `int-063` | Problema popular de relógio que atrasa | [www.geeksforgeeks.org](https://www.geeksforgeeks.org/puzzle-flawed-clock/) | domínio público |
+| `int-066` | Experimento popular de tensão superficial (moedas no copo) | [spark.iop.org](https://spark.iop.org/overflowing-coins) | variação |
+| `int-072` | Enigma de lógica popular (o jogo dos piratas) | [en.wikipedia.org](https://en.wikipedia.org/wiki/Pirate_game) | domínio público |
+| `int-074` | Enigma de lógica popular (os prisioneiros e os chapéus) | [en.wikipedia.org](https://en.wikipedia.org/wiki/Prisoners_and_hats_puzzle) | domínio público |
+| `int-075` | Enigma popular do dinheiro que sumiu (missing dollar) | [en.wikipedia.org](https://en.wikipedia.org/wiki/Missing_dollar_riddle) | domínio público |
+| `int-076` | Truque de física popular (não levantar da cadeira) | [instructional-resources.physics.uiowa.edu](https://instructional-resources.physics.uiowa.edu/node/5811) | variação |
+| `int-077` | Enigma de lógica popular (as cordas que queimam) | [en.wikipedia.org](https://en.wikipedia.org/wiki/Rope-burning_puzzle) | domínio público |
+| `int-085` | Charada popular (o limpador de janelas que caiu) | [www.riddles.com](https://www.riddles.com/3845) | variação |
+| `int-089` | Truque popular da carta sem selo devolvida | [blog.eurosender.com](https://blog.eurosender.com/letter-without-stamp/) | domínio público |
+| `int-090` | Charada popular (o guarda-chuva sem chuva) | [www.riddles.com](https://www.riddles.com/archives/8390) | domínio público |
+| `int-095` | Enigma popular dos pássaros no caminhão | [en.wikipedia.org](https://en.wikipedia.org/wiki/Birds_in_a_truck_riddle) | domínio público |
+
+A lista de Jed Hartman ("situation puzzles") reúne 16 dos clássicos com numeração própria, citada
+na coluna "Onde circula". O livro *Hall of Fame Lateral Thinking Puzzles*, de Paul Sloane e Des
+MacHale, também publica vários deles (por exemplo, a sopa de albatroz); como as premissas são
+anteriores aos livros e o texto daqui não vem deles, não há texto de terceiro a creditar.
+
+Cartas `ia` da coleção: `int-011`, `int-016`, `int-017`, `int-018`, `int-020`, `int-021`, `int-024`, `int-026`, `int-028`, `int-029`, `int-030`, `int-031`, `int-034`, `int-036`, `int-037`, `int-039`, `int-040`, `int-041`, `int-042`, `int-044`, `int-045`, `int-046`, `int-049`, `int-051`, `int-052`, `int-056`, `int-057`, `int-060`, `int-062`, `int-064`, `int-065`, `int-067`, `int-068`, `int-069`, `int-070`, `int-071`, `int-073`, `int-078`, `int-079`, `int-080`, `int-081`, `int-082`, `int-083`, `int-084`, `int-086`, `int-087`, `int-088`, `int-091`, `int-092`, `int-093`, `int-094`, `int-096`, `int-098`, `int-099`, `int-100`, `int-047`, `int-055`, `int-097`.
+
+### Guarda contra regressão
+
+Referência com "domínio público" agora reprova o teste `nenhuma carta se declara em domínio
+público` (`src/dados/baralhoBase.test.ts`) e a auditoria Python. Os dois reprovaram antes da
+correção, listando as 36 cartas.
+
+### Limites
+
+- Os links provam **circulação**, não autoria nem licença. Não houve comparação com as cartas
+  oficiais de *Black Stories*, que podem usar as mesmas premissas.
+- "Não encontrada como enigma publicado" vale para as buscas feitas nesta sessão; uma busca mais
+  longa pode achar a origem de alguma das 58.
+- A descrição da coleção na tela inicial mudou para refletir as cartas criadas no estilo.
 
 ## Apêndice — cartas alteradas na revisão de 27/09/2026
 

@@ -16,12 +16,12 @@
 Última atualização: [2026-10-02]
 
 - Fase: jogo publicado e jogável; baralho de 500 cartas revisado carta a carta (179 corrigidas
-  em 27/09/2026) e, desde 02/10/2026, com procedência em todas as cartas (detalhes em
-  `AUDITORIA.md`).
+  em 27/09/2026) e, desde 02/10/2026, com procedência em todas as cartas e nenhuma declarada em domínio público
+  (detalhes em `AUDITORIA.md`).
 - Em andamento: nada neste repositório. As pendências vivem como tarefas próprias: partida
-  presencial, validação em aparelho físico, checagem factual de Casos reais, curadoria e direitos
-  de Da internet (incluindo trocar aos poucos as charadas de lógica) e vocabulário controlado dos
-  avisos.
+  presencial, validação em aparelho físico, checagem factual de Casos reais, troca aos poucos das
+  charadas de lógica de Da internet (direitos da coleção decididos em 02/10/2026) e vocabulário
+  controlado dos avisos.
 - Próximo passo sugerido: jogar uma partida presencial com a versão publicada e anotar ritmo,
   dificuldade e cartas que travaram.
 - Risco aberto: referência preenchida não é checagem factual nem prova de texto inédito — as 300
@@ -404,3 +404,31 @@ usado), deixado como tarefa própria.
 **Não validado.** A busca por premissas de terceiros foi leitura humana, sem comparação com a web
 nem com as cartas oficiais de *Black Stories*; as fontes reconhecidas não foram reconferidas na
 web nesta sessão.
+
+---
+
+## [2026-10-02] Direitos da coleção Da internet
+
+**Contexto.** 36 cartas diziam "Enigma clássico de domínio público" e 64 "Variação de enigma
+clássico". Nenhuma dessas afirmações tinha prova, e várias "variações" eram premissas da IA.
+
+**Decisões do dono (perguntadas nesta sessão, todas na opção recomendada).** Clássicos ficam com
+rótulo honesto (premissa de circulação popular + texto por IA e commit), sem "domínio público";
+falsas variações viram `ia` e ficam na coleção; um link público de circulação por clássico; esta
+task cuida só dos rótulos — charadas e `int-010` seguem na tarefa própria.
+
+**Por que é defensável.** A Lei 9.610/98 (art. 8º, I) não protege ideias, só a expressão; o texto
+de todas as cartas foi escrito pela IA neste repositório (commits `2c42c32`, `218318a`,
+`c606212` e, para quatro premissas trocadas, `275eb29`).
+
+**Resultado.** 42 clássicos com link (16 deles na lista de situation puzzles de Jed Hartman; os
+demais em Wikipedia, Snopes e sites de charadas) e 58 cartas `ia`. Tabela em `AUDITORIA.md`,
+seção "Direitos da coleção Da internet — 02/10/2026". Descrição da coleção na tela inicial
+(`DESCRICAO_COLECAO.internet`) passou a dizer "e outros criados no mesmo estilo".
+
+**Guarda.** Teste `nenhuma carta se declara em domínio público` e falha equivalente na auditoria;
+os dois reprovaram antes, listando as 36 cartas.
+
+**Não validado.** Links provam circulação, não licença; não houve comparação com as cartas
+oficiais de *Black Stories*; a busca pelas 58 premissas da IA foi limitada às consultas desta
+sessão.

@@ -30,7 +30,9 @@ O baralho pode conter enigmas associados a obras ou fontes de terceiros, cujos
 direitos pertencem aos respectivos autores e editoras. Cada historia carrega
 um campo `origem` com o tipo e a referencia da fonte (ou do commit em que foi
 escrita por IA), mas esse campo nao prova dominio publico, licenca, ineditismo
-ou verificacao factual. Historias de terceiros nao
+ou verificacao factual. Os enigmas classicos da colecao "Da internet" sao
+premissas de circulacao popular recontadas com texto proprio; o projeto nao
+afirma que estejam em dominio publico. Historias de terceiros nao
 sao licenciadas por este projeto: se voce e detentor de direitos e quer que
 uma historia saia do baralho, abra uma issue e ela sera removida.
 

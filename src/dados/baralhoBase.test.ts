@@ -42,6 +42,13 @@ describe('baralho base', () => {
     }
   })
 
+  it('toda carta diz de onde veio', () => {
+    // O rótulo de origem sozinho não sustenta autoria nem licença: a referência
+    // aponta a fonte ou o commit em que a carta foi escrita.
+    const semReferencia = BARALHO_BASE.filter((historia) => !historia.origem.referencia.trim())
+    expect(semReferencia.map((historia) => historia.id)).toEqual([])
+  })
+
   it('a solução nunca aparece dentro da situação', () => {
     const normalizar = (texto: string) =>
       texto

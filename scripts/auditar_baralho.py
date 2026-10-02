@@ -73,6 +73,12 @@ def auditar() -> int:
     if vazamentos:
         problemas.append(f"solução aparece na situação: {', '.join(vazamentos)}")
 
+    # Sem referência não há como dizer de onde a carta veio; desde 02/10/2026
+    # o baralho versionado não tem nenhuma, e uma carta nova também não pode ter.
+    sem_referencia = [str(historia.get("id", "?")) for historia in todas if origem_da(historia)[1]]
+    if sem_referencia:
+        problemas.append(f"origem sem referência: {', '.join(sem_referencia)}")
+
     parecidas = pares_parecidos(todas, LIMIAR_REVISAO)
     duplicatas = [par for par in parecidas if par.similaridade >= LIMIAR_DUPLICATA]
     if duplicatas:

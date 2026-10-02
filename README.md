@@ -36,7 +36,7 @@ dependências e avisa, em linguagem clara, o que estiver faltando.
 | --- | --- | --- |
 | **Cômicas** | 100 | Mortes bobas, coincidências ridículas e finais que arrancam riso nervoso. |
 | **Pesadas** | 100 | Crime, violência e desfechos duros. É o tom clássico do gênero. |
-| **Casos reais** | 100 | Cartas editoriais inspiradas em acidentes, casos policiais e episódios históricos; as referências precisam ser conferidas antes de uso como fonte factual. |
+| **Casos reais** | 100 | Cartas inspiradas em acidentes, casos policiais e episódios históricos, conferidas uma a uma contra fonte em 02/10/2026; hipótese aparece como hipótese. Ainda são cartas de jogo, não fonte histórica. |
 | **Da internet** | 100 | Enigmas de raciocínio lateral: 42 premissas clássicas que circulam em listas e fóruns (com o link de onde circulam na AUDITORIA.md) e 58 criadas pela IA no mesmo estilo. O texto de todas foi escrito para este projeto; nenhuma é declarada em domínio público. |
 | **Creepypasta** | 100 | Terror de internet, com explicação concreta o bastante para o grupo chegar lá. |
 
@@ -205,8 +205,8 @@ Em 27/09/2026 as 500 cartas foram lidas uma a uma e 179 foram corrigidas: frente
 o verso, solução que não fechava, erro factual, título ou aviso que entregava a resposta e
 premissas repetidas. Em 02/10/2026 toda carta passou a ter `origem.referencia`: as escritas por
 IA apontam o commit em que nasceram, e as que retomam um enigma, lenda ou caso conhecido nomeiam
-a fonte. Nenhuma carta se declara em domínio público: uma premissa que circula há décadas não prova isso. Uma referência preenchida não prova que o texto seja inédito, e as de Casos reais não
-substituem uma checagem factual carta a carta. Os detalhes e as pendências estão em
+a fonte. Nenhuma carta se declara em domínio público: uma premissa que circula há décadas não prova isso. Uma referência preenchida não prova que o texto seja inédito, e as de Casos reais foram
+conferidas carta a carta em 02/10/2026 (principalmente contra a Wikipedia). Os detalhes e as pendências estão em
 [AUDITORIA.md](AUDITORIA.md).
 
 Se você é detentor de direitos sobre algum conteúdo do baralho e quer que ele saia, abra uma

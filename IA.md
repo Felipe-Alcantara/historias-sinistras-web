@@ -16,10 +16,10 @@
 Última atualização: [2026-10-02]
 
 - Fase: jogo publicado e jogável; baralho de 500 cartas revisado carta a carta (179 corrigidas
-  em 27/09/2026) e, desde 02/10/2026, com procedência em todas as cartas e nenhuma declarada em domínio público
-  (detalhes em `AUDITORIA.md`).
+  em 27/09/2026) e, desde 02/10/2026, com procedência em todas as cartas nenhuma declarada em domínio público
+  e Casos reais conferidos contra fonte (detalhes em `AUDITORIA.md`).
 - Em andamento: nada neste repositório. As pendências vivem como tarefas próprias: partida
-  presencial, validação em aparelho físico, checagem factual de Casos reais, troca aos poucos das
+  presencial, validação em aparelho físico, troca aos poucos das
   charadas de lógica de Da internet (direitos da coleção decididos em 02/10/2026) e vocabulário
   controlado dos avisos.
 - Próximo passo sugerido: jogar uma partida presencial com a versão publicada e anotar ritmo,
@@ -432,3 +432,28 @@ os dois reprovaram antes, listando as 36 cartas.
 **Não validado.** Links provam circulação, não licença; não houve comparação com as cartas
 oficiais de *Black Stories*; a busca pelas 58 premissas da IA foi limitada às consultas desta
 sessão.
+
+---
+
+## [2026-10-02] Checagem factual de Casos reais
+
+**Contexto.** A revisão de 27/09 corrigiu o que se sabia de cor, mas não abriu fonte nenhuma; a
+task pedia as 100 cartas conferidas, as quatro que não eram casos trocadas e `rea-087`/`rea-095`
+resolvidas.
+
+**Método.** Introdução do artigo da Wikipedia (inglês) de cada caso, baixada pela API, mais
+trechos do corpo quando a introdução não cobria o detalhe; o caso de Houston, por busca na web.
+A API devolve HTTP 429 com mais de ~1 requisição por segundo: a segunda rodada usou 4 s de
+intervalo e mesmo assim `rea-002`, `rea-041`, `rea-064` e `rea-068` ficaram sem fonte aberta.
+
+**Resultado.** 40 cartas corrigidas (dois lotes de `aplicar_revisao.py`, ambos reaplicados sem
+mudança). Os erros mais sérios eram mitos repetidos como fato: o rei e o segundo convés do Vasa,
+a poltrona "intacta" de Mary Reeser, o projeto "seguro" do Hyatt Regency, a "batalha" de Den
+Helder. As quatro cartas genéricas viraram Hiroo Onoda, o Fantasma de Heilbronn, o frango Mike e
+Douglas Corrigan. `rea-087`: a queda foi de dez metros; `rea-095`: é o caso de Houston (NYT 2012).
+
+**Validação.** `npm test` 54 testes passando, lint limpo, build aprovado, auditoria aprovada
+(nenhuma premissa nova parecida com outra).
+
+**Não validado.** Quatro cartas sem fonte aberta; a Wikipedia é fonte secundária; o tom das
+tragédias não foi reavaliado (decisão do dono de 27/09 mantida).

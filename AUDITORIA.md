@@ -12,6 +12,9 @@ Escopo: baralho versionado em `src/dados/`, fluxo de partida e documentação p�
 >
 > **Direitos de Da internet em 02/10/2026:** nenhuma carta se declara mais em domínio público;
 > 42 clássicos têm link de onde circulam e 58 são da IA. Seção própria, antes do apêndice.
+>
+> **Casos reais em 02/10/2026:** as 100 cartas foram conferidas contra fonte; 40 corrigidas, 4
+> trocadas por casos com fonte. Seção "Checagem factual de Casos reais", antes do apêndice.
 
 ## Resultado executivo
 
@@ -408,6 +411,100 @@ correção, listando as 36 cartas.
 - "Não encontrada como enigma publicado" vale para as buscas feitas nesta sessão; uma busca mais
   longa pode achar a origem de alguma das 58.
 - A descrição da coleção na tela inicial mudou para refletir as cartas criadas no estilo.
+
+## Checagem factual de Casos reais — 02/10/2026
+
+Escopo: as 100 cartas da coleção, conferidas contra fonte aberta nesta sessão; as quatro cartas
+que não eram casos específicos (`rea-078`, `rea-080`, `rea-083`, `rea-086`) foram trocadas; e
+`rea-087` e `rea-095`, que a revisão de 27/09 deixou para conferir, foram resolvidas.
+
+### Método
+
+1. Leitura das 100 cartas (frente, verso e fatos-chave) com uma lista de afirmações suspeitas.
+2. Para cada caso, a introdução do artigo correspondente da Wikipedia (inglês) baixada pela API,
+   e trechos específicos do corpo do artigo quando a introdução não cobria o detalhe (Vasa,
+   Montparnasse, Mary Reeser, epidemia de dança, Den Helder, Coleman, Hawthorne, efeito cobra,
+   Hyatt Regency, Sandy Island, Eastland, Edison, sinal Wow!). O caso de Houston foi conferido
+   por busca na web (relato de Alex Stone no *New York Times*, 2012).
+3. Correção com `scripts/aplicar_revisao.py` em dois lotes (35 e 5 cartas), cada um reaplicado
+   sem mudança. A regra de redação: hipótese aparece como hipótese, anedota como anedota.
+
+**Sem fonte aberta nesta sessão** (limite de acesso da Wikipedia): `rea-002`, `rea-041`, `rea-064`, `rea-068`. Para essas quatro
+a checagem foi só a leitura, e nenhuma divergência foi encontrada.
+
+### Erros que a checagem achou (os mais graves)
+
+- `rea-016` (Vasa): a história de que o rei mandou acrescentar um segundo convés de canhões não
+  tem evidência; o defeito documentado é peso alto e pouco lastro, e um teste de estabilidade
+  com trinta homens correndo pelo convés já mostrava o problema.
+- `rea-028` (Mary Reeser): a carta dizia que a poltrona ficou "apenas chamuscada"; ela foi quase
+  toda consumida. O efeito pavio passou a ser "explicação mais aceita".
+- `rea-045` (Hyatt Regency): a carta dizia que o projeto original era seguro; ele sustentaria só
+  60% da carga mínima do código.
+- `rea-072` (Den Helder): não houve artilharia nem cerco; a frota presa no gelo se entregou por
+  negociação a hussardos que levavam infantaria na garupa.
+- `rea-087` (Montparnasse): a queda foi de dez metros, não cinco; o freio foi acionado e falhou.
+- `rea-047` (Knight Capital): a empresa não quebrou; foi socorrida e vendida.
+
+### Cartas trocadas
+
+| Carta | Era | Virou | Fonte conferida |
+| --- | --- | --- | --- |
+| `rea-078` | espelho na sala de cirurgia (efeito genérico) | Hiroo Onoda, que lutou até 1974 | Wikipedia, "Hiroo Onoda" |
+| `rea-080` | funil de conversão (exemplo de marketing) | Fantasma de Heilbronn, o DNA da fábrica de cotonetes | Wikipedia, "Phantom of Heilbronn" |
+| `rea-083` | amortecedor de prédio (conceito) | Mike, o frango que viveu 18 meses sem cabeça | Wikipedia, "Mike the Headless Chicken" |
+| `rea-086` | provérbio do prego (folclore) | Douglas "Wrong Way" Corrigan | Wikipedia, "Douglas Corrigan" |
+
+### Todas as cartas alteradas
+
+- `rea-001` (temas): fato: a morte de Elisa Lam foi considerada afogamento acidental; o tema 'crime' sugeria o contrário.
+- `rea-001` (situacao): fato: segundo a Wikipedia, a reclamação que levou à descoberta foi de pressão baixa e vazamento; o gosto estranho foi relato de hóspedes.
+- `rea-003` (situacao): fato: Coleman chegou a sair do prédio e voltou; 'tempo de sobra' exagerava.
+- `rea-010` (situacao): fato: morreram cerca de 3.500 cabeças de gado, não 'todo o gado'.
+- `rea-013` (situacao, solucao): fato: o número de mortes da epidemia de dança é controverso e não vem de crônicas da época.
+- `rea-015` (solucao): fato: o motor avariado continuou funcionando e falhou na aproximação; o avião não ficou 'sem propulsão' ao desligar o bom.
+- `rea-016` (solucao, fatosChave): fato: não há evidência de que o rei mandou acrescentar um segundo convés de canhões; o teste de estabilidade de 1628 é documentado.
+- `rea-018` (solucao): fato: o destino da sonda não é certo (destruída na atmosfera ou lançada ao espaço).
+- `rea-019` (situacao, solucao): fato: foram 37 segundos e a falha derrubou os dois sistemas de referência inercial, não 'os dois computadores de bordo'.
+- `rea-024` (situacao): fato: adoeceram pessoas em quatro das casas onde ela trabalhou, não em todas.
+- `rea-028` (titulo, situacao, solucao): fato: a poltrona de Mary Reeser foi quase toda consumida; e o efeito pavio é a explicação mais aceita, não um fato provado.
+- `rea-031` (situacao): fato: foram os amigos e conhecidos de Gage que disseram que ele 'não era mais o Gage'.
+- `rea-032` (solucao, fatosChave): fato: a hipótese dos fungos nunca foi comprovada; a explicação sustentável é estatística.
+- `rea-034` (solucao, fatosChave): fato: o sinal tinha as marcas esperadas de origem extraterrestre, mas a origem nunca foi confirmada.
+- `rea-036` (solucao, fatosChave): fato: o efeito Hawthorne é a interpretação clássica, hoje contestada por reanálises.
+- `rea-045` (situacao, solucao): fato: o projeto original também era deficiente (sustentaria 60% da carga mínima do código).
+- `rea-047` (situacao): fato: a Knight Capital não quebrou; foi socorrida por investidores e depois vendida.
+- `rea-055` (solucao): fato: o valor das pizzas em dólares depende da cotação; já passou de centenas de milhões.
+- `rea-056` (situacao): fato: o worm atingiu cerca de 10% das máquinas conectadas, não 'boa parte' da internet.
+- `rea-065` (situacao): fato: a invasão na WTTW durou cerca de um minuto e meio.
+- `rea-066` (solucao): fato: o uso por serviços de inteligência é crença geral, confirmada só em alguns processos.
+- `rea-069` (situacao, solucao, fatosChave): fato: o fazendeiro comentou com vizinhos e recusou ajuda; o intruso escondido é hipótese, não fato provado.
+- `rea-070` (solucao): fato: a polícia da época concluiu por provável suicídio; a espionagem é suspeita, não conclusão.
+- `rea-072` (situacao, solucao, fatosChave): fato: não houve artilharia nem cerco; hussardos com infantaria na garupa cruzaram o gelo e a frota se entregou por negociação.
+- `rea-077` (situacao): fato: a cirurgia de H.M. controlou a epilepsia só em parte.
+- `rea-078` (titulo, situacao, solucao, fatosChave, dificuldade, temas, avisosConteudo, duracaoMin, origem): não era um caso específico (espelho na sala de cirurgia); trocada pelo caso de Hiroo Onoda, conferido na Wikipedia.
+- `rea-080` (titulo, situacao, solucao, fatosChave, dificuldade, temas, avisosConteudo, duracaoMin, origem): não era um caso específico (funil de conversão); trocada pelo Fantasma de Heilbronn, conferido na Wikipedia.
+- `rea-081` (solucao): fato: a foto como motivo da aglomeração não se sustenta; lastro e botes extras explicam a instabilidade.
+- `rea-083` (titulo, situacao, solucao, fatosChave, dificuldade, temas, avisosConteudo, duracaoMin, origem): não era um caso específico (amortecedor de prédio); trocada pelo caso de Mike, o frango sem cabeça, conferido na Wikipedia.
+- `rea-085` (situacao, solucao): redação: 'horários diferentes em cada esquina' exagerava; eram horários diferentes por ferrovia e cidade.
+- `rea-086` (titulo, situacao, solucao, fatosChave, dificuldade, temas, avisosConteudo, duracaoMin, origem): não era um caso específico (provérbio do prego); trocada pelo voo de Douglas Corrigan, conferido na Wikipedia.
+- `rea-087` (situacao, solucao, fatosChave): fato: a locomotiva caiu dez metros, não cinco; o freio a ar foi acionado, mas não segurou o trem; uma mulher morreu na rua.
+- `rea-088` (situacao, solucao, fatosChave, origem): fonte: a referência genérica vira Sandy Island, com datas conferidas (relato de 1876, desmentido em 2012).
+- `rea-091` (situacao, solucao): fato: o imposto era do país inteiro; a ligação com doenças foi feita por médicos da época.
+- `rea-092` (solucao, fatosChave): fato: o efeito cobra é anedota sem registro histórico, popularizada por Horst Siebert em 2001.
+- `rea-094` (situacao): fato: o erro de Eratóstenes depende do valor do estádio usado; 'poucos por cento' não é seguro.
+- `rea-095` (solucao, origem): fonte: é o caso do aeroporto de Houston contado por Alex Stone no New York Times (2012); as malas também iam para a esteira mais distante.
+- `rea-096` (situacao, solucao, fatosChave): fato: 'vinte anos de anotações' e 'produção em semanas' não se confirmam; a frase vem do relato do filho de Edison.
+- `rea-098` (solucao): redação: 'a única unidade de tempo' exagerava.
+- `rea-100` (solucao): fato: Yamaguchi passou a defender o desarmamento nos últimos anos de vida.
+
+### Limites
+
+- A fonte principal é a Wikipedia, que resume fontes primárias; não foram consultados laudos,
+  processos ou livros. Números com estimativas divergentes (mortes do Grande Nevoeiro, de Bhopal,
+  de Peshtigo) ficaram genéricos de propósito ("milhares").
+- A checagem confere o que a carta afirma; não avalia se o tom é adequado para cada tragédia
+  (decisão do dono em 27/09: as quatro tragédias recentes ficam, com cuidado).
 
 ## Apêndice — cartas alteradas na revisão de 27/09/2026
 

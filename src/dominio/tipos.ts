@@ -77,7 +77,7 @@ export const DESCRICAO_COLECAO: Record<Colecao, string> = {
   comica: 'Mortes bobas, coincidências ridículas e finais que arrancam riso nervoso.',
   pesada: 'Crime, violência e desfechos duros. É o tom do jogo original.',
   real: 'Inspiradas em casos que aconteceram de verdade.',
-  internet: 'Enigmas clássicos que circulam há décadas em fóruns e listas.',
+  internet: 'Enigmas clássicos de raciocínio lateral e outros criados no mesmo estilo.',
   creepypasta: 'Terror de internet, com uma explicação concreta no verso da carta.',
 }
 

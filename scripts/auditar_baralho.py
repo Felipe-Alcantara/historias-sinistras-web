@@ -79,6 +79,15 @@ def auditar() -> int:
     if sem_referencia:
         problemas.append(f"origem sem referência: {', '.join(sem_referencia)}")
 
+    # "Domínio público" exige prova que um enigma de circulação oral não tem.
+    dominio_publico = [
+        str(historia.get("id", "?"))
+        for historia in todas
+        if "dominio publico" in normalizar(str((historia.get("origem") or {}).get("referencia", "")))
+    ]
+    if dominio_publico:
+        problemas.append(f"origem afirma domínio público sem prova: {', '.join(dominio_publico)}")
+
     parecidas = pares_parecidos(todas, LIMIAR_REVISAO)
     duplicatas = [par for par in parecidas if par.similaridade >= LIMIAR_DUPLICATA]
     if duplicatas:

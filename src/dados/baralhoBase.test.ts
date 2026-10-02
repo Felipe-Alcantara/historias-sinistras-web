@@ -49,6 +49,13 @@ describe('baralho base', () => {
     expect(semReferencia.map((historia) => historia.id)).toEqual([])
   })
 
+  it('nenhuma carta se declara em domínio público', () => {
+    // Premissa que circula há décadas não prova domínio público; desde
+    // 02/10/2026 a referência diz onde a premissa circula e quem escreveu o texto.
+    const dominioPublico = BARALHO_BASE.filter((historia) => /dom[ií]nio p[uú]blico/i.test(historia.origem.referencia))
+    expect(dominioPublico.map((historia) => historia.id)).toEqual([])
+  })
+
   it('a solução nunca aparece dentro da situação', () => {
     const normalizar = (texto: string) =>
       texto

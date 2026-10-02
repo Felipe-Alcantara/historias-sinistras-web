@@ -13,18 +13,20 @@
 
 <!-- Exceção à regra append-only: esta seção é reescrita a cada mudança de estado. -->
 
-Última atualização: [2026-09-27]
+Última atualização: [2026-10-02]
 
 - Fase: jogo publicado e jogável; baralho de 500 cartas revisado carta a carta (179 corrigidas
-  em 27/09/2026, detalhes em `AUDITORIA.md`).
+  em 27/09/2026) e, desde 02/10/2026, com procedência em todas as cartas (detalhes em
+  `AUDITORIA.md`).
 - Em andamento: nada neste repositório. As pendências vivem como tarefas próprias: partida
-  presencial, validação em aparelho físico, procedência das 281 cartas sem referência, checagem
-  factual de Casos reais, curadoria e direitos de Da internet (incluindo trocar aos poucos as
-  charadas de lógica) e vocabulário controlado dos avisos.
+  presencial, validação em aparelho físico, checagem factual de Casos reais, curadoria e direitos
+  de Da internet (incluindo trocar aos poucos as charadas de lógica) e vocabulário controlado dos
+  avisos.
 - Próximo passo sugerido: jogar uma partida presencial com a versão publicada e anotar ritmo,
   dificuldade e cartas que travaram.
-- Risco aberto: procedência e direitos de parte do baralho continuam sem comprovação; uma
-  referência preenchida não é checagem factual.
+- Risco aberto: referência preenchida não é checagem factual nem prova de texto inédito — as 300
+  cartas de Cômicas, Pesadas e Creepypasta foram escritas por IA e só foram conferidas por leitura
+  contra premissas conhecidas.
 
 ---
 
@@ -373,3 +375,32 @@ o fim e a revisão já aplicada responde "0 alteradas, 33 sem mudança" sem grav
 **Não validado.** Nenhuma partida real com grupo e nenhum aparelho físico: o fluxo foi medido em
 navegador headless. A checagem factual completa de Casos reais e a procedência das cartas sem
 referência continuam por fazer.
+
+---
+
+## [2026-10-02] Procedência de todas as cartas
+
+**Contexto.** 281 cartas tinham `origem.referencia` vazia e cinco diziam "autoral — Escrita para
+este projeto". Sem fonte, o rótulo de origem não sustentava autoria nem licença.
+
+**O que foi medido.** O git responde de onde as cartas vieram: Cômicas, Pesadas e Creepypasta
+nasceram em três commits de 10/08/2026 co-escritos pelo Claude Opus 5 — `2c42c32` (ids 001–040),
+`218318a` (041–070) e `c606212` (071–100), conferido com `git show <commit>:src/dados/*.json`.
+As cinco "autorais" estão no primeiro commit; o dono do projeto confirmou que não as escreveu.
+
+**Decisão.** Toda carta que estava sem referência aponta o commit em que nasceu. Quem retoma premissa conhecida vira
+`internet` e nomeia a fonte (sete cartas); quem só lembra uma obra fica `ia` com "lembra ..."
+(três). Lista completa e critério em `AUDITORIA.md`, seção "Procedência — 02/10/2026". Aplicado
+com `scripts/aplicar_revisao.py` (286 alteradas; segunda execução: 0 alteradas, 286 sem mudança).
+
+**Guarda.** Referência vazia reprova o teste `toda carta diz de onde veio` e a auditoria Python;
+os dois reprovaram antes da correção listando as 281 cartas.
+
+**Validação.** `npm run test`: 7 arquivos, 53 testes passando. `npm run lint`: limpo.
+`npm run build`: aprovado. `python scripts/auditar_baralho.py`: aprovado, 0 referências vazias.
+`ruff check`: 1 erro anterior a esta tarefa (`start_app.py:350`, `ErroDeGeracao` importado e não
+usado), deixado como tarefa própria.
+
+**Não validado.** A busca por premissas de terceiros foi leitura humana, sem comparação com a web
+nem com as cartas oficiais de *Black Stories*; as fontes reconhecidas não foram reconferidas na
+web nesta sessão.

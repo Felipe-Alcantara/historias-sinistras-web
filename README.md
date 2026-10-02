@@ -203,8 +203,10 @@ editorial; não é, por si só, prova de domínio público, licença de uso ou v
 
 Em 27/09/2026 as 500 cartas foram lidas uma a uma e 179 foram corrigidas: frente que contradizia
 o verso, solução que não fechava, erro factual, título ou aviso que entregava a resposta e
-premissas repetidas. Ainda há 281 cartas com `origem.referencia` vazia, e as referências de Casos
-reais não substituem uma checagem factual carta a carta. Os detalhes e as pendências estão em
+premissas repetidas. Em 02/10/2026 toda carta passou a ter `origem.referencia`: as escritas por
+IA apontam o commit em que nasceram, e as que retomam um enigma, lenda ou caso conhecido nomeiam
+a fonte. Uma referência preenchida não prova que o texto seja inédito, e as de Casos reais não
+substituem uma checagem factual carta a carta. Os detalhes e as pendências estão em
 [AUDITORIA.md](AUDITORIA.md).
 
 Se você é detentor de direitos sobre algum conteúdo do baralho e quer que ele saia, abra uma

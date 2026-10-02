@@ -28,8 +28,9 @@ A licenca MIT acima cobre o CODIGO deste repositorio.
 
 O baralho pode conter enigmas associados a obras ou fontes de terceiros, cujos
 direitos pertencem aos respectivos autores e editoras. Cada historia carrega
-um campo `origem`, mas a referencia pode estar vazia e esse campo nao prova
-dominio publico, licenca ou verificacao factual. Historias de terceiros nao
+um campo `origem` com o tipo e a referencia da fonte (ou do commit em que foi
+escrita por IA), mas esse campo nao prova dominio publico, licenca, ineditismo
+ou verificacao factual. Historias de terceiros nao
 sao licenciadas por este projeto: se voce e detentor de direitos e quer que
 uma historia saia do baralho, abra uma issue e ela sera removida.
 

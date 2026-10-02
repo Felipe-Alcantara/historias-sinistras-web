@@ -7,6 +7,9 @@ Escopo: baralho versionado em `src/dados/`, fluxo de partida e documentação p�
 > corrigidas. Veja a seção "Revisão integral — 27/09/2026", no fim do documento; ela substitui
 > as conclusões por amostra abaixo, que ficam como registro.
 
+> **Procedência em 02/10/2026:** nenhuma carta tem mais `origem.referencia` vazia (eram 281).
+> Veja a seção "Procedência — 02/10/2026", antes do apêndice.
+
 ## Resultado executivo
 
 O baralho está estruturalmente consistente para continuar a implementação: são 500 cartas,
@@ -241,6 +244,73 @@ sem validação — são as tarefas de aparelho físico e de partida presencial.
 | Regra crítica coberta por teste | **Concluído e reforçado** | Dois bugs corrigidos com teste que falha antes (sorteio entre filtros, atalho do verso) e uma lacuna fechada (texto da solução na frente). |
 | Pelo menos uma partida real | **Pendente** | Depende de um grupo presencial; segue como tarefa própria. |
 | README explicita a inspiração | **Concluído** | Seção "Sobre o conteúdo" do README (desde 14/09). |
+
+## Procedência — 02/10/2026
+
+Escopo: as **281 cartas com `origem.referencia` vazia** (Cômicas 97, Pesadas 94, Creepypasta 90)
+e as **5 marcadas como "autoral — Escrita para este projeto"** (`com-002`, `pes-001`, `pes-002`,
+`pes-003`, `cre-001`). Total: 286 cartas, só o campo `origem` mudou; ids, textos e fatos-chave
+ficaram como estavam.
+
+### De onde as cartas vieram — medido no git
+
+As três coleções nasceram em três commits de 10/08/2026, todos co-escritos pelo Claude Opus 5
+(`Co-Authored-By` na mensagem). Os ids de cada lote foram lidos com
+`git show <commit>:src/dados/<colecao>.json`:
+
+| Commit | Hora | Cartas que entraram (em cada coleção) |
+| --- | --- | --- |
+| `2c42c32` | 04:27 | `001` a `040` |
+| `218318a` | 04:49 | `041` a `070` |
+| `c606212` | 05:04 | `071` a `100` |
+
+As cinco "autorais" entraram no `2c42c32`, junto com as de IA. Perguntado, o dono do projeto
+confirmou que **não** as escreveu: foram reclassificadas como `ia`.
+
+### Regra aplicada
+
+- Carta escrita por IA sem premissa reconhecível: `tipo: ia`, referência
+  `Escrita por IA (Claude Opus 5) para este projeto; commit <sha> de 10/08/2026`.
+- Carta cuja premissa é um enigma, truque, lenda ou caso conhecido: `tipo: internet`, referência
+  `Variação de <fonte>; texto por IA, commit <sha>` — o mesmo critério já usado em `com-001`.
+- Carta que só lembra uma obra ou conceito: continua `ia`, com `lembra <fonte>` no fim.
+- As 8 cartas reescritas em 27/09/2026 já tinham referência e não mudaram.
+
+### Premissas reconhecidas na leitura das 286 cartas
+
+| Carta | Tipo | Fonte reconhecida |
+| --- | --- | --- |
+| `com-005` | internet | anedota (apócrifa) de Chaplin num concurso de sósias de si mesmo |
+| `com-049` | internet | caso real da PC Pitstop (2005), que premiou quem leu a licença |
+| `com-050` | internet | enigma clássico do aniversário em 29 de fevereiro |
+| `pes-003` | internet | truque clássico das pegadas feitas andando de costas |
+| `pes-016` | internet | truque clássico do quarto trancado com a chave puxada por barbante |
+| `cre-008` | internet | lenda urbana do intruso que mora escondido na casa |
+| `cre-089` | internet | hipótese do infrassom de Vic Tandy (1998), da mesma família de `cre-022` |
+| `com-015` | ia | lembra "Silver Blaze", de Conan Doyle (o cão que não latiu) |
+| `com-084` | ia | lembra o paradoxo de Abilene |
+| `cre-026` | ia | lembra Tom Sawyer assistindo ao próprio funeral |
+
+Resultado da auditoria: Cômicas `ia=96, internet=4`; Pesadas `ia=98, internet=2`; Creepypasta
+`ia=93, internet=7`; **0 referências vazias** no baralho inteiro.
+
+### Guarda contra regressão
+
+Referência vazia agora reprova os dois gates: o teste `toda carta diz de onde veio`
+(`src/dados/baralhoBase.test.ts`) e a lista de falhas de `python scripts/auditar_baralho.py`.
+Os dois foram rodados antes da correção e reprovaram, listando as 281 cartas.
+
+### Limites desta revisão
+
+- A referência diz **onde o texto foi escrito**, não que ele seja inédito. Um modelo pode
+  reproduzir premissas de terceiros; a busca por elas foi a leitura humana das 286 cartas, sem
+  comparação automatizada com a web nem com as cartas oficiais de *Black Stories*, que não estão
+  disponíveis para consulta.
+- Tropos genéricos de mistério (gêmeo como álibi, relógio parado, arma limpa demais, confissão
+  que erra o detalhe não divulgado) não foram tratados como fonte: não têm um autor ou texto de
+  origem identificável.
+- As fontes citadas na tabela foram reconhecidas pelo revisor, não reconferidas na web nesta
+  sessão.
 
 ## Apêndice — cartas alteradas na revisão de 27/09/2026
 

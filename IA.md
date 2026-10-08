@@ -457,3 +457,19 @@ Douglas Corrigan. `rea-087`: a queda foi de dez metros; `rea-095`: é o caso de 
 
 **Não validado.** Quatro cartas sem fonte aberta; a Wikipedia é fonte secundária; o tom das
 tragédias não foi reavaliado (decisão do dono de 27/09 mantida).
+
+---
+
+## [2026-10-08] As quatro cartas de Casos reais que ficaram sem fonte
+
+**Contexto.** Em 02/10 a API da Wikipedia devolveu HTTP 429 para `rea-002`, `rea-041`, `rea-064`
+e `rea-068`, e o registro daquele dia disse que a leitura delas não achou divergência.
+
+**O que mudou.** Com a fonte aberta (5–6 s entre consultas, sem nenhum 429), as quatro tinham
+erro — a leitura sozinha não tinha bastado. O mais sério: `rea-002` contava como fato o mito de que
+a chave levada por David Blair era a do armário dos binóculos do Titanic; segundo a Wikipedia, o
+armário guardava o telefone da gávea. Detalhes por carta em `AUDITORIA.md`, "Complemento —
+08/10/2026". Lição registrada: "li e não achei nada" não substitui abrir a fonte.
+
+**Validação.** `npm test` 54 passando, lint limpo, build aprovado, auditoria aprovada; lote
+reaplicado sem mudança.

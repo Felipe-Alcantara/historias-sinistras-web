@@ -13,8 +13,8 @@ Escopo: baralho versionado em `src/dados/`, fluxo de partida e documentação p�
 > **Direitos de Da internet em 02/10/2026:** nenhuma carta se declara mais em domínio público;
 > 42 clássicos têm link de onde circulam e 58 são da IA. Seção própria, antes do apêndice.
 >
-> **Casos reais em 02/10/2026:** as 100 cartas foram conferidas contra fonte; 40 corrigidas, 4
-> trocadas por casos com fonte. Seção "Checagem factual de Casos reais", antes do apêndice.
+> **Casos reais em 02/10/2026:** 96 cartas conferidas contra fonte; 40 corrigidas, 4 trocadas por
+> casos com fonte. Em 08/10/2026 as 4 que faltavam foram conferidas e corrigidas. Seção "Checagem factual de Casos reais", antes do apêndice.
 
 ## Resultado executivo
 
@@ -432,6 +432,9 @@ que não eram casos específicos (`rea-078`, `rea-080`, `rea-083`, `rea-086`) fo
 **Sem fonte aberta nesta sessão** (limite de acesso da Wikipedia): `rea-002`, `rea-041`, `rea-064`, `rea-068`. Para essas quatro
 a checagem foi só a leitura, e nenhuma divergência foi encontrada.
 
+> **Correção em 08/10/2026:** a leitura sozinha não bastou. Com a fonte aberta, as quatro
+> tinham divergências; veja "Complemento — 08/10/2026" no fim desta seção.
+
 ### Erros que a checagem achou (os mais graves)
 
 - `rea-016` (Vasa): a história de que o rei mandou acrescentar um segundo convés de canhões não
@@ -505,6 +508,30 @@ a checagem foi só a leitura, e nenhuma divergência foi encontrada.
   de Peshtigo) ficaram genéricos de propósito ("milhares").
 - A checagem confere o que a carta afirma; não avalia se o tom é adequado para cada tragédia
   (decisão do dono em 27/09: as quatro tragédias recentes ficam, com cuidado).
+
+### Complemento — 08/10/2026: as quatro cartas que ficaram sem fonte
+
+Fontes abertas (API da Wikipedia, com 5–6 s entre consultas): "David Blair (mariner)" e
+"Circleville, Ohio" em inglês, "Tanganyika laughter epidemic" em inglês e "Mistério das máscaras
+de chumbo" em português. As quatro foram corrigidas com `scripts/aplicar_revisao.py` (reaplicado:
+"0 alteradas, 4 sem mudança").
+
+- `rea-002` (Titanic): a carta contava como fato a versão popular de que a chave levada por David
+  Blair era a do armário dos binóculos. Segundo o artigo, o armário guardava o telefone da gávea, e
+  os binóculos que Blair emprestava aos vigias ficaram na cabine dele. Ele desembarcou na véspera
+  (9/4/1912), não "dias antes", e o vigia Frederick Fleet disse que teria visto o iceberg "mais
+  cedo". A carta agora separa a versão popular do que se sabe.
+- `rea-041` (máscaras de chumbo): o bilhete fala em cápsula, metais e sinal, não em "luzes"; o
+  laudo deu causa indeterminada e a toxicologia não pôde ser feita; "grupo" e "lado a lado" não
+  aparecem na fonte. A polícia arquivou o caso três anos depois.
+- `rea-064` (epidemia de riso): o surto durou 18 meses e afetou cerca de mil pessoas, não "mais de
+  mil em poucos meses"; a ligação com a independência é teoria de um linguista.
+- `rea-068` (Circleville): as cartas foram de 1977 a 1994, não "mais de vinte anos"; o condenado
+  foi preso por uma armadilha com arma, não pelas cartas; "milhares de cartas" e "recebia cartas na
+  prisão" não aparecem na fonte; as ameaças pararam depois que ele saiu. Referência atualizada para
+  "(1977-1994)".
+
+Com isso, as 100 cartas de Casos reais foram conferidas contra fonte aberta.
 
 ## Apêndice — cartas alteradas na revisão de 27/09/2026
 

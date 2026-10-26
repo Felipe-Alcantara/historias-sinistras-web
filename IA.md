@@ -523,3 +523,31 @@ local; o editor foi coberto por teste de componente. O gerador não foi rodado d
 de API), então não se sabe se o modelo respeita a lista no prompt. Os 22 avisos e a tabela de
 sinônimos não foram revisados por quem joga: `acidente grave` e `procedimento médico` são os nomes
 mais discutíveis.
+
+
+---
+
+## [2026-10-26] Import morto no menu de gerar histórias
+
+**Contexto.** A entrada de 02/10 deixou registrado que `ruff check scripts start_app.py` reprovava
+em `start_app.py:350` (`ErroDeGeracao` importado e não usado, F401) e levantou a hipótese de que o
+menu "Gerar histórias com IA" cairia com traceback se o gerador levantasse esse erro.
+
+**O que foi medido.** A hipótese de traceback não se sustenta. O `except ValueError` apontado como
+único tratamento (`start_app.py`, perto da linha 369) protege só o `int()` da quantidade digitada; a
+chamada a `gerar` fica em `try/except Exception` (linha 381), com o comentário `# ErroDeGeracao,
+ErroDeDados e falhas de rede`, que imprime `✗ mensagem` e volta ao menu. Simulando o gerador falhando
+(com `questionary` substituído por respostas fixas), os três casos — `ErroDeGeracao`, `ErroDeDados` e
+`ConnectionError` — mostram a mensagem e nenhum traceback escapa. O `ruff` acusava só o F401.
+
+**Decisão.** Remover o import, sem mudar comportamento. Estreitar o `except` para
+`(ErroDeGeracao, ErroDeDados)` usaria o import, mas deixaria qualquer outro erro derrubar o menu,
+contra a promessa do docstring de `start_app.py` de voltar ao menu "inclusive quando algo dá errado";
+o `mesclar` do mesmo arquivo usa o mesmo `except Exception`.
+
+**Validação.** `ruff check scripts start_app.py` e `ruff check .`: nenhum erro. Simulação do menu
+repetida depois da mudança: 3 casos sem traceback. `npm test` 65 passando, lint limpo, auditoria
+aprovada.
+
+**Não validado.** O menu rodando num terminal de verdade (o `questionary` foi simulado) e o gerador
+contra a API real, que exige chave.

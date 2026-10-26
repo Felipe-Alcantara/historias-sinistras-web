@@ -347,7 +347,7 @@ def acao_configurar() -> None:
 
 
 def acao_gerar_historias() -> None:
-    from gerar_historias import ErroDeGeracao, gerar
+    from gerar_historias import gerar
 
     colecao = questionary.select(
         "Para qual coleção?",

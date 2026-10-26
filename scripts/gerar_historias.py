@@ -20,10 +20,12 @@ import re
 from dataclasses import dataclass, field
 
 from comum import (
+    AVISOS_DE_CONTEUDO,
     ROTULO_COLECAO,
     Configuracao,
     ErroDeDados,
     apelido,
+    avisos_fora_da_lista,
     carregar_configuracao,
     gravar_colecao,
     ids_existentes,
@@ -82,11 +84,15 @@ Responda SOMENTE com um array JSON, sem cercas de código e sem texto em volta. 
   "fatosChave": ["3 a 4 descobertas que o grupo precisa fazer, na ordem em que costumam vir"],
   "dificuldade": "facil | media | dificil",
   "temas": ["1 a 3 de: crime, acidente, sobrenatural, misterio, humor-negro, historico, tecnologia, cotidiano"],
-  "avisosConteudo": ["etiquetas de tema pesado, ex.: suicídio, violência contra criança. Vazio se não houver"],
+  "avisosConteudo": ["só da lista fechada: __AVISOS__. Vazio se não houver conteúdo sensível"],
   "duracaoMin": 10,
   "origem": { "tipo": "ia", "referencia": "o que inspirou, se houver" }
 }
-"""
+
+Em `avisosConteudo`, use o texto exato de um item da lista, nunca outro. O aviso protege quem
+joga de conteúdo sensível e é lido antes da partida: não use rótulo que descreva o mecanismo
+do enigma (como o método de um crime), escolha o item mais amplo que cubra o conteúdo.
+""".replace("__AVISOS__", ", ".join(AVISOS_DE_CONTEUDO))
 
 
 class ErroDeGeracao(RuntimeError):
@@ -240,13 +246,19 @@ def gerar(colecao: str, quantidade: int, ao_progredir=None) -> ResultadoGeracao:
             if validada is None:
                 resultado.invalidas += 1
                 continue
+            fora_da_lista = avisos_fora_da_lista(validada["avisosConteudo"])
+            if fora_da_lista:
+                resultado.invalidas += 1
+                resultado.avisos.append(
+                    f"Carta '{validada['titulo']}' recusada: aviso(s) fora da lista fechada: {', '.join(fora_da_lista)}."
+                )
+                continue
             marca = apelido(validada["titulo"])
             if marca in apelidos:
                 resultado.repetidas += 1
                 continue
             apelidos.add(marca)
             validada["id"] = _id_unico(validada["titulo"], colecao, usados)
-            validada["colecao"] = colecao
             novas.append(validada)
             progrediu = True
 
@@ -255,7 +267,8 @@ def gerar(colecao: str, quantidade: int, ao_progredir=None) -> ResultadoGeracao:
 
         if not progrediu:
             resultado.avisos.append(
-                "O modelo passou a repetir histórias já existentes; a geração parou antes do total pedido."
+                "O lote não trouxe nenhuma carta aproveitável (repetida, inválida ou com aviso fora da lista); "
+                "a geração parou antes do total pedido."
             )
             break
 

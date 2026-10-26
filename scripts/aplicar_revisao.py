@@ -43,6 +43,7 @@ from comum import (
     TEMAS,
     TIPOS_ORIGEM,
     ErroDeDados,
+    avisos_fora_da_lista,
     gravar_colecao,
     ler_colecao,
 )
@@ -162,7 +163,10 @@ def validar_campos(campos: dict) -> list[str]:
                 valor, nome, (MINIMO_FATOS, LIMITES["fatosChavePorHistoria"]), LIMITES["fatoChave"], erros
             )
         elif nome == "avisosConteudo":
-            _lista_de_textos(valor, nome, (0, LIMITES["avisosPorHistoria"]), LIMITES["avisoConteudo"], erros)
+            _lista_de_textos(valor, nome, (0, LIMITES["avisosPorHistoria"]), 40, erros)
+            fora_da_lista = avisos_fora_da_lista(valor) if isinstance(valor, list) else []
+            if fora_da_lista:
+                erros.append(f"aviso(s) fora da lista fechada: {', '.join(fora_da_lista)}.")
         elif nome == "temas":
             _lista_de_textos(valor, nome, (1, LIMITES["temasPorHistoria"]), 40, erros)
             desconhecidos = [tema for tema in valor if tema not in TEMAS] if isinstance(valor, list) else []

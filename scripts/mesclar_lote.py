@@ -20,6 +20,7 @@ from comum import (
     ROTULO_COLECAO,
     ErroDeDados,
     apelido,
+    avisos_fora_da_lista,
     gravar_colecao,
     ids_existentes,
     ler_colecao,
@@ -86,6 +87,11 @@ def mesclar(colecao: str, caminho_lote: Path) -> ResultadoMesclagem:
             resultado.invalidas.append(f"item {indice}: falta {', '.join(faltando)}")
             continue
 
+        fora_da_lista = avisos_fora_da_lista(bruta.get("avisosConteudo") or [])
+        if fora_da_lista:
+            resultado.invalidas.append(f"item {indice}: aviso(s) fora da lista fechada: {', '.join(fora_da_lista)}")
+            continue
+
         identificador = str(bruta.get("id", "")).strip()
         if not identificador:
             resultado.invalidas.append(f"item {indice}: sem id")
@@ -101,7 +107,9 @@ def mesclar(colecao: str, caminho_lote: Path) -> ResultadoMesclagem:
 
         ids_usados.add(identificador)
         apelidos_usados.add(marca)
-        novas.append({**bruta, "colecao": colecao})
+        # A coleção vem do arquivo em que a carta mora; gravar a chave só daria
+        # a ela uma segunda fonte de verdade.
+        novas.append({chave: valor for chave, valor in bruta.items() if chave != "colecao"})
 
     if novas:
         gravar_colecao(colecao, atuais + novas)

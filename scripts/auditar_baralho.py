@@ -12,7 +12,7 @@ from __future__ import annotations
 import sys
 from collections import Counter
 
-from comum import COLECOES, ROTULO_COLECAO, ler_colecao, normalizar
+from comum import COLECOES, ROTULO_COLECAO, avisos_fora_da_lista, ler_colecao, normalizar
 from premissas import LIMIAR_DUPLICATA, LIMIAR_REVISAO, pares_parecidos
 
 
@@ -87,6 +87,18 @@ def auditar() -> int:
     ]
     if dominio_publico:
         problemas.append(f"origem afirma domínio público sem prova: {', '.join(dominio_publico)}")
+
+    # Aviso fora da lista fechada vira vocabulário solto de novo, e o app o
+    # descartaria ao carregar a carta.
+    for historia in todas:
+        fora_da_lista = avisos_fora_da_lista(historia.get("avisosConteudo", []))
+        if fora_da_lista:
+            problemas.append(f"{historia.get('id', '?')}: aviso(s) fora da lista fechada: {', '.join(fora_da_lista)}")
+
+    # A coleção vem do arquivo em que a carta mora; a chave seria uma segunda fonte.
+    com_colecao = [str(historia.get("id", "?")) for historia in todas if "colecao" in historia]
+    if com_colecao:
+        problemas.append(f"carta com a chave 'colecao' (ela vem do arquivo): {', '.join(com_colecao)}")
 
     parecidas = pares_parecidos(todas, LIMIAR_REVISAO)
     duplicatas = [par for par in parecidas if par.similaridade >= LIMIAR_DUPLICATA]

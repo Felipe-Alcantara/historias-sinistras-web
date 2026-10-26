@@ -57,7 +57,7 @@ baralho àquele clima.
 - **O sorteio é sem reposição.** Uma carta só volta depois que todas as outras do filtro atual
   saíram — e o jogo avisa quando o ciclo recomeça.
 - **Avisos de conteúdo** aparecem antes da carta, mas não filtram nada: informam, e o grupo
-  decide.
+  decide. Vêm de uma lista fechada de 22 avisos (veja a tabela em "Corrigir cartas do baralho").
 
 ---
 
@@ -90,7 +90,10 @@ histórias:
 ```
 
 Campos que faltarem ganham um padrão seguro; cartas sem título, situação ou solução são
-recusadas com o motivo. Importar **soma** ao que já existe: nada é substituído.
+recusadas com o motivo. Em `avisosConteudo` só valem os avisos da lista fechada: um rótulo antigo
+conhecido (como `tentativa de homicídio`) é convertido no aviso que o cobre, e o que não for da
+lista é descartado sem recusar a carta. No editor, os avisos são escolhidos entre os da lista.
+Importar **soma** ao que já existe: nada é substituído.
 
 ---
 
@@ -140,6 +143,50 @@ Na hora de escrever ou corrigir uma carta, o que costuma quebrar o enigma:
 - o título ou o aviso de conteúdo entregarem a resposta — aviso existe para conteúdo sensível
   (morte, violência, suicídio, luto...), não para nomear o mecanismo do enigma;
 - a mesma premissa já existir em outra carta.
+
+### Avisos de conteúdo
+
+Os avisos são uma lista fechada, definida em `src/dominio/tipos.ts` (`AVISOS_DE_CONTEUDO`) e
+espelhada em `scripts/comum.py`; `src/dados/vocabularioPython.test.ts` falha se os dois divergirem.
+Cada aviso é largo de propósito: um rótulo específico ("envenenamento", "enforcamento") entrega o
+desfecho antes da partida. Conteúdo sensível nunca sai da carta por dar pista — entra no aviso mais
+largo que o cobre.
+
+| Aviso | Cobre |
+| --- | --- |
+| morte | morte de pessoa, corpo, afogamento, hipotermia, inanição, envenenamento |
+| homicídio | assassinato, inclusive tentado, e enforcamento |
+| suicídio | suicídio e ideação suicida |
+| violência | agressão, mutilação, arma de fogo |
+| violência doméstica | violência entre parceiros ou na família |
+| abuso | abuso contra pessoa vulnerável (idosos, por exemplo) |
+| maus-tratos infantis | maus-tratos e negligência contra criança |
+| morte de criança | morte de criança |
+| morte de animal | morte de animal |
+| sequestro | sequestro e cárcere |
+| desaparecimento | pessoa desaparecida |
+| perseguição e ameaça | perseguição, ameaça, assédio, invasão de privacidade |
+| luto | perda de alguém próximo |
+| doença grave | doença grave, epidemia, doença ocupacional, radiação, malformações |
+| saúde mental | transtorno mental, internação psiquiátrica, acumulação |
+| acidente grave | acidente com ferimento ou morte, naufrágio, incêndio, acidente aéreo |
+| desastre com mortes em massa | desastre ou ataque com muitas mortes, bombardeio |
+| guerra | guerra e conflito armado |
+| canibalismo | canibalismo |
+| discriminação | preconceito, capacitismo |
+| crime patrimonial | assalto, fraude, incêndio provocado |
+| procedimento médico | procedimento médico e ambiente hospitalar |
+
+`mesclar_lote.py` e `gerar_historias.py` recusam a carta cujo aviso esteja fora da lista (só ela; o
+resto do lote segue) e mostram o rótulo recusado; `aplicar_revisao.py` recusa o item de revisão;
+`auditar_baralho.py` aponta qualquer carta do baralho que tenha escapado. O gerador recebe a lista
+no prompt. A coleção da carta vem do arquivo em que ela mora, então nenhum script grava a chave
+`colecao`, e a auditoria acusa a carta que a trouxer.
+
+No app, a validação aceita só avisos da lista: ao carregar histórias salvas ou importar um
+pacote, rótulos antigos conhecidos viram o aviso que os cobre e qualquer outro texto é
+descartado. Quem precisar de um aviso novo o acrescenta nas duas listas, na tabela acima e na
+tabela `SINONIMOS_DE_AVISO` de `validacao.ts` (o compilador cobra a entrada).
 
 ---
 

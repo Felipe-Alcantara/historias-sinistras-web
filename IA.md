@@ -473,3 +473,53 @@ armário guardava o telefone da gávea. Detalhes por carta em `AUDITORIA.md`, "C
 
 **Validação.** `npm test` 54 passando, lint limpo, build aprovado, auditoria aprovada; lote
 reaplicado sem mudança.
+
+
+---
+
+## [2026-10-26] Lista fechada de avisos de conteúdo
+
+**Contexto.** A revisão de 27/09 tirou rótulos de mecanismo de 31 cartas, mas o vocabulário
+continuava livre: eram 58 rótulos em 225 usos, com pares que diziam a mesma coisa (`morte`/`mortes`,
+`acidente`/`acidentes`), e nada impedia um rótulo-pista de voltar pelo gerador ou pelo mesclador.
+
+**Decisões do dono (26/10), com o motivo.**
+- *Lista enxuta, 22 avisos.* Avisos largos entregam menos do enigma; os que faltavam na lista da
+  task (`desaparecimento`, `perseguição e ameaça`, `guerra`, `discriminação`) entraram.
+- *Rótulos de trama ganham categoria própria* (`crime patrimonial`, `procedimento médico`), em vez
+  de sumir. A recomendação era removê-los; a escolha foi não perder nenhum.
+- *Lista rígida também no app* (editor por seleção, importação e estado salvo só aceitam a lista).
+  A recomendação era limitar ao baralho base. **Consequência aceita:** texto livre que a pessoa
+  tenha escrito e que não esteja em `SINONIMOS_DE_AVISO` é descartado ao carregar, sem aviso na tela.
+- *Gerador e mesclador recusam só a carta* com aviso fora da lista, com o rótulo no relatório.
+
+**O que mudou.**
+- `AVISOS_DE_CONTEUDO` em `tipos.ts`, espelho em `scripts/comum.py` (paridade pelo
+  `vocabularioPython.test.ts`); `Historia.avisosConteudo` passou a ser tipado. O limite
+  `avisoConteudo` (60 caracteres) saiu: com lista fechada não tem função.
+- `validacao.ts` normaliza caixa e acento e converte os 58 rótulos antigos pela tabela
+  `SINONIMOS_DE_AVISO` (um `Record` sobre todos os avisos: o compilador cobra a entrada de aviso novo).
+- Dado: 88 cartas migradas por `aplicar_revisao.py`. 58 rótulos / 225 usos viraram 22 / 218 (a
+  diferença é duplicata que se fundiu, como `morte` + `inanição`). Só o campo `avisosConteudo`
+  mudou; conferido contra o `HEAD` carta por carta.
+- Três desvios da tabela aprovada, porque a carta contava outra coisa: `ferimento(s) grave(s)`
+  (`rea-031`, `rea-099`) é acidente, não violência; `incêndio criminoso` (`pes-047`) e o incêndio
+  provocado de `pes-084` não têm morte, então vão para `crime patrimonial`, não `homicídio`/`acidente
+  grave`; `crianças` solto (`pes-051`) saiu porque a carta já traz `sequestro`. A lista ficou com
+  `acidente grave` em vez do `acidente com mortes` da task: em `rea-031` e `rea-099` a pessoa
+  sobrevive ferida, e um aviso "com mortes" seria falso para elas.
+- A chave `colecao` saiu das 300 cartas que a tinham. O gerador (`gerar_historias.py`) também a
+  gravava, e a task só citava o mesclador; os dois pararam, e `auditar_baralho.py` acusa a carta que
+  a trouxer.
+
+**Validação.** `npm test` 65 passando (eram 54), lint limpo, build aprovado, `auditar_baralho.py`
+aprovado. Os testes novos foram vistos **falhando** contra o dado, a validação e o editor antigos
+(102 usos fora da lista, 300 cartas com `colecao`, 4 de 6 casos de validação, 3 de 3 do editor). O
+mesclador, a revisão e o gerador foram exercitados por simulação com a gravação interceptada (não há
+suíte Python no repositório).
+
+**Não validado.** A interface não foi aberta no navegador: o do ambiente não alcançou o servidor
+local; o editor foi coberto por teste de componente. O gerador não foi rodado de verdade (exige chave
+de API), então não se sabe se o modelo respeita a lista no prompt. Os 22 avisos e a tabela de
+sinônimos não foram revisados por quem joga: `acidente grave` e `procedimento médico` são os nomes
+mais discutíveis.

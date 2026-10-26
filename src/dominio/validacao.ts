@@ -9,12 +9,14 @@
 
 import { gerarId } from './identificadores'
 import {
+  AVISOS_DE_CONTEUDO,
   COLECOES,
   DIFICULDADES,
   TEMAS,
   TIPOS_ORIGEM,
   falha,
   sucesso,
+  type AvisoDeConteudo,
   type Colecao,
   type Dificuldade,
   type FatoChave,
@@ -32,7 +34,6 @@ export const LIMITES = {
   solucao: 4000,
   fatoChave: 300,
   fatosChavePorHistoria: 12,
-  avisoConteudo: 60,
   avisosPorHistoria: 8,
   temasPorHistoria: 4,
   duracaoMinima: 1,
@@ -55,6 +56,71 @@ function listaDeTextos(valor: unknown): string[] {
 
 function dentroDe<T extends string>(valor: string, permitidos: readonly T[]): valor is T {
   return (permitidos as readonly string[]).includes(valor)
+}
+
+/**
+ * Rotulos que existiam antes da lista fechada de avisos, e o aviso que passou a
+ * cobri-los. Sem esta tabela, uma carta salva ou exportada antes da lista
+ * perderia o aviso ao ser carregada. Como e um `Record` sobre todos os avisos,
+ * o compilador cobra uma entrada (mesmo vazia) para cada aviso novo.
+ */
+const SINONIMOS_DE_AVISO: Record<AvisoDeConteudo, readonly string[]> = {
+  morte: ['mortes', 'corpo', 'afogamento', 'hipotermia', 'inanição', 'explosão', 'envenenamento'],
+  homicídio: ['tentativa de homicídio', 'enforcamento'],
+  suicídio: ['ideação suicida'],
+  violência: ['agressão', 'mutilação', 'arma de fogo'],
+  'violência doméstica': [],
+  abuso: ['abuso contra idoso'],
+  'maus-tratos infantis': [],
+  'morte de criança': ['mortes de crianças'],
+  'morte de animal': [],
+  sequestro: [],
+  desaparecimento: [],
+  'perseguição e ameaça': ['perseguição', 'ameaça', 'ameaça a crianças', 'assédio', 'invasão de privacidade'],
+  luto: [],
+  'doença grave': ['doenças', 'doença ocupacional', 'epidemia', 'malformações', 'radiação'],
+  'saúde mental': ['internação psiquiátrica', 'acumulação'],
+  'acidente grave': [
+    'acidente',
+    'acidentes',
+    'acidente aéreo',
+    'naufrágio',
+    'incêndio',
+    'fogo',
+    'ferimento grave',
+    'ferimentos graves',
+  ],
+  'desastre com mortes em massa': ['mortes em massa', 'bombardeio'],
+  guerra: [],
+  canibalismo: [],
+  discriminação: ['capacitismo'],
+  'crime patrimonial': ['assalto', 'fraude', 'incêndio criminoso'],
+  'procedimento médico': ['ambiente hospitalar'],
+}
+
+function semAcentos(texto: string): string {
+  return texto
+    .normalize('NFD')
+    .replace(/\p{M}/gu, '')
+    .toLowerCase()
+    .trim()
+}
+
+const AVISO_POR_TEXTO = new Map<string, AvisoDeConteudo>(
+  AVISOS_DE_CONTEUDO.flatMap((aviso) =>
+    [aviso, ...SINONIMOS_DE_AVISO[aviso]].map((texto): [string, AvisoDeConteudo] => [semAcentos(texto), aviso]),
+  ),
+)
+
+/**
+ * Aceita so avisos da lista fechada (ou sinonimos dela) e descarta o resto sem
+ * recusar a carta: uma etiqueta fora da lista nao justifica perder a historia.
+ */
+function normalizarAvisos(valor: unknown): AvisoDeConteudo[] {
+  const avisos = listaDeTextos(valor)
+    .map((texto) => AVISO_POR_TEXTO.get(semAcentos(texto)))
+    .filter((aviso): aviso is AvisoDeConteudo => aviso !== undefined)
+  return [...new Set(avisos)].slice(0, LIMITES.avisosPorHistoria)
 }
 
 function normalizarFatosChave(valor: unknown, erros: string[], onde: string): FatoChave[] {
@@ -137,9 +203,7 @@ export function validarHistoria(valor: unknown, onde = 'historia'): Resultado<Hi
     colecao,
     dificuldade,
     temas: temas.length > 0 ? temas : ['misterio'],
-    avisosConteudo: listaDeTextos(valor.avisosConteudo)
-      .map((aviso) => aviso.slice(0, LIMITES.avisoConteudo))
-      .slice(0, LIMITES.avisosPorHistoria),
+    avisosConteudo: normalizarAvisos(valor.avisosConteudo),
     duracaoMin: normalizarDuracao(valor.duracaoMin),
     origem: normalizarOrigem(valor.origem),
   })

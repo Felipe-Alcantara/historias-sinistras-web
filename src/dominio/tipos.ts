@@ -39,6 +39,39 @@ export const ROTULO_TEMA: Record<Tema, string> = {
 }
 
 /**
+ * Avisos de conteudo: lista fechada. Cada aviso cobre uma familia de situacoes,
+ * e e largo de proposito: um aviso especifico ("envenenamento") entrega o
+ * desfecho antes da partida. Conteudo sensivel nunca sai da carta por dar
+ * pista; ele entra no aviso mais largo que o cobre. O que cada um cobre esta no
+ * README, e o espelho Python mora em scripts/comum.py.
+ */
+export const AVISOS_DE_CONTEUDO = [
+  'morte',
+  'homicídio',
+  'suicídio',
+  'violência',
+  'violência doméstica',
+  'abuso',
+  'maus-tratos infantis',
+  'morte de criança',
+  'morte de animal',
+  'sequestro',
+  'desaparecimento',
+  'perseguição e ameaça',
+  'luto',
+  'doença grave',
+  'saúde mental',
+  'acidente grave',
+  'desastre com mortes em massa',
+  'guerra',
+  'canibalismo',
+  'discriminação',
+  'crime patrimonial',
+  'procedimento médico',
+] as const
+export type AvisoDeConteudo = (typeof AVISOS_DE_CONTEUDO)[number]
+
+/**
  * As quatro respostas que o mestre pode dar.
  *
  * O jogo original (black stories) usa tres: sim, nao e irrelevante.
@@ -114,10 +147,11 @@ export interface Historia {
   dificuldade: Dificuldade
   temas: Tema[]
   /**
-   * Etiquetas de conteudo pesado. Sao informativas: aparecem antes da carta
-   * comecar, mas nunca escondem nem removem a historia do sorteio.
+   * Etiquetas de conteudo pesado, sempre da lista fechada. Sao informativas:
+   * aparecem antes da carta comecar, mas nunca escondem nem removem a historia
+   * do sorteio.
    */
-  avisosConteudo: string[]
+  avisosConteudo: AvisoDeConteudo[]
   /** Duracao estimada da rodada, em minutos. */
   duracaoMin: number
   origem: Origem

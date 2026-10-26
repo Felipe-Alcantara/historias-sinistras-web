@@ -46,13 +46,36 @@ TEMAS = (
     "cotidiano",
 )
 TIPOS_ORIGEM = ("autoral", "ia", "internet", "edicao-oficial")
+AVISOS_DE_CONTEUDO = (
+    "morte",
+    "homicídio",
+    "suicídio",
+    "violência",
+    "violência doméstica",
+    "abuso",
+    "maus-tratos infantis",
+    "morte de criança",
+    "morte de animal",
+    "sequestro",
+    "desaparecimento",
+    "perseguição e ameaça",
+    "luto",
+    "doença grave",
+    "saúde mental",
+    "acidente grave",
+    "desastre com mortes em massa",
+    "guerra",
+    "canibalismo",
+    "discriminação",
+    "crime patrimonial",
+    "procedimento médico",
+)
 LIMITES = {
     "titulo": 120,
     "situacao": 1200,
     "solucao": 4000,
     "fatoChave": 300,
     "fatosChavePorHistoria": 12,
-    "avisoConteudo": 60,
     "avisosPorHistoria": 8,
     "temasPorHistoria": 4,
     "duracaoMinima": 1,
@@ -176,6 +199,17 @@ def apelido(texto: str) -> str:
     """Transforma um título em identificador estável: sem acento, minúsculo, com hífen."""
     sem_acento = unicodedata.normalize("NFKD", texto).encode("ascii", "ignore").decode("ascii")
     return re.sub(r"[^a-z0-9]+", "-", sem_acento.lower()).strip("-") or "historia"
+
+
+def avisos_fora_da_lista(avisos: object) -> list[str]:
+    """Avisos de conteúdo que não pertencem à lista fechada (comparação exata).
+
+    O app aceita sinônimos ao carregar; aqui não: quem escreve carta para o
+    baralho usa o aviso da lista, e o sinônimo seria um vocabulário novo.
+    """
+    if not isinstance(avisos, list):
+        return ["(avisosConteudo deveria ser uma lista)"]
+    return [str(aviso) for aviso in avisos if aviso not in AVISOS_DE_CONTEUDO]
 
 
 def titulos_existentes(colecao: str) -> set[str]:

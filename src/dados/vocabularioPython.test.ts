@@ -8,7 +8,7 @@
 
 import { describe, expect, it } from 'vitest'
 import fontePython from '../../scripts/comum.py?raw'
-import { DIFICULDADES, TEMAS, TIPOS_ORIGEM } from '../dominio/tipos'
+import { AVISOS_DE_CONTEUDO, DIFICULDADES, TEMAS, TIPOS_ORIGEM } from '../dominio/tipos'
 import { LIMITES } from '../dominio/validacao'
 
 function tupla(nome: string): string[] {
@@ -28,6 +28,7 @@ describe('vocabulário dos scripts Python', () => {
     expect(tupla('DIFICULDADES')).toEqual([...DIFICULDADES])
     expect(tupla('TEMAS')).toEqual([...TEMAS])
     expect(tupla('TIPOS_ORIGEM')).toEqual([...TIPOS_ORIGEM])
+    expect(tupla('AVISOS_DE_CONTEUDO')).toEqual([...AVISOS_DE_CONTEUDO])
   })
 
   it('repete os limites de tamanho usados na validação', () => {
@@ -37,7 +38,6 @@ describe('vocabulário dos scripts Python', () => {
       'solucao',
       'fatoChave',
       'fatosChavePorHistoria',
-      'avisoConteudo',
       'avisosPorHistoria',
       'temasPorHistoria',
       'duracaoMinima',

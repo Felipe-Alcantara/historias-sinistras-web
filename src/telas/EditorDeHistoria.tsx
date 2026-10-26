@@ -13,12 +13,14 @@ import { AreaTexto, Botao, Campo, Rotulo, Selo } from '../componentes/ui/primiti
 import { gerarId } from '../dominio/identificadores'
 import { validarHistoria } from '../dominio/validacao'
 import {
+  AVISOS_DE_CONTEUDO,
   COLECOES,
   DIFICULDADES,
   ROTULO_COLECAO,
   ROTULO_DIFICULDADE,
   ROTULO_TEMA,
   TEMAS,
+  type AvisoDeConteudo,
   type Colecao,
   type Dificuldade,
   type FatoChave,
@@ -34,7 +36,7 @@ interface Rascunho {
   colecao: Colecao
   dificuldade: Dificuldade
   temas: Tema[]
-  avisos: string
+  avisos: AvisoDeConteudo[]
   duracaoMin: string
 }
 
@@ -48,7 +50,7 @@ function paraRascunho(historia: Historia | null): Rascunho {
       colecao: 'pesada',
       dificuldade: 'media',
       temas: [],
-      avisos: '',
+      avisos: [],
       duracaoMin: '20',
     }
   }
@@ -60,7 +62,7 @@ function paraRascunho(historia: Historia | null): Rascunho {
     colecao: historia.colecao,
     dificuldade: historia.dificuldade,
     temas: [...historia.temas],
-    avisos: historia.avisosConteudo.join(', '),
+    avisos: [...historia.avisosConteudo],
     duracaoMin: String(historia.duracaoMin),
   }
 }
@@ -99,7 +101,7 @@ export function EditorDeHistoria({
       colecao: rascunho.colecao,
       dificuldade: rascunho.dificuldade,
       temas: rascunho.temas,
-      avisosConteudo: rascunho.avisos.split(',').map((aviso) => aviso.trim()),
+      avisosConteudo: rascunho.avisos,
       duracaoMin: rascunho.duracaoMin,
       origem: historiaEmEdicao?.origem ?? { tipo: 'autoral', referencia: 'Escrita no aplicativo' },
     })
@@ -239,15 +241,29 @@ export function EditorDeHistoria({
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
-          <div>
-            <Rotulo dica="Separe por vírgula.">Avisos</Rotulo>
-            <Campo
-              value={rascunho.avisos}
-              onChange={(evento) => alterar('avisos', evento.target.value)}
-              placeholder="suicídio, violência"
-            />
+        <div>
+          <Rotulo>Avisos de conteúdo</Rotulo>
+          <div className="flex flex-wrap gap-2">
+            {AVISOS_DE_CONTEUDO.map((aviso) => {
+              const ativo = rascunho.avisos.includes(aviso)
+              return (
+                <button
+                  key={aviso}
+                  type="button"
+                  aria-pressed={ativo}
+                  className="min-h-11 touch-manipulation rounded-xl px-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brasa-400"
+                  onClick={() =>
+                    alterar('avisos', ativo ? rascunho.avisos.filter((a) => a !== aviso) : [...rascunho.avisos, aviso])
+                  }
+                >
+                  <Selo tom={ativo ? 'brasa' : 'neutro'}>{aviso}</Selo>
+                </button>
+              )
+            })}
           </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
           <div>
             <Rotulo>Duração (min)</Rotulo>
             <Campo

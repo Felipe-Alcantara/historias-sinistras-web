@@ -7,9 +7,40 @@
 
 import { describe, expect, it } from 'vitest'
 import { BARALHO_BASE, PROBLEMAS_DO_BARALHO_BASE, contarPorColecao } from './baralhoBase'
-import { COLECOES } from '../dominio/tipos'
+import comicas from './comica.json'
+import pesadas from './pesada.json'
+import reais from './real.json'
+import daInternet from './internet.json'
+import creepypastas from './creepypasta.json'
+import { AVISOS_DE_CONTEUDO, COLECOES } from '../dominio/tipos'
+
+// Os JSONs crus, sem passar pela validação: ela descartaria em silêncio um
+// aviso fora da lista, e o teste não veria o problema.
+const CARTAS_BRUTAS: ReadonlyArray<Record<string, unknown>> = [
+  ...comicas,
+  ...pesadas,
+  ...reais,
+  ...daInternet,
+  ...creepypastas,
+]
 
 describe('baralho base', () => {
+  it('todo aviso de conteúdo pertence à lista fechada', () => {
+    const permitidos: readonly string[] = AVISOS_DE_CONTEUDO
+    const fora = CARTAS_BRUTAS.flatMap((carta) =>
+      (carta.avisosConteudo as string[])
+        .filter((aviso) => !permitidos.includes(aviso))
+        .map((aviso) => `${String(carta.id)}: ${aviso}`),
+    )
+    expect(fora).toEqual([])
+  })
+
+  it('nenhuma carta grava a chave colecao', () => {
+    // A coleção vem do arquivo em que a carta mora; a chave seria uma segunda fonte.
+    const comColecao = CARTAS_BRUTAS.filter((carta) => 'colecao' in carta).map((carta) => carta.id)
+    expect(comColecao).toEqual([])
+  })
+
   it('carrega sem nenhuma história descartada', () => {
     expect(PROBLEMAS_DO_BARALHO_BASE).toEqual([])
   })
